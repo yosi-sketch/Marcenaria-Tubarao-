@@ -17,72 +17,71 @@ const bodyFont = Plus_Jakarta_Sans({
 });
 
 export const viewport: Viewport = {
-  themeColor: "#0047FF",
+  themeColor: "#00B4D8",
 };
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://www.friomax.com.br"),
+  metadataBase: new URL("https://www.marcenariatubarao.com.br"),
   title:
-    "Friomax Refrigeração | Fábrica de Freezers, Expositores & Câmaras Frigoríficas (4,4★)",
+    "Marcenaria Tubarão | Móveis Planejados & Marcenaria de Alto Padrão em BH (5,0★)",
   description:
-    "Friomax Refrigeração: mais de 30 anos de tradição em Vespasiano - MG fabricando equipamentos de refrigeração comercial e industrial. Freezers expositores, vitrines refrigeradas, balcões térmicos, geladeiras em aço inox e câmaras frigoríficas. Orçamento direto da fábrica: (31) 3503-2400.",
+    "Marcenaria Tubarão: desde 1977 realizando sonhos em Belo Horizonte. Móveis sob medida para ambientes residenciais e comerciais. Cozinhas planejadas, closets, salas com painel ripado e marcenaria de luxo. Atendimento personalizado: (31) 99767-3576.",
   keywords: [
-    "Friomax Refrigeração",
-    "Friomax Vespasiano",
-    "Fábrica de freezers MG",
-    "Equipamentos de refrigeração comercial",
-    "Freezer expositor bebidas",
-    "Freezer horizontal comercial",
-    "Balcão refrigerado açougue",
-    "Vitrine expositora padaria",
-    "Geladeira industrial aço inox",
-    "Câmara frigorífica Belo Horizonte",
-    "Ilha de congelados supermercado",
-    "Refrigeração comercial Minas Gerais",
-    "Vespasiano refrigeração",
+    "Marcenaria Tubarão",
+    "Marcenaria Tubarão BH",
+    "Móveis planejados Belo Horizonte",
+    "Marcenaria de alto padrão BH",
+    "Móveis sob medida Aparecida BH",
+    "Cozinhas planejadas Belo Horizonte",
+    "Closet sob medida BH",
+    "Painel ripado sala BH",
+    "Móveis corporativos BH",
+    "Marcenaria desde 1977",
+    "Carlos Marcenaria Tubarão",
+    "Móveis de luxo Minas Gerais",
   ],
-  authors: [{ name: "Friomax Indústria e Comércio de Refrigeração" }],
-  creator: "Friomax Refrigeração",
-  publisher: "Friomax Indústria e Comércio de Refrigeração Ltda",
+  authors: [{ name: "Marcenaria Tubarão" }],
+  creator: "Marcenaria Tubarão",
+  publisher: "Marcenaria Tubarão Móveis Planejados",
   formatDetection: {
     telephone: true,
     address: true,
   },
   icons: {
     icon: [
-      { url: "/favicon.ico?v=fm1", sizes: "any" },
-      { url: "/icon-32x32.png?v=fm1", type: "image/png", sizes: "32x32" },
-      { url: "/icon-16x16.png?v=fm1", type: "image/png", sizes: "16x16" },
-      { url: "/icon-192.png?v=fm1", type: "image/png", sizes: "192x192" },
-      { url: "/icon-512.png?v=fm1", type: "image/png", sizes: "512x512" },
-      { url: "/icon.png?v=fm1", type: "image/png", sizes: "512x512" },
+      { url: "/favicon.ico?v=tub1", sizes: "any" },
+      { url: "/icon-32x32.png?v=tub1", type: "image/png", sizes: "32x32" },
+      { url: "/icon-16x16.png?v=tub1", type: "image/png", sizes: "16x16" },
+      { url: "/icon-192x192.png?v=tub1", type: "image/png", sizes: "192x192" },
+      { url: "/icon-512x512.png?v=tub1", type: "image/png", sizes: "512x512" },
+      { url: "/icon.png?v=tub1", type: "image/png", sizes: "512x512" },
     ],
-    shortcut: "/favicon.ico?v=fm1",
-    apple: [{ url: "/apple-icon.png?v=fm1", sizes: "180x180" }],
+    shortcut: "/favicon.ico?v=tub1",
+    apple: [{ url: "/apple-icon.png?v=tub1", sizes: "180x180" }],
   },
   openGraph: {
     type: "website",
     locale: "pt_BR",
-    url: "https://www.friomax.com.br",
+    url: "https://www.marcenariatubarao.com.br",
     title:
-      "Friomax Refrigeração | Equipamentos de Refrigeração Comercial & Industrial (4,4★)",
-  description:
-    "Mais de 30 anos fabricando produtos com qualidade e eficiência na refrigeração comercial! Fábrica própria em Vespasiano - MG. Freezers, vitrines, balcões e câmaras com nota 4,4★ no Google.",
-    siteName: "Friomax Refrigeração",
+      "Marcenaria Tubarão | Móveis Planejados & Marcenaria de Alto Padrão em BH",
+    description:
+      "Desde 1977 realizando sonhos. Móveis sob medida residenciais e comerciais com acabamento impecável e entrega pontual. Nota 5,0★ no Google Reviews.",
+    siteName: "Marcenaria Tubarão",
     images: [
       {
         url: "/og-image.jpg",
         width: 1200,
         height: 630,
-        alt: "Friomax Refrigeração Comercial & Industrial - A diferença está na qualidade",
+        alt: "Marcenaria Tubarão - Móveis Sob Medida e Marcenaria Fina desde 1977",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Friomax Refrigeração | Fábrica de Freezers & Refrigeração (4,4★)",
+    title: "Marcenaria Tubarão | Móveis Planejados de Alto Padrão em BH (5,0★)",
     description:
-      "Fábrica própria de equipamentos de refrigeração comercial e industrial em Vespasiano - MG. Orçamento direto da fábrica!",
+      "Mais de 47 anos de tradição em marcenaria sob medida em Belo Horizonte. Acabamento impecável e pontualidade na entrega.",
     images: ["/og-image.jpg"],
   },
 };
@@ -94,79 +93,85 @@ export default function RootLayout({
 }>) {
   const jsonLd = {
     "@context": "https://schema.org",
-    "@type": ["ManufacturingBusiness", "HVACBusiness", "LocalBusiness"],
-    name: "Friomax Refrigeração Comercial & Industrial",
-    legalName: "Friomax Indústria e Comércio de Refrigeração Ltda",
-    alternateName: "Friomax Refrigeração",
+    "@type": ["HomeAndConstructionBusiness", "FurnitureStore", "LocalBusiness"],
+    name: "Marcenaria Tubarão",
+    legalName: "Marcenaria Tubarão Móveis Planejados",
+    alternateName: "Marcenaria Tubarão BH",
     description:
-      "Indústria fabricante de equipamentos de refrigeração comercial e industrial: freezers expositores verticais e horizontais, vitrines refrigeradas, balcões térmicos, geladeiras em aço inox e câmaras frigoríficas sob medida.",
-    telephone: "+553135032400",
-    url: "https://www.friomax.com.br",
-    image: "https://www.friomax.com.br/og-image.jpg",
-    logo: "https://www.friomax.com.br/logo.png",
+      "Desde 1977 realizando sonhos em Belo Horizonte e região metropolitana. Especialistas em móveis sob medida e marcenaria de alto padrão para ambientes residenciais e comerciais: cozinhas, dormitórios, closets, salas, banheiros e ambientes corporativos.",
+    telephone: "+5531997673576",
+    url: "https://www.marcenariatubarao.com.br",
+    image: "https://www.marcenariatubarao.com.br/og-image.jpg",
+    logo: "https://www.marcenariatubarao.com.br/logo.png",
     address: {
       "@type": "PostalAddress",
-      streetAddress: "R. São Paulo, 1500",
-      addressLocality: "Vespasiano",
+      streetAddress: "Rua Santa Judite, 70",
+      addressLocality: "Belo Horizonte",
       addressRegion: "MG",
-      postalCode: "33200-000",
+      postalCode: "31250-050",
       addressCountry: "BR",
-      neighborhood: "Nova Pampulha",
+      neighborhood: "Aparecida",
     },
     geo: {
       "@type": "GeoCoordinates",
-      latitude: -19.7042,
-      longitude: -43.9189,
+      latitude: -19.8972,
+      longitude: -43.9486,
     },
     openingHoursSpecification: [
       {
         "@type": "OpeningHoursSpecification",
         dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-        opens: "07:30",
-        closes: "17:30",
+        opens: "08:00",
+        closes: "18:00",
+      },
+      {
+        "@type": "OpeningHoursSpecification",
+        dayOfWeek: ["Saturday"],
+        opens: "08:00",
+        closes: "13:00",
       },
     ],
     aggregateRating: {
       "@type": "AggregateRating",
-      ratingValue: "4.4",
-      reviewCount: "41",
+      ratingValue: "5.0",
+      reviewCount: "7",
       bestRating: "5",
-      worstRating: "1",
+      worstRating: "5",
     },
     hasOfferCatalog: {
       "@type": "OfferCatalog",
-      name: "Catálogo de Equipamentos de Refrigeração Comercial",
+      name: "Soluções de Marcenaria Sob Medida",
       itemListElement: [
         {
           "@type": "Offer",
           itemOffered: {
-            "@type": "Product",
-            name: "Freezers Comerciais Expositores Verticais e Horizontais",
-            description: "Freezers para conservação de gelo, sorvetes e bebidas com portas antiembaçantes.",
+            "@type": "Service",
+            name: "Cozinhas Planejadas & Ilhas Gourmet",
+            description: "Projetos ergonômicos com ferragens de amortecimento e materiais nobres.",
           },
         },
         {
           "@type": "Offer",
           itemOffered: {
-            "@type": "Product",
-            name: "Balcões e Vitrines Refrigeradas",
-            description: "Expositores para açougues, padarias, empórios e laticínios com iluminação LED.",
+            "@type": "Service",
+            name: "Closets & Dormitórios sob Medida",
+            description: "Roupeiros inteligentes, iluminação embutida e gaveteiros aveludados.",
           },
         },
         {
           "@type": "Offer",
           itemOffered: {
-            "@type": "Product",
-            name: "Geladeiras e Refrigeradores Industriais em Aço Inox",
-            description: "Refrigeradores pesados de 2, 4 e 6 portas para cozinhas industriais e restaurantes.",
+            "@type": "Service",
+            name: "Salas, Home Theaters & Painéis Ripados",
+            description: "Painéis ripados de alto padrão, nichos e integração de ambientes.",
           },
         },
         {
           "@type": "Offer",
           itemOffered: {
-            "@type": "Product",
-            name: "Câmaras Frigoríficas Modulares & Walk-in Coolers",
-            description: "Projetos sob medida com painéis térmicos herméticos e economia de energia.",
+            "@type": "Service",
+            name: "Móveis Corporativos & Comerciais",
+            description: "Marcenaria funcional e imponente para escritórios, clínicas e consultórios.",
           },
         },
       ],
@@ -176,10 +181,10 @@ export default function RootLayout({
   return (
     <html lang="pt-BR" className={`${headingFont.variable} ${bodyFont.variable}`}>
       <head>
-        <link rel="icon" href="/favicon.ico?v=fm1" sizes="any" />
-        <link rel="icon" type="image/png" sizes="32x32" href="/icon-32x32.png?v=fm1" />
-        <link rel="icon" type="image/png" sizes="16x16" href="/icon-16x16.png?v=fm1" />
-        <link rel="apple-touch-icon" sizes="180x180" href="/apple-icon.png?v=fm1" />
+        <link rel="icon" href="/favicon.ico?v=tub1" sizes="any" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/icon-32x32.png?v=tub1" />
+        <link rel="icon" type="image/png" sizes="16x16" href="/icon-16x16.png?v=tub1" />
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-icon.png?v=tub1" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}

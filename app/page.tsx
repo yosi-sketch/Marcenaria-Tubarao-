@@ -19,11 +19,7 @@ import {
   Sparkles,
   ShieldCheck,
   Truck,
-  Snowflake,
-  Flame,
-  ThermometerSnowflake,
   Building2,
-  Factory,
   ExternalLink,
   MessageCircle,
   Calculator,
@@ -32,784 +28,613 @@ import {
   HelpCircle,
   Award,
   Zap,
+  Hammer,
+  Ruler,
+  Layers,
+  HeartHandshake,
+  Check,
+  Send,
 } from "lucide-react";
 import GlowingButton from "./components/GlowingButton";
 
 // ==========================================
-// DADOS OFICIAIS — FRIOMAX REFRIGERAÇÃO
+// DADOS OFICIAIS — MARCENARIA TUBARÃO
 // ==========================================
-const COMPANY_NAME = "Friomax Refrigeração";
-const COMPANY_LEGAL_NAME =
-  "FRIOMAX INDÚSTRIA E COMÉRCIO DE REFRIGERAÇÃO LTDA";
-const COMPANY_SLOGAN = "Friomax, a diferença está na qualidade!";
-const WHATSAPP_NUMBER = "553135032400";
-const WHATSAPP_DISPLAY = "(31) 3503-2400";
-const PHONE_DISPLAY = "(31) 3503-2400";
-const EMAIL_CONTACT = "contato@friomax.com.br";
-const EMAIL_SALES = "vendas@friomax.com.br";
-const INSTAGRAM_URL = "https://www.instagram.com/friomax1991/";
-const WEBSITE_URL = "https://www.friomax.com.br/";
+const COMPANY_NAME = "Marcenaria Tubarão";
+const COMPANY_FULL_NAME = "Marcenaria Tubarão | Móveis Planejados";
+const COMPANY_SLOGAN = "Desde 1977 realizando sonhos.";
+const WHATSAPP_NUMBER = "5531997673576";
+const WHATSAPP_DISPLAY = "(31) 99767-3576";
+const PHONE_DISPLAY = "(31) 99767-3576";
+const PHONE_FIXED = "(31) 3462-8800";
+const EMAIL_CONTACT = "contato@marcenariatubarao.com.br";
+const EMAIL_SALES = "orcamento@marcenariatubarao.com.br";
+const INSTAGRAM_URL = "https://www.instagram.com/marcenaria.tubarao/";
+const INSTAGRAM_HANDLE = "@marcenaria.tubarao";
 
-const PRIMARY_FACTORY_ADDRESS =
-  "R. São Paulo, 1500 - Nova Pampulha, Vespasiano - MG, CEP 33200-000";
+const ADDRESS_STREET = "Rua Santa Judite, 70";
+const ADDRESS_NEIGHBORHOOD = "Aparecida";
+const ADDRESS_CITY = "Belo Horizonte - MG";
+const ADDRESS_CEP = "31250-050";
+const ADDRESS_FULL = `${ADDRESS_STREET} - ${ADDRESS_NEIGHBORHOOD}, ${ADDRESS_CITY}, CEP ${ADDRESS_CEP}`;
 
-const GOOGLE_RATING = "4,4";
-const GOOGLE_REVIEW_COUNT = "41";
-const GOOGLE_SEARCH_URL =
-  "https://www.google.com/search?q=Friomax+Refrigera%C3%A7%C3%A3o+e+Climatiza%C3%A7%C3%A3o+Vespasiano+MG";
+const GOOGLE_RATING = "5,0";
+const GOOGLE_REVIEW_COUNT = "7";
 const GOOGLE_MAPS_URL =
-  "https://www.google.com/maps/search/?api=1&query=Friomax+Refrigera%C3%A7%C3%A3o+R.+S%C3%A3o+Paulo%2C+1500+-+Nova+Pampulha%2C+Vespasiano+-+MG%2C+33200-000";
+  "https://www.google.com/maps/search/?api=1&query=Marcenaria+Tubarao+Rua+Santa+Judite+70+Aparecida+Belo+Horizonte+MG";
 
-// Assets Oficiais Friomax
+// Assets Oficiais Marcenaria Tubarão
 const LOGO_SRC = "/logo.png";
-const LOGO_FULL_SRC = "/logo.png";
-const MASCOT_SRC = "/mascot.png";
+const LOGO_HORIZONTAL_SRC = "/logo-horizontal.png";
+const LOGO_HORIZONTAL_DARK_SRC = "/logo-horizontal-dark.png";
 
-function getWhatsAppUrl(
-  message?: string,
-  number: string = WHATSAPP_NUMBER
-) {
+function getWhatsAppUrl(message?: string, number: string = WHATSAPP_NUMBER) {
   const defaultText =
-    "Olá! Gostaria de solicitar um orçamento de equipamentos de refrigeração comercial direto da fábrica com a equipe técnica da Friomax.";
+    "Olá, Carlos! Gostaria de solicitar um orçamento de móveis planejados sob medida com a Marcenaria Tubarão.";
   return `https://wa.me/${number}?text=${encodeURIComponent(
     message || defaultText
   )}`;
 }
 
 // ==========================================
-// DESTAQUES DO HERO (SLIDES INTERATIVOS)
+// HERO SLIDER DATA
 // ==========================================
 interface HeroSlideItem {
   id: string;
   title: string;
+  highlight: string;
   badge: string;
-  range: string;
   description: string;
   image: string;
+  accent: string;
 }
 
 const HERO_SLIDES: HeroSlideItem[] = [
   {
-    id: "freezers",
-    title: "Freezers Comerciais & Expositores",
-    badge: "Vidro Térmico Duplo Antiembaçante",
-    range: "De 0°C a -22°C",
+    id: "cozinhas",
+    title: "Cozinhas Planejadas & Ilhas Gourmet",
+    highlight: "Sofisticação e Ergonomia Milimétrica",
+    badge: "100% Sob Medida · Ferragens Amortecidas",
     description:
-      "Máxima visibilidade e congelamento ultra-rápido para sorvetes, gelo, bebidas e carnes. Ar forçado frost-free e baixo consumo elétrico.",
-    image: "/images/hero/banner-destaque-freezers.jpg",
+      "Aproveitamento inteligente de cada centímetro com bancadas esculpidas, gavetões de extração total, amortecimento soft-close e acabamentos nobres que resistem ao tempo.",
+    image: "/images/hero/hero-cozinha-luxo.jpg",
+    accent: "Cozinha dos Sonhos",
   },
   {
-    id: "camaras",
-    title: "Câmaras Frigoríficas Modulares",
-    badge: "Isolamento PUR de Alta Densidade",
-    range: "De +15°C até -35°C",
+    id: "closets",
+    title: "Closets & Suítes Master",
+    highlight: "Organização Inteligente & Design de Luxo",
+    badge: "Iluminação LED Embutida · Gaveteiros Aveludados",
     description:
-      "Projetos sob medida para supermercados, açougues e centros de distribuição. Vedação hermética contínua e economia comprovada.",
-    image: "/images/hero/banner-destaque-camara-fria.jpg",
+      "Roupeiros planejados com portas de correr deslizantes, divisórias funcionais para joias e sapatos, e acabamentos aveludados pensados para o seu bem-estar diário.",
+    image: "/images/hero/hero-closet-master.jpg",
+    accent: "Closet Exclusivo",
   },
   {
-    id: "balcoes",
-    title: "Balcões & Vitrines Refrigeradas",
-    badge: "Aço Inox & Iluminação LED Especial",
-    range: "De +1°C a +7°C",
+    id: "salas",
+    title: "Salas de Estar & Painéis Ripados",
+    highlight: "A Elegância do Ripado Nobre Integrado",
+    badge: "Home Theaters · Estantes com Fita LED",
     description:
-      "Vitrines de alta valorização visual para açougues, padarias e laticínios. Conservação térmica ideal que valoriza a exposição das mercadorias.",
-    image: "/images/hero/banner-destaque-balcoes.jpg",
+      "Composições arquitetônicas imponentes com painéis ripados em madeira nobre, racks suspensos com passagem invisível de cabos e estantes iluminadas.",
+    image: "/images/hero/hero-sala-ripado.jpg",
+    accent: "Living Sofisticado",
+  },
+  {
+    id: "corporativo",
+    title: "Corporativo, Consultórios & Comércio",
+    highlight: "Autoridade Visual para Sua Marca em BH",
+    badge: "Recepções Imponentes · Salas de Reunião",
+    description:
+      "Marcenaria comercial de alto impacto para consultórios médicos, escritórios de advocacia, recepções de clínicas e lojas que encantam clientes desde o primeiro olhar.",
+    image: "/images/hero/hero-corporativo-luxo.jpg",
+    accent: "Espaços Comerciais",
   },
 ];
 
 // ==========================================
-// TIPAGEM DOS PRODUTOS & EQUIPAMENTOS
+// PORTFÓLIO / AMBIENTES PLANEJADOS
 // ==========================================
-interface ProductItem {
-  id: string;
-  name: string;
-  category: "freezers" | "vitrines" | "industriais" | "camaras";
-  categoryLabel: string;
-  badge: string;
-  tagline: string;
-  image: string;
-  capacity: string;
-  temperature: string;
-  specs: { label: string; value: string }[];
-  applications: string[];
-  description: string;
-}
+type ProjectCategory =
+  | "todos"
+  | "cozinhas"
+  | "dormitorios"
+  | "salas"
+  | "banheiros"
+  | "corporativo"
+  | "madeira";
 
-const PRODUCTS_DATA: ProductItem[] = [
-  {
-    id: "freezer-vertical-expositor",
-    name: "Freezer Vertical Expositor com Vidro Aquecido",
-    category: "freezers",
-    categoryLabel: "Freezers Comerciais",
-    badge: "Líder de Vendas no Comércio",
-    tagline: "Porta de vidro duplo temperado antiembaçante com iluminação vertical em LED",
-    image: "/images/products/freezer-vertical-expositor.jpg",
-    capacity: "450L / 600L / 1.000L",
-    temperature: "-18°C a -22°C (Congelados) ou 0°C a +5°C",
-    specs: [
-      { label: "Portas", value: "1 ou 2 portas com fechamento automático" },
-      { label: "Vidro", value: "Duplo temperado com resistência térmica" },
-      { label: "Refrigeração", value: "Ar forçado Frost-Free" },
-      { label: "Controlador", value: "Digital eletrônico com degelo automático" },
-      { label: "Prateleiras", value: "Aramadas reforçadas com regulagem de altura" },
-      { label: "Gabinete", value: "Poliuretano injetado de alta densidade" },
-    ],
-    applications: [
-      "Armazenamento e exposição de gelo e sorvetes",
-      "Bebidas geladas, cervejas e refrigerantes",
-      "Carnes embaladas, congelados e polpas",
-      "Supermercados, padarias e lojas de conveniência",
-    ],
-    description:
-      "Desenvolvido para resistir a aberturas constantes em ambientes comerciais de alto fluxo. O sistema de aquecimento do marco e vidro impede qualquer condensação ou embaçamento, mantendo os produtos 100% visíveis e atraentes para o consumidor final.",
-  },
-  {
-    id: "freezer-horizontal-tampa-vidro",
-    name: "Freezer Horizontal Expositor (Tampas Deslizantes)",
-    category: "freezers",
-    categoryLabel: "Freezers Comerciais",
-    badge: "Máxima Eficiência Térmica",
-    tagline: "Tampas de vidro curvo temperado de baixa emissividade e alta retenção de frio",
-    image: "/images/products/freezer-horizontal-tampa-vidro.jpg",
-    capacity: "350L a 750L",
-    temperature: "-18°C a -24°C",
-    specs: [
-      { label: "Tampas", value: "Vidro curvo deslizante com trava" },
-      { label: "Isolamento", value: "Poliuretano PUR 70mm ecológico" },
-      { label: "Dreno", value: "Frontal para escoamento e limpeza rápida" },
-      { label: "Rodízios", value: "Duplos reforçados para fácil locomoção" },
-      { label: "Cestos", value: "Removíveis em aço termoplastificado" },
-      { label: "Consumo", value: "Motor ecológico de classe A" },
-    ],
-    applications: [
-      "Venda de picolés, sorvetes de massa e sobremesas",
-      "Sacos de gelo em cubos e escamas",
-      "Aves, pescados e legumes congelados",
-      "Empórios, mercearias e postos de combustível",
-    ],
-    description:
-      "Estrutura monobloco robusta fabricada com chapa tratada anticorrosiva e injeção de alta pressão de poliuretano expandido. Permite excelente retenção de frio mesmo em caso de interrupção elétrica momentânea.",
-  },
-  {
-    id: "balcao-refrigerado-vitrine",
-    name: "Balcão Vitrine Refrigerado para Açougue & Carnes",
-    category: "vitrines",
-    categoryLabel: "Balcões & Vitrines",
-    badge: "Padrão Sanitário em Aço Inox",
-    tagline: "Bancada de atendimento e bandejas em aço inox com iluminação realçadora de corte",
-    image: "/images/products/balcao-refrigerado-vitrine.jpg",
-    capacity: "1,5m a 3,0m de comprimento",
-    temperature: "+1°C a +6°C (Resfriados)",
-    specs: [
-      { label: "Revestimento", value: "Aço Inox AISI 430/304 escovado" },
-      { label: "Refrigeração", value: "Estática com serpentina aletada e placa fria" },
-      { label: "Vidro Frontal", value: "Curvo ou reto temperado de alta segurança" },
-      { label: "Iluminação", value: "LED especial tonalidade fria para carnes" },
-      { label: "Depósito", value: "Inferior refrigerado com portas independentes" },
-      { label: "Termômetro", value: "Analógico/Digital visível para o cliente" },
-    ],
-    applications: [
-      "Açougues, boutiques de carnes e casas de assados",
-      "Exposição de peças bovinas, suínas e aves frescas",
-      "Queijos e frios em padarias e laticínios",
-      "Supermercados e centros de carnes",
-    ],
-    description:
-      "Projetado para manter a umidade natural da carne, evitando o ressecamento ou escurecimento dos cortes. O acabamento sanitário facilita a higienização rigorosa exigida pela vigilância sanitária.",
-  },
-  {
-    id: "balcao-auto-servico",
-    name: "Balcão Auto-Serviço Multi-Deck Aberto",
-    category: "vitrines",
-    categoryLabel: "Balcões & Vitrines",
-    badge: "Acesso Rápido ao Consumidor",
-    tagline: "Cortina de ar contínua que mantém a temperatura com acesso direto para compras por impulso",
-    image: "/images/products/balcao-auto-servico.jpg",
-    capacity: "1,2m a 2,5m modulável",
-    temperature: "+2°C a +8°C",
-    specs: [
-      { label: "Cortina de Ar", value: "Fluxo laminar contínuo sem turbulência" },
-      { label: "Prateleiras", value: "4 níveis reguláveis com porta-preços" },
-      { label: "Iluminação", value: "LED em todos os níveis de prateleiras" },
-      { label: "Cortina Noturna", value: "Inclusa para redução de 40% de energia" },
-      { label: "Laterais", value: "Vidro duplo panorâmico ou espelhadas" },
-      { label: "Degelo", value: "Automático programado por gás quente/timer" },
-    ],
-    applications: [
-      "Bebidas lácteas, iogurtes e manteigas",
-      "Embutidos fatiados, presuntos e queijos embalados",
-      "Pratos prontos, massas frescas e sanduíches",
-      "Supermercados, padarias gourmet e cafeterias",
-    ],
-    description:
-      "A solução ideal para aumentar o ticket médio das lojas com vendas por impulso. O design moderno com cortina de ar otimizada assegura que os produtos permaneçam na temperatura adequada sem desconforto para o cliente.",
-  },
-  {
-    id: "refrigerador-industrial-inox",
-    name: "Refrigerador Industrial 2 a 6 Portas em Aço Inox",
-    category: "industriais",
-    categoryLabel: "Geladeiras Industriais",
-    badge: "Estrutura Pesada para Gastronomia",
-    tagline: "Construção 100% reforçada para cozinhas industriais, restaurantes e hospitais",
-    image: "/images/products/refrigerador-industrial-inox.jpg",
-    capacity: "700L a 1.800L (2, 4 ou 6 portas)",
-    temperature: "0°C a +5°C (Resfriados) ou -15°C (Congelados)",
-    specs: [
-      { label: "Estrutura", value: "Aço Inox AISI 304/430 interno e externo" },
-      { label: "Portas", value: "Com retorno automático e gaxetas magnéticas" },
-      { label: "Compressor", value: "Unidade selada de alto torque de partida" },
-      { label: "Gás Refrigerante", value: "Ecológico R-134a / R-404a" },
-      { label: "Pés", value: "Niveladores em inox com regulagem de altura" },
-      { label: "Gradeamento", value: "Prateleiras reforçadas para GN gastronorm" },
-    ],
-    applications: [
-      "Cozinhas industriais e praças de alimentação",
-      "Restaurantes à la carte, buffets e churrascarias",
-      "Confeitarias e cozinhas de panificação",
-      "Hospitais, laboratórios e refeitórios corporativos",
-    ],
-    description:
-      "Projetado para suportar as condições mais severas de calor e umidade em cozinhas profissionais. O motor de alta capacidade garante rápida recuperação térmica a cada abertura de porta, garantindo a conservação dos alimentos conforme as normas ANVISA.",
-  },
-  {
-    id: "ilha-congelados-supermercado",
-    name: "Ilha de Congelados Panorâmica para Supermercados",
-    category: "freezers",
-    categoryLabel: "Freezers Comerciais",
-    badge: "Alta Capacidade de Venda",
-    tagline: "Visão panorâmica dos produtos com tampas deslizantes de vidro anti-reflexo",
-    image: "/images/products/ilha-congelados-supermercado.jpg",
-    capacity: "800L a 1.500L modulável em linha",
-    temperature: "-18°C a -22°C",
-    specs: [
-      { label: "Vidros", value: "Temperados planos ou curvos de baixa reflexão" },
-      { label: "Compressor", value: "Inverter ou convencional de alta eficiência" },
-      { label: "Modulação", value: "Pode ser instalada individualmente ou em baterias" },
-      { label: "Iluminação", value: "LED embutido de alta intensidade" },
-      { label: "Divisórias", value: "Grades internas móveis organizadoras" },
-      { label: "Proteção", value: "Bate-carrinho em PVC de alta resistência" },
-    ],
-    applications: [
-      "Supermercados, atacarejos e hipermercados",
-      "Exposição de carnes, peixes e hambúrgueres",
-      "Congelados rápidos, pizzas e vegetais",
-      "Distribuidoras de alimentos e empórios",
-    ],
-    description:
-      "A linha de ilhas da Friomax reúne máxima visibilidade dos produtos com custo operacional reduzido. O sistema de condensação e evaporador aletado entrega resfriamento constante sem acúmulo excessivo de gelo nas paredes.",
-  },
-  {
-    id: "camara-frigorifica-modular",
-    name: "Câmara Frigorífica Modular Sob Medida",
-    category: "camaras",
-    categoryLabel: "Câmaras Frigoríficas",
-    badge: "Engenharia Térmica Personalizada",
-    tagline: "Isolamento contínuo em poliuretano PUR ou EPS com portas pesadas herméticas",
-    image: "/images/products/camara-frigorifica-modular.jpg",
-    capacity: "De 5 m³ a mais de 500 m³",
-    temperature: "+15°C a -35°C",
-    specs: [
-      { label: "Paredes e Teto", value: "Painéis modulares macho-fêmea com vedação" },
-      { label: "Núcleo", value: "Poliuretano PUR 40 kg/m³ ou EPS Classe F-1" },
-      { label: "Porta", value: "Giratória ou de correr com destravamento interno" },
-      { label: "Piso", value: "Isolamento em placas de alta densidade" },
-      { label: "Unidade Condensadora", value: "Dimensionada para a carga térmica exata" },
-      { label: "Quadro Elétrico", value: "Microprocessado com proteções eletrônicas" },
-    ],
-    applications: [
-      "Câmaras de congelados para carnes, pescados e gelo",
-      "Câmaras de resfriados para laticínios, verduras e frutas",
-      "Beer Caves para postos de combustíveis e conveniências",
-      "Centros de distribuição de hortifrúti e distribuidores",
-    ],
-    description:
-      "Engenharia completa da Friomax desde a medição no local até a entrega e montagem. Cada câmara é dimensionada por técnicos que calculam a carga térmica real considerando fluxo de mercadorias, rotação de estoque e temperatura ambiente da sua região.",
-  },
-  {
-    id: "porta-frigorifica-pesada",
-    name: "Porta Frigorífica Industrial Pesada (Giratória e Correr)",
-    category: "camaras",
-    categoryLabel: "Câmaras Frigoríficas",
-    badge: "Ferragens Industriais Robustas",
-    tagline: "Resistência de silicone embutida no marco e vedação perimétrica estanque",
-    image: "/images/products/porta-frigorifica-pesada.jpg",
-    capacity: "Vão livre padrão ou sob medida",
-    temperature: "Até -40°C",
-    specs: [
-      { label: "Ferragens", value: "Dobradiças e fechos industriais de alta carga" },
-      { label: "Resistência", value: "Cabo térmico no batente para evitar travamento" },
-      { label: "Batentes", value: "Injetados com poliuretano rígido de alta densidade" },
-      { label: "Segurança", value: "Manípulo de destravamento interno de emergência" },
-      { label: "Revestimento", value: "Aço pré-pintado ou aço inoxidável" },
-      { label: "Vedação", value: "Gaxeta elastomérica com memória elástica" },
-    ],
-    applications: [
-      "Docas e antecâmaras de galpões frigorificados",
-      "Câmaras frias comerciais e industriais de grande circulação",
-      "Passagem de paleteiras manuais e carrinhos de carga",
-      "Salas climatizadas de manipulação e desossa",
-    ],
-    description:
-      "Fabricada com reforços internos estruturais para resistir a milhares de ciclos diários sem desregulagem. Nas opções para congelamento, a resistência perimétrica impede que a umidade congele nas borrachas, preservando a vida útil do conjunto.",
-  },
-];
-
-// ==========================================
-// OBRAS REAIS EXECUTADAS & CLIENTES
-// ==========================================
-interface ObraItem {
+interface ProjectItem {
   id: string;
   title: string;
-  category: "supermercados" | "acougues" | "padarias" | "distribuidoras";
+  category: ProjectCategory;
   categoryLabel: string;
   image: string;
-  location: string;
   description: string;
-  scope: string;
+  materials: string[];
+  location: string;
 }
 
-const OBRAS_DATA: ObraItem[] = [
+const PROJECTS: ProjectItem[] = [
   {
-    id: "supermercado-expositores",
-    title: "Supermercado & Bateria de Expositores em Linha",
-    category: "supermercados",
-    categoryLabel: "Supermercados",
-    image: "/images/obras/obra-supermercado-expositores.jpg",
-    location: "Vespasiano / MG",
+    id: "p1",
+    title: "Cozinha Gourmet com Ilha Central & Ferragens Amortecidas",
+    category: "cozinhas",
+    categoryLabel: "Cozinhas Planejadas",
+    image: "/images/instagram/insta_real_7.jpg",
     description:
-      "Instalação completa de corredores refrigerados, ilhas centrais de congelados com vidro curvo e vitrines de auto-serviço multi-deck para laticínios.",
-    scope: "12 módulos de expositores verticais, 4 ilhas de congelados e balcões de corte.",
+      "Projeto executado com armários superiores com abertura basculante pneumática, ilha central gourmet com nicho para torre de tomadas e gavetões profundos.",
+    materials: ["MDF Ultra Resistente à Umidade", "Corrediças Ocultas Blum", "Lâmina Natural de Carvalho"],
+    location: "Belvedere, Belo Horizonte",
   },
   {
-    id: "acougue-vitrines",
-    title: "Casa de Carnes & Boutique de Cortes Nobres",
-    category: "acougues",
-    categoryLabel: "Casas de Carnes",
-    image: "/images/obras/obra-acougue-vitrines.jpg",
-    location: "Belo Horizonte / MG",
+    id: "p2",
+    title: "Cozinha Moderna Minimalista com Puxador Cava Usinado",
+    category: "cozinhas",
+    categoryLabel: "Cozinhas Planejadas",
+    image: "/images/instagram/insta_real_3.jpg",
     description:
-      "Balcões frigoríficos contínuos em aço inox AISI 304 com iluminação LED especializada para carnes vermelhas e câmara de desossa acoplada.",
-    scope: "Vitrines de atendimento em curva, câmara fria de carcaças e bancadas inox.",
+      "Linhas puras sem puxadores aparentes (puxador cava usinado), cristaleira com perfil slim de alumínio preto e vidro reflecta bronze com fita LED embutida.",
+    materials: ["Puxador Cava Usinado", "Vidro Reflecta Bronze", "Iluminação LED 3000K"],
+    location: "Lourdes, Belo Horizonte",
   },
   {
-    id: "padaria-balcoes",
-    title: "Rede de Padarias & Confeitarias Gourmet",
-    category: "padarias",
-    categoryLabel: "Padarias & Empórios",
-    image: "/images/obras/obra-padaria-balcoes.jpg",
-    location: "Região Metropolitana / MG",
+    id: "p3",
+    title: "Roupeiro & Closet Planejado com Portas Deslizantes Suaves",
+    category: "dormitorios",
+    categoryLabel: "Dormitórios & Closets",
+    image: "/images/instagram/insta_real_4.jpg",
     description:
-      "Vitrines refrigeradas panorâmicas para sobremesas, tortas geladas e frios com vidros retos térmicos e refrigeração estática suave.",
-    scope: "Balcões térmicos e refrigerados alinhados com acabamento em marcenaria e inox.",
+      "Amplo espaço planejado com nichos iluminados para bolsas e sapatos, gavetas com divisórias forradas em veludo e cabideiros com sensor de presença.",
+    materials: ["Forração Interna Aveludada", "Perfis com Difusor de LED", "Vidros Canelados"],
+    location: "Mangabeiras, Belo Horizonte",
   },
   {
-    id: "distribuidora-camara",
-    title: "Centro de Distribuição & Armazenagem Frigorificada",
-    category: "distribuidoras",
-    categoryLabel: "Centros de Distribuição",
-    image: "/images/obras/obra-distribuidora-camara-fria.jpg",
-    location: "Vetor Norte / MG",
+    id: "p4",
+    title: "Suíte Master com Cabeceira Ripada & Mesas Flutuantes",
+    category: "dormitorios",
+    categoryLabel: "Dormitórios & Closets",
+    image: "/images/instagram/insta_real_5.jpg",
     description:
-      "Câmara frigorífica de grande porte com controle de temperatura de precisão para estocagem paletizada de produtos lácteos e carnes resfriadas.",
-    scope: "Isolamento térmico em PUR, portas de correr industriais e unidades condensadoras.",
+      "Painel ripado contínuo com arandelas embutidas, mesas de apoio flutuantes com cantos usinados e roupeiro integrado com portas deslizantes suaves.",
+    materials: ["Painel Ripado em Nogueira", "Mesas Flutuantes", "Amortecedor Soft-Close"],
+    location: "Funcionários, Belo Horizonte",
   },
   {
-    id: "conveniencia-walkin",
-    title: "Loja de Conveniência & Beer Cave Gelada",
-    category: "supermercados",
-    categoryLabel: "Conveniências & Beer Cave",
-    image: "/images/obras/obra-conveniencia-walk-in.jpg",
-    location: "Minas Gerais",
+    id: "p5",
+    title: "Home Theater com Painel Ripado e Rack Suspenso",
+    category: "salas",
+    categoryLabel: "Salas & Home Theaters",
+    image: "/images/instagram/insta_real_2.jpg",
     description:
-      "Expositor frontal de vidro térmico com câmara walk-in de abastecimento traseiro (gravitacional) para cervejas em temperatura negativa estalando.",
-    scope: "Portas de vidro expositoras com abastecimento por trás e prateleiras inclinadas.",
+      "Painel ripado imponente para TV de 85 polegadas com passagem oculta de cabos, rack inferior chanfrado com gavetas de toque e nicho para subwoofer.",
+    materials: ["MDF Nogueira Catedral", "Passagem Invisível de Cabos", "Gavetas Push-to-Open"],
+    location: "Castelo, Belo Horizonte",
   },
   {
-    id: "cozinha-industrial",
-    title: "Cozinha Industrial & Restaurante de Alta Demanda",
-    category: "distribuidoras",
-    categoryLabel: "Cozinhas Industriais",
-    image: "/images/obras/obra-cozinha-industrial.jpg",
-    location: "Belo Horizonte / MG",
+    id: "p6",
+    title: "Estante sob Medida para Living com Iluminação Indireta",
+    category: "salas",
+    categoryLabel: "Salas & Home Theaters",
+    image: "/images/instagram/insta_real_8.jpg",
     description:
-      "Refrigeradores industriais verticais em aço inox escovado, bancadas de preparo refrigeradas e antecâmara para carnes e hortifrúti.",
-    scope: "Refrigeradores 4 e 6 portas, balcões refrigerados de apoio e câmara de congelamento.",
+      "Composição arquitetônica para livros e obras de arte, com iluminação indireta quente que cria uma atmosfera aconchegante e sofisticada na sala.",
+    materials: ["Iluminação Indireta Embutida", "MDF Grafite Acetinado", "Prateleiras Reforçadas"],
+    location: "Pampulha, Belo Horizonte",
+  },
+  {
+    id: "p7",
+    title: "Gabinete de Banheiro Flutuante com Proteção Naval",
+    category: "banheiros",
+    categoryLabel: "Banheiros & Lavabos",
+    image: "/images/instagram/insta_real_6.jpg",
+    description:
+      "Gabinete suspenso com proteção naval antimofo, gavetão com recorte ergonômico para sifão e espelho lapidado com iluminação retroiluminada.",
+    materials: ["Compensado Naval Selado", "Fita de Borda PUR Termofusível", "Espelho Retroiluminado"],
+    location: "Santo Agostinho, Belo Horizonte",
+  },
+  {
+    id: "p8",
+    title: "Escritório Corporativo & Sala de Reunião Executiva",
+    category: "corporativo",
+    categoryLabel: "Comercial & Corporativo",
+    image: "/images/instagram/insta_real_9.jpg",
+    description:
+      "Mesa de diretoria sob medida com calha oculta de conectividade e energia, armários embutidos de arquivo com fechadura e painel de fundo amadeirado.",
+    materials: ["Calhas de Conectividade Embutidas", "MDF Premium Texturizado", "Painéis Acústicos"],
+    location: "Savassi, Belo Horizonte",
+  },
+  {
+    id: "p9",
+    title: "Porta Pivotante em Madeira Maciça Artesanal (Desde 1977)",
+    category: "madeira",
+    categoryLabel: "Tradição & Madeira Maciça",
+    image: "/images/instagram/insta_real_10.jpg",
+    description:
+      "Porta de entrada monumental com eixo pivotante de 300kg, usinagem artística na madeira e puxador artesanal. A tradição de marcenaria viva desde 1977.",
+    materials: ["Madeira Maciça Selecionada", "Eixo Pivotante em Aço Inox", "Verniz Náutico UV"],
+    location: "Nova Lima / BH",
+  },
+  {
+    id: "p10",
+    title: "Cristaleira & Bar Gourmet com Portas em Vidro Reflecta",
+    category: "salas",
+    categoryLabel: "Salas & Home Theaters",
+    image: "/images/instagram/insta_real_11.jpg",
+    description:
+      "Espaço gourmet planejado para apreciadores de vinhos, com nichos horizontais em colmeia para garrafas, gaveta para saca-rolhas e cristaleira com portas de vidro.",
+    materials: ["Colmeia de Madeira Natural", "Vidro Temperado", "Iluminação LED sem Emissão de Calor"],
+    location: "Vila da Serra, Belo Horizonte",
   },
 ];
 
 // ==========================================
-// GOOGLE REVIEWS REAIS FORNECIDOS (4,4★)
+// INSTAGRAM OFICIAL DATA (@marcenaria.tubarao)
 // ==========================================
-interface ReviewItem {
-  author: string;
-  badge: string;
-  text: string;
+interface InstagramPost {
+  id: string;
+  image: string;
+  title: string;
+  tag: string;
+  likes: string;
+}
+
+const INSTAGRAM_POSTS: InstagramPost[] = [
+  {
+    id: "ig-1",
+    image: "/images/instagram/insta_real_1.jpg",
+    title: "Cozinha Planejada com Torre Quente & Nichos Iluminados",
+    tag: "#CozinhaPlanejadaBH",
+    likes: "54",
+  },
+  {
+    id: "ig-2",
+    image: "/images/instagram/insta_real_2.jpg",
+    title: "Painel Ripado em Nogueira & Rack Suspenso",
+    tag: "#PainelRipadoBH",
+    likes: "68",
+  },
+  {
+    id: "ig-3",
+    image: "/images/instagram/insta_real_3.jpg",
+    title: "Armários de Cozinha Sob Medida com Puxador Cava",
+    tag: "#MarcenariaBH",
+    likes: "61",
+  },
+  {
+    id: "ig-4",
+    image: "/images/instagram/insta_real_4.jpg",
+    title: "Roupeiro Planejado com Portas Deslizantes",
+    tag: "#ClosetSobMedida",
+    likes: "49",
+  },
+  {
+    id: "ig-5",
+    image: "/images/instagram/insta_real_5.jpg",
+    title: "Cabeceira Ripada & Mesas de Apoio Suspensas",
+    tag: "#QuartoSobMedida",
+    likes: "63",
+  },
+  {
+    id: "ig-6",
+    image: "/images/instagram/insta_real_6.jpg",
+    title: "Gabinete de Banheiro Flutuante em Compensado Naval",
+    tag: "#BanheiroPlanejado",
+    likes: "42",
+  },
+  {
+    id: "ig-7",
+    image: "/images/instagram/insta_real_7.jpg",
+    title: "Ilha Gourmet com Gavetões de Amortecimento",
+    tag: "#IlhaGourmet",
+    likes: "79",
+  },
+  {
+    id: "ig-8",
+    image: "/images/instagram/insta_real_8.jpg",
+    title: "Estante sob Medida para Living com Fita LED",
+    tag: "#HomeTheaterBH",
+    likes: "58",
+  },
+  {
+    id: "ig-9",
+    image: "/images/instagram/insta_real_9.jpg",
+    title: "Escritório Corporativo & Mesa Diretiva",
+    tag: "#MoveisCorporativos",
+    likes: "47",
+  },
+  {
+    id: "ig-10",
+    image: "/images/instagram/insta_real_10.jpg",
+    title: "Porta Pivotante em Madeira Maciça Artesanal",
+    tag: "#PortaPivotante",
+    likes: "94",
+  },
+  {
+    id: "ig-11",
+    image: "/images/instagram/insta_real_11.jpg",
+    title: "Bancada e Cristaleira com Vidro Reflecta",
+    tag: "#CristaleiraBH",
+    likes: "72",
+  },
+  {
+    id: "ig-12",
+    image: "/images/instagram/insta_real_12.jpg",
+    title: "Detalhe de Acabamento e Encaixe de Precisão",
+    tag: "#MarcenariaFina",
+    likes: "56",
+  },
+];
+
+function InstagramIcon({ className = "w-5 h-5" }: { className?: string }) {
+  return (
+    <svg className={className} viewBox="0 0 24 24" fill="currentColor">
+      <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+    </svg>
+  );
+}
+
+// ==========================================
+// DEPOIMENTOS REAIS DO GOOGLE MAPS (NOTA 5,0★)
+// ==========================================
+interface TestimonialItem {
+  id: string;
+  name: string;
   rating: number;
   timeAgo: string;
+  text: string;
+  meta: string;
+  highlightText: string;
 }
 
-const REVIEWS_DATA: ReviewItem[] = [
+const TESTIMONIALS: TestimonialItem[] = [
   {
-    author: "Rayane Meira Leles",
-    badge: "Local Guide · 94 avaliações · 153 fotos",
-    text: "Melhor empresa de equipamento de refrigeração. Friomax, a diferença está na qualidade.",
+    id: "t1",
+    name: "Bruna Tourinho",
     rating: 5,
-    timeAgo: "Cliente Verificado",
+    timeAgo: "2 anos atrás",
+    text: "Excelente profissional, acabamento e serviço impecável. Minha casa só tem armários feito por eles! Super recomendo!",
+    meta: "3 avaliações · 6 fotos",
+    highlightText: "Minha casa só tem armários feito por eles! Acabamento impecável.",
   },
   {
-    author: "Ana Castro",
-    badge: "18 avaliações no Google",
-    text: "Equipamentos de alta qualidade. Ótimo atendimento. Mercadorias entregue no prazo solicitado.",
+    id: "t2",
+    name: "Ercilio Anjos",
     rating: 5,
-    timeAgo: "Cliente Verificado",
+    timeAgo: "2 anos atrás",
+    text: "Já fiz vários serviços na Marcenaria Tubarão com o Carlos que me atendeu muito bem. Sempre prestativo, educado e disponível para a execução dos serviços necessitados.",
+    meta: "4 avaliações",
+    highlightText: "Com o Carlos que me atendeu muito bem. Sempre prestativo e educado.",
   },
   {
-    author: "Bruno Fabiio",
-    badge: "Local Guide · 16 avaliações",
-    text: "Melhor freezers de Vespasiano. Equipamentos robustos que duram muitos anos sem dar problema.",
+    id: "t3",
+    name: "Eduardo Sanches",
     rating: 5,
-    timeAgo: "Cliente Verificado",
+    timeAgo: "2 anos atrás",
+    text: "Excelente profissional. Serviço impecável! Entregaram o serviço dentro do praso.",
+    meta: "5 avaliações",
+    highlightText: "Serviço impecável! Entregaram dentro do prazo.",
   },
   {
-    author: "Bruna Araujo",
-    badge: "2 avaliações · 9 fotos",
-    text: "Excelentes equipamentos! Recomendo. Muito bom atendimento da equipe técnica e comercial.",
+    id: "t4",
+    name: "Gustavo Rodrigues",
     rating: 5,
-    timeAgo: "Cliente Verificado",
+    timeAgo: "2 anos atrás",
+    text: "Fizeram um excelente serviço em minha casa; entregaram antes do prazo! 👏🏻👏🏻👏🏻",
+    meta: "3 avaliações",
+    highlightText: "Entregaram antes do prazo! Excelente serviço.",
   },
   {
-    author: "Antônio Jose (Zezé)",
-    badge: "Local Guide · 15 avaliações · 21 fotos",
-    text: "Fiz uma coleta lá e fui muito bem recebido a equipe está de parabéns! Estrutura impecável.",
+    id: "t5",
+    name: "Flávia Nunes",
     rating: 5,
-    timeAgo: "Avaliação Verificada",
+    timeAgo: "3 anos atrás",
+    text: "Gostei muito dos móveis da minha casa, parabéns!!!!",
+    meta: "7 avaliações · 2 fotos",
+    highlightText: "Gostei muito dos móveis da minha casa, parabéns!",
   },
   {
-    author: "Frederick Afonso",
-    badge: "4 avaliações no Google",
-    text: "Melhores Equipamentos para refrigeração. Já compramos para nossos estabelecimentos e o frio é constante.",
+    id: "t6",
+    name: "Deia Nunes",
     rating: 5,
-    timeAgo: "Cliente Verificado",
-  },
-  {
-    author: "Sergio Araujo",
-    badge: "Local Guide · 189 avaliações · 4 fotos",
-    text: "Atendimento muito adequado em serviços de refrigeração. Pessoal técnico experiente e solícito.",
-    rating: 5,
-    timeAgo: "Cliente Verificado",
-  },
-  {
-    author: "Flávio Marcus",
-    badge: "Local Guide · 31 avaliações · 3 fotos",
-    text: "Conhecendo os produtos e a qualidade na fabricação. Empresa séria com décadas de tradição.",
-    rating: 5,
-    timeAgo: "Cliente Verificado",
-  },
-  {
-    author: "Lourenço Ferreira",
-    badge: "2 avaliações no Google",
-    text: "Empresa de Refrigeração comercial com compromisso no pós-venda e peças originais.",
-    rating: 5,
-    timeAgo: "Cliente Verificado",
-  },
-  {
-    author: "Ayslan Leles",
-    badge: "Local Guide · 71 avaliações · 28 fotos",
-    text: "Equipamentos de qualidade. Vale cada centavo investido para o comércio.",
-    rating: 5,
-    timeAgo: "Cliente Verificado",
+    timeAgo: "3 anos atrás",
+    text: "Muito pontuais e detalhistas. Muito bom!!",
+    meta: "7 avaliações · 2 fotos",
+    highlightText: "Muito pontuais e detalhistas. Muito bom!",
   },
 ];
 
 // ==========================================
-// PERGUNTAS FREQUENTES (FAQ)
+// FAQ DATA
 // ==========================================
-const FAQS = [
+interface FAQItem {
+  question: string;
+  answer: string;
+}
+
+const FAQS: FAQItem[] = [
   {
-    question: "A Friomax fabrica equipamentos sob medida para meu comércio?",
+    question: "Como funciona o processo de orçamento e projeto na Marcenaria Tubarão?",
     answer:
-      "Sim! Fabricamos balcões expositores, vitrines em aço inox e câmaras frigoríficas nas dimensões exatas da sua loja, restaurante ou supermercado. Nossa equipe de engenharia térmica projeta cada detalhe para aproveitar ao máximo a sua planta e fluxo de clientes.",
+      "É muito simples e direto! Você entra em contato conosco pelo WhatsApp (31) 99767-3576, conversa diretamente com o Carlos e nossa equipe técnica, envia a planta ou fotos do espaço e nós agendamos uma visita técnica para medição no local. Desenvolvemos o projeto 3D para você visualizar exatamente como ficarão os móveis antes da fabricação.",
   },
   {
-    question: "Como os freezers e balcões da Friomax economizam energia elétrica?",
+    question: "Qual é o prazo médio de entrega dos móveis sob medida?",
     answer:
-      "Nossos equipamentos contam com injeção sob alta pressão de poliuretano expandido (PUR) ecológico de altíssima densidade, vidros duplos térmicos com gás argônio e compressores modernos de alto rendimento. Isso reduz o ciclo de acionamento do motor em até 35%, diminuindo diretamente a conta de luz.",
+      "A pontualidade é a nossa maior marca e orgulho há mais de 47 anos! Nossos clientes com frequência destacam nos comentários do Google que entregamos dentro ou até antes do prazo combinado. O tempo exato varia de 25 a 45 dias úteis de acordo com a complexidade e quantidade de ambientes do projeto.",
   },
   {
-    question: "A Friomax entrega em Belo Horizonte, região metropolitana e outros estados?",
+    question: "Quais materiais e ferragens a Marcenaria Tubarão utiliza?",
     answer:
-      "Sim. Nossa fábrica está localizada na R. São Paulo, 1500 - Nova Pampulha, em Vespasiano - MG, com fácil acesso pelo Vetor Norte e BR-040. Entregamos e despachamos com frotas seguras para toda a Região Metropolitana de BH, interior de Minas Gerais e para todo o território nacional.",
+      "Trabalhamos exclusivamente com MDF de primeira linha 100% de alta densidade (com opções de compensado naval resistente a água para banheiros e lavabos), fitamento de borda termofusível de alta aderência contra umidade, além de ferragens premium com amortecimento suave (slow-motion), corrediças ocultas e perfis de alumínio anodizado.",
   },
   {
-    question: "Os equipamentos contam com garantia de fábrica e assistência técnica?",
+    question: "Vocês atendem arquitetos e designers de interiores em BH?",
     answer:
-      "Com certeza. Como somos fábrica com mais de 30 anos no mercado (desde 1991), oferecemos garantia total de fabricação, assistência técnica especializada e estoque contínuo de peças de reposição originais, garantindo tranquilidade para o seu negócio não parar nunca.",
+      "Sim, com grande honra! Temos parceria contínua com renomados arquitetos e designers de Belo Horizonte e Região Metropolitana, executando fielmente detalhamentos técnicos, paginações complexas de ripados, iluminação embutida e projetos com tolerância milimétrica.",
   },
   {
-    question: "Quais são as opções de pagamento para equipar meu estabelecimento?",
+    question: "Quais são as formas de pagamento facilitadas?",
     answer:
-      "Trabalhamos com condições facilitadas para pessoa jurídica e produtores: parcelamento no cartão de crédito, faturamento via boleto para CNPJ sob análise cadastral, condições especiais para compra de lote completo e opções de financiamento para modernização comercial.",
+      "Oferecemos condições facilitadas com entrada e saldo parcelado durante a fabricação e entrega, além de parcelamento no cartão de crédito e descontos especiais para pagamentos à vista.",
   },
   {
-    question: "Qual o prazo médio de fabricação e entrega dos equipamentos?",
+    question: "Vocês realizam móveis para ambientes comerciais e corporativos?",
     answer:
-      "Possuímos diversos modelos de freezers verticais, horizontais e refrigeradores padrão à pronta-entrega em nossa expedição. Para projetos sob medida ou câmaras frigoríficas personalizadas, o prazo é combinado no orçamento, com cumprimento rigoroso do cronograma de entrega elogiado por nossos clientes.",
+      "Com certeza! Desenvolvemos recepções imponentes, salas de reunião, consultórios médicos e odontológicos, escritórios de advocacia, lojas e restaurantes com acabamentos que transmitem autoridade e durabilidade extrema.",
   },
 ];
 
-export default function HomePage() {
+export default function Home() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [selectedProduct, setSelectedProduct] = useState<ProductItem | null>(null);
-  const [currentHeroSlide, setCurrentHeroSlide] = useState(0);
-  const [activeProductTab, setActiveProductTab] = useState<
-    "todos" | "freezers" | "vitrines" | "industriais" | "camaras"
-  >("todos");
-  const [activeObraFilter, setActiveObraFilter] = useState<
-    "todos" | "supermercados" | "acougues" | "padarias" | "distribuidoras"
-  >("todos");
-  const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(0);
+  const [activeSlide, setActiveSlide] = useState(0);
+  const [selectedCategory, setSelectedCategory] = useState<ProjectCategory>("todos");
+  const [selectedProject, setSelectedProject] = useState<ProjectItem | null>(null);
+  const [openFaq, setOpenFaq] = useState<number | null>(0);
 
-  // Troca automática de slides do hero (a cada 6 segundos)
+  // Simulador de briefing state
+  const [simAmbientes, setSimAmbientes] = useState<string[]>(["Cozinha"]);
+  const [simEstilo, setSimEstilo] = useState<string>("Moderno com Iluminação LED");
+  const [simPrazo, setSimPrazo] = useState<string>("Próximos 30 a 60 dias");
+  const [simNome, setSimNome] = useState<string>("");
+
+  // Slide auto-advance
   useEffect(() => {
     const timer = setInterval(() => {
-      setCurrentHeroSlide((prev) => (prev + 1) % HERO_SLIDES.length);
+      setActiveSlide((prev) => (prev + 1) % HERO_SLIDES.length);
     }, 6000);
     return () => clearInterval(timer);
   }, []);
 
-  // Estados do Simulador de Refrigeração Comercial
-  const [simBusinessType, setSimBusinessType] = useState<
-    "supermercado" | "acougue" | "padaria" | "restaurante" | "distribuidora" | "conveniencia"
-  >("supermercado");
-  const [simProductCategory, setSimProductCategory] = useState<
-    "freezer" | "balcao" | "camara" | "inox"
-  >("freezer");
-  const [simTempRange, setSimTempRange] = useState<"congelados" | "resfriados" | "ambos">("congelados");
-  const [simStoreSize, setSimStoreSize] = useState<"pequeno" | "medio" | "grande">("medio");
+  const filteredProjects = useMemo(() => {
+    if (selectedCategory === "todos") return PROJECTS;
+    return PROJECTS.filter((p) => p.category === selectedCategory);
+  }, [selectedCategory]);
 
-  // Resultados calculados do Simulador
-  const simResults = useMemo(() => {
-    let recommendation = "Linha de Freezers Expositores Verticais Frost-Free";
-    let estimatedUnits = "2 a 4 módulos";
-    let compressorPower = "1/2 HP a 1 HP de alto rendimento";
-    let idealTemp = "-18°C a -22°C";
+  const toggleAmbiente = (amb: string) => {
+    setSimAmbientes((prev) =>
+      prev.includes(amb) ? prev.filter((a) => a !== amb) : [...prev, amb]
+    );
+  };
 
-    if (simProductCategory === "freezer") {
-      recommendation =
-        simStoreSize === "grande"
-          ? "Bateria de Ilhas Panorâmicas + Freezers Verticais de 2 Portas"
-          : "Freezers Verticais com Vidro Duplo Aquecido Antiembaçante";
-      estimatedUnits = simStoreSize === "pequeno" ? "1 a 2 unidades" : simStoreSize === "medio" ? "3 a 5 unidades" : "6 a 12 unidades";
-      idealTemp = simTempRange === "congelados" ? "-18°C a -22°C" : "0°C a +4°C";
-      compressorPower = "Compressores ecológicos de baixo ruído e consumo";
-    } else if (simProductCategory === "balcao") {
-      recommendation = "Balcão Vitrine em Aço Inox com Iluminação LED & Placa Fria";
-      estimatedUnits = simStoreSize === "pequeno" ? "1 balcão (1,8m)" : simStoreSize === "medio" ? "2 a 3 balcões modulados (3m a 5m)" : "Linha contínua sob medida";
-      idealTemp = "+1°C a +6°C";
-      compressorPower = "Serpentina aletada com degelo automático e termostato digital";
-    } else if (simProductCategory === "camara") {
-      recommendation = "Câmara Frigorífica Modular em Painéis PUR com Porta Fermod Pesada";
-      estimatedUnits = simStoreSize === "pequeno" ? "Câmara compacta 2x2m (10 m³)" : simStoreSize === "medio" ? "Câmara comercial 3x4m (30 m³)" : "Câmara industrial > 60 m³";
-      idealTemp = simTempRange === "congelados" ? "-18°C a -25°C" : "0°C a +4°C";
-      compressorPower = "Unidade condensadora carenada de alta durabilidade";
-    } else if (simProductCategory === "inox") {
-      recommendation = "Refrigeradores Industriais em Aço Inox AISI 304/430 (2, 4 ou 6 Portas)";
-      estimatedUnits = simStoreSize === "pequeno" ? "1 refrigerador 2 portas" : simStoreSize === "medio" ? "1 a 2 refrigeradores 4 portas" : "3+ refrigeradores 6 portas";
-      idealTemp = "0°C a +4°C (ou -15°C)";
-      compressorPower = "Motor hermético com alta recuperação térmica";
-    }
-
-    return {
-      recommendation,
-      estimatedUnits,
-      compressorPower,
-      idealTemp,
-    };
-  }, [simBusinessType, simProductCategory, simTempRange, simStoreSize]);
-
-  // Mensagem customizada para o WhatsApp do Simulador
-  const simWhatsAppUrl = useMemo(() => {
-    const businessLabels = {
-      supermercado: "Supermercado / Mercearia",
-      acougue: "Açougue / Casa de Carnes",
-      padaria: "Padaria / Confeitaria",
-      restaurante: "Restaurante / Cozinha Industrial",
-      distribuidora: "Distribuidora / Atacado",
-      conveniencia: "Conveniência / Posto de Combustível",
-    };
-    const categoryLabels = {
-      freezer: "Freezers Comerciais & Expositores",
-      balcao: "Balcões & Vitrines Refrigeradas",
-      camara: "Câmara Frigorífica Modular",
-      inox: "Geladeiras e Balcões Industriais Inox",
-    };
-    const sizeLabels = {
-      pequeno: "Pequeno porte (Loja compacta)",
-      medio: "Médio porte (Comércio padrão)",
-      grande: "Grande porte (Alta circulação / Rede)",
-    };
-
-    const msg = `Olá, equipe técnica da Friomax Refrigeração!
-Fiz uma simulação no site para equipar meu estabelecimento e gostaria de um orçamento direto da fábrica:
-
-- Tipo de Negócio: ${businessLabels[simBusinessType]}
-- Solução Desejada: ${categoryLabels[simProductCategory]}
-- Faixa de Temperatura: ${simResults.idealTemp}
-- Porte Estimado: ${sizeLabels[simStoreSize]}
-- Recomendação do Simulador: ${simResults.recommendation} (~${simResults.estimatedUnits})
-
-Poderiam calcular o melhor valor e condições de fábrica para mim?`;
-
-    return getWhatsAppUrl(msg);
-  }, [simBusinessType, simProductCategory, simStoreSize, simResults]);
-
-  // Filtro de produtos
-  const filteredProducts = useMemo(() => {
-    if (activeProductTab === "todos") return PRODUCTS_DATA;
-    return PRODUCTS_DATA.filter((p) => p.category === activeProductTab);
-  }, [activeProductTab]);
-
-  // Filtro de obras
-  const filteredObras = useMemo(() => {
-    if (activeObraFilter === "todos") return OBRAS_DATA;
-    return OBRAS_DATA.filter((o) => o.category === activeObraFilter);
-  }, [activeObraFilter]);
+  const handleSimuladorSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    const text = `Olá, Carlos! Gostaria de um orçamento na Marcenaria Tubarão.\n\n👤 Nome: ${
+      simNome || "Cliente"
+    }\n🏠 Ambientes: ${
+      simAmbientes.length > 0 ? simAmbientes.join(", ") : "A definir"
+    }\n✨ Estilo: ${simEstilo}\n⏱️ Previsão de Início: ${simPrazo}\n\nGostaria de agendar uma conversa para ver o projeto 3D!`;
+    window.open(getWhatsAppUrl(text), "_blank");
+  };
 
   return (
-    <div className="min-h-screen bg-[#F8FAFC] text-[#07152B] flex flex-col font-sans selection:bg-[#0047FF] selection:text-white">
-      {/* ============================================================== */}
-      {/* 1. TOP ANNOUNCEMENT BAR — INDÚSTRIA & ATENDIMENTO DIRETO       */}
-      {/* ============================================================== */}
-      <div className="bg-[#07152B] text-white border-b border-blue-950/60 text-xs py-2 px-4 sticky top-0 z-50 shadow-md">
-        <div className="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-3">
-          <div className="flex items-center gap-2">
-            <span className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-gradient-to-r from-[#0047FF] to-[#012B8E] text-white font-bold text-[11px] tracking-wide uppercase shadow-xs">
-              <Factory className="w-3 h-3 text-cyan-300" />
-              Fábrica Própria desde 1991
+    <div className="min-h-screen bg-[#F8FAFC] text-[#0F172A] selection:bg-[#00B4D8] selection:text-white">
+      {/* ==================================================== */}
+      {/* 1. TOP ANNOUNCEMENT BAR */}
+      {/* ==================================================== */}
+      <div className="bg-[#0B1320] text-slate-300 text-xs py-2 px-4 border-b border-slate-800">
+        <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-2 text-center sm:text-left">
+          <div className="flex items-center gap-2 font-medium shrink-0">
+            <span className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-[#00B4D8]/20 text-[#38BDF8] font-bold text-[11px] border border-[#00B4D8]/30 shrink-0">
+              <Sparkles className="w-3 h-3" /> DESDE 1977
             </span>
-            <span className="hidden sm:inline text-blue-200/80">
-              Vespasiano - MG (R. São Paulo, 1500) · 30+ Anos de Excelência em Refrigeração
-            </span>
+            <span className="hidden sm:inline">Marcenaria Tubarão: 47+ anos realizando sonhos em Belo Horizonte e Região</span>
           </div>
-
-          <div className="flex items-center gap-4 text-xs">
+          <div className="flex items-center gap-4 text-slate-400 shrink-0">
+            <div className="flex items-center gap-1 text-[#FACC15] font-semibold whitespace-nowrap">
+              <Star className="w-3.5 h-3.5 fill-[#FACC15]" />
+              <span>5,0 no Google Reviews</span>
+            </div>
+            <span className="hidden md:inline text-slate-600">|</span>
             <a
-              href={`tel:${PHONE_DISPLAY.replace(/\D/g, "")}`}
-              className="flex items-center gap-1.5 text-slate-200 hover:text-blue-300 transition-colors font-medium"
-            >
-              <Phone className="w-3.5 h-3.5 text-[#38BDF8]" />
-              <span className="font-semibold">{PHONE_DISPLAY}</span>
-            </a>
-
-            <a
-              href={getWhatsAppUrl("Olá! Gostaria de falar com o time comercial da Friomax Refrigeração.")}
+              href={getWhatsAppUrl("Olá Carlos! Gostaria de falar sobre um projeto de móveis.")}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-1.5 text-[#4ADE80] hover:text-green-300 transition-colors font-bold"
+              className="hidden md:flex items-center gap-1.5 text-slate-300 hover:text-[#00B4D8] transition-colors whitespace-nowrap"
             >
-              <MessageCircle className="w-3.5 h-3.5 fill-[#22C55E] text-white" />
-              <span>WhatsApp: {WHATSAPP_DISPLAY}</span>
-            </a>
-
-            <a
-              href={GOOGLE_SEARCH_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hidden md:flex items-center gap-1 text-amber-300 hover:text-amber-200 font-semibold"
-            >
-              <Star className="w-3.5 h-3.5 fill-amber-400 text-amber-400" />
-              <span>{GOOGLE_RATING}★ ({GOOGLE_REVIEW_COUNT} Google Reviews)</span>
+              <Phone className="w-3 h-3 text-[#00B4D8]" />
+              <span>Fale direto com o Carlos: <strong className="text-white">(31) 99767-3576</strong></span>
             </a>
           </div>
         </div>
       </div>
 
-      {/* ============================================================== */}
-      {/* 2. HEADER PRINCIPAL & NAVEGAÇÃO                                */}
-      {/* ============================================================== */}
-      <header className="bg-white/95 backdrop-blur-md border-b border-slate-200 sticky top-[37px] z-40 transition-all shadow-xs">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2.5 flex items-center justify-between gap-4">
-          {/* Logo da Marca Oficial Friomax Completo (Mascote, Estrelas e Emblema) */}
-          <a href="#" className="flex items-center gap-3 group py-1">
-            <div className="relative h-14 w-14 sm:h-16 sm:w-16 md:h-18 md:w-18 shrink-0 transition-transform duration-200 group-hover:scale-105 drop-shadow-sm">
+      {/* ==================================================== */}
+      {/* 2. MAIN HEADER & NAVIGATION */}
+      {/* ==================================================== */}
+      <header className="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-slate-200/80 shadow-xs transition-all">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between gap-4">
+          {/* Logo & Brand Identity (shrink-0 to prevent overlap) */}
+          <a href="#" className="flex items-center gap-3 group shrink-0">
+            <div className="relative w-12 h-12 sm:w-14 sm:h-14 rounded-full overflow-hidden border-2 border-[#00B4D8] shadow-md group-hover:scale-105 transition-transform duration-300 bg-white flex items-center justify-center p-0.5 shrink-0">
               <Image
                 src={LOGO_SRC}
-                alt={COMPANY_NAME}
-                fill
-                priority
+                alt="Logo Marcenaria Tubarão"
+                width={56}
+                height={56}
                 className="object-contain"
+                priority
               />
             </div>
-            <div className="flex flex-col justify-center">
-              <div className="flex items-center gap-2">
-                <span className="text-xl sm:text-2xl font-black tracking-tight text-[#07152B] leading-none group-hover:text-[#0047FF] transition-colors">
-                  FRIOMAX
+            <div className="flex flex-col shrink-0">
+              <div className="flex items-baseline gap-1.5">
+                <span className="font-extrabold text-lg sm:text-xl tracking-tight text-[#0B1320] font-heading whitespace-nowrap">
+                  MARCENARIA
                 </span>
-                <span className="text-[10px] px-1.5 py-0.5 rounded bg-blue-100 text-[#0047FF] font-extrabold uppercase tracking-wider hidden sm:inline-block">
-                  Desde 1991
+                <span className="font-extrabold text-lg sm:text-xl tracking-tight text-[#00B4D8] font-heading whitespace-nowrap">
+                  TUBARÃO
                 </span>
               </div>
-              <span className="text-[10px] sm:text-[11px] font-bold tracking-wider text-[#0047FF] uppercase mt-0.5">
-                Refrigeração Comercial
-              </span>
-              <span className="text-[9px] text-amber-600 font-bold tracking-tight hidden md:block italic">
-                A diferença está na qualidade
+              <span className="text-[10px] sm:text-[11px] font-bold tracking-widest text-slate-500 uppercase whitespace-nowrap">
+                Móveis Planejados · Desde 1977
               </span>
             </div>
           </a>
 
-          {/* Links Desktop */}
-          <nav className="hidden lg:flex items-center gap-6 text-[14px] font-semibold text-slate-700">
-            <a href="#produtos" className="hover:text-[#0047FF] transition-colors">
-              Equipamentos & Linhas
+          {/* Desktop Navigation Links (whitespace-nowrap & concise labels) */}
+          <nav className="hidden lg:flex items-center gap-3.5 xl:gap-7 text-[13px] xl:text-[14px] font-semibold text-slate-700 shrink-0">
+            <a href="#ambientes" className="hover:text-[#00B4D8] transition-colors whitespace-nowrap">
+              Portfólio
             </a>
-            <a
-              href="#simulador"
-              className="hover:text-[#0047FF] transition-colors flex items-center gap-1 text-[#0047FF] font-bold"
-            >
-              <Calculator className="w-4 h-4 text-[#0047FF]" />
-              Simulador
+            <a href="#diferenciais" className="hover:text-[#00B4D8] transition-colors whitespace-nowrap">
+              Diferenciais
             </a>
-            <a href="#obras" className="hover:text-[#0047FF] transition-colors">
-              Instalações Comerciais
+            <a href="#historia" className="hover:text-[#00B4D8] transition-colors whitespace-nowrap">
+              Tradição 1977
             </a>
-            <a href="#fabrica" className="hover:text-[#0047FF] transition-colors">
-              Fábrica (30+ Anos)
+            <a href="#simulador" className="hover:text-[#00B4D8] transition-colors whitespace-nowrap">
+              Simulador 3D
             </a>
-            <a href="#avaliacoes" className="hover:text-[#0047FF] transition-colors flex items-center gap-1">
-              <Star className="w-3.5 h-3.5 fill-amber-400 text-amber-400" />
-              Avaliações ({GOOGLE_RATING}★)
+            <a href="#depoimentos" className="hover:text-[#00B4D8] transition-colors flex items-center gap-1 whitespace-nowrap">
+              <span>Avaliações</span>
+              <span className="px-1.5 py-0.5 bg-amber-100 text-amber-800 text-[10px] xl:text-[11px] rounded font-bold">5,0★</span>
             </a>
-            <a href="#faq" className="hover:text-[#0047FF] transition-colors">
-              Dúvidas
-            </a>
-            <a href="#contato" className="hover:text-[#0047FF] transition-colors">
-              Contato & Sede
+            <a href="#localizacao" className="hover:text-[#00B4D8] transition-colors whitespace-nowrap">
+              Localização
             </a>
           </nav>
 
-          {/* CTA Header Desktop */}
-          <div className="hidden sm:flex items-center gap-3">
+          {/* CTA Button */}
+          <div className="hidden sm:flex items-center gap-3 shrink-0">
             <GlowingButton
-              href={getWhatsAppUrl(
-                "Olá! Gostaria de solicitar um orçamento de equipamentos de refrigeração direto da fábrica Friomax."
-              )}
+              href={getWhatsAppUrl()}
               target="_blank"
               variant="whatsapp"
-              size="sm"
+              size="md"
+              className="gap-2 text-[13px] xl:text-[14px] px-3.5 xl:px-5 py-2.5 whitespace-nowrap"
             >
-              <MessageCircle className="w-4 h-4" />
-              <span>Orçamento WhatsApp</span>
+              <MessageCircle className="w-4 h-4 fill-white shrink-0" />
+              <span className="hidden xl:inline">Pedir Orçamento no WhatsApp</span>
+              <span className="inline xl:hidden">Orçamento WhatsApp</span>
             </GlowingButton>
           </div>
 
-          {/* Botão Mobile Menu */}
+          {/* Mobile Menu Button */}
           <button
             type="button"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="lg:hidden p-2 text-slate-700 hover:text-[#0047FF] hover:bg-slate-100 rounded-lg focus:outline-hidden"
-            aria-label="Abrir Menu"
+            className="lg:hidden p-2 rounded-lg text-slate-700 hover:bg-slate-100 focus:outline-none shrink-0"
+            aria-label="Menu"
           >
             {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </button>
@@ -822,235 +647,261 @@ Poderiam calcular o melhor valor e condições de fábrica para mim?`;
               initial={{ opacity: 0, height: 0 }}
               animate={{ opacity: 1, height: "auto" }}
               exit={{ opacity: 0, height: 0 }}
-              className="lg:hidden border-t border-slate-200 bg-white px-4 py-4 space-y-3 shadow-xl"
+              className="lg:hidden bg-white border-b border-slate-200 px-6 py-6 shadow-xl"
             >
-              <a
-                href="#produtos"
-                onClick={() => setMobileMenuOpen(false)}
-                className="block py-2 text-base font-semibold text-slate-800 hover:text-[#0047FF]"
-              >
-                Freezers, Balcões & Câmaras
-              </a>
-              <a
-                href="#simulador"
-                onClick={() => setMobileMenuOpen(false)}
-                className="block py-2 text-base font-bold text-[#0047FF]"
-              >
-                Simulador de Equipamentos
-              </a>
-              <a
-                href="#obras"
-                onClick={() => setMobileMenuOpen(false)}
-                className="block py-2 text-base font-semibold text-slate-800 hover:text-[#0047FF]"
-              >
-                Instalações & Clientes
-              </a>
-              <a
-                href="#fabrica"
-                onClick={() => setMobileMenuOpen(false)}
-                className="block py-2 text-base font-semibold text-slate-800 hover:text-[#0047FF]"
-              >
-                Nossa Fábrica em Vespasiano
-              </a>
-              <a
-                href="#avaliacoes"
-                onClick={() => setMobileMenuOpen(false)}
-                className="block py-2 text-base font-semibold text-slate-800 hover:text-[#0047FF]"
-              >
-                Depoimentos do Google (4,4★)
-              </a>
-              <a
-                href="#contato"
-                onClick={() => setMobileMenuOpen(false)}
-                className="block py-2 text-base font-semibold text-slate-800 hover:text-[#0047FF]"
-              >
-                Endereço & Telefones da Fábrica
-              </a>
-
-              <div className="pt-2 border-t border-slate-100 flex flex-col gap-2">
-                <GlowingButton
-                  href={getWhatsAppUrl("Olá! Gostaria de um orçamento via WhatsApp com a Friomax.")}
-                  target="_blank"
-                  variant="whatsapp"
-                  size="md"
-                  className="w-full"
+              <div className="flex flex-col gap-4 text-base font-semibold text-slate-800">
+                <a
+                  href="#ambientes"
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="py-1 hover:text-[#00B4D8]"
                 >
-                  <MessageCircle className="w-4 h-4" />
-                  <span>Chamar no WhatsApp ({WHATSAPP_DISPLAY})</span>
-                </GlowingButton>
-                <GlowingButton
-                  href={`tel:${PHONE_DISPLAY.replace(/\D/g, "")}`}
-                  variant="outline"
-                  size="md"
-                  className="w-full"
+                  Ambientes & Portfólio
+                </a>
+                <a
+                  href="#diferenciais"
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="py-1 hover:text-[#00B4D8]"
                 >
-                  <Phone className="w-4 h-4 text-[#0047FF]" />
-                  <span>Ligar para a Fábrica: {PHONE_DISPLAY}</span>
-                </GlowingButton>
+                  Diferenciais de Qualidade
+                </a>
+                <a
+                  href="#historia"
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="py-1 hover:text-[#00B4D8]"
+                >
+                  História Desde 1977
+                </a>
+                <a
+                  href="#simulador"
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="py-1 hover:text-[#00B4D8]"
+                >
+                  Simulador de Orçamento
+                </a>
+                <a
+                  href="#depoimentos"
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="py-1 hover:text-[#00B4D8] flex items-center justify-between"
+                >
+                  <span>Avaliações de Clientes</span>
+                  <span className="px-2 py-0.5 bg-amber-100 text-amber-800 text-xs rounded-full font-bold">5,0★</span>
+                </a>
+                <a
+                  href="#localizacao"
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="py-1 hover:text-[#00B4D8]"
+                >
+                  Localização em Belo Horizonte
+                </a>
+                <div className="pt-4 border-t border-slate-100 flex flex-col gap-3">
+                  <a
+                    href={`tel:${WHATSAPP_NUMBER}`}
+                    className="flex items-center gap-2 text-sm text-slate-600"
+                  >
+                    <Phone className="w-4 h-4 text-[#00B4D8]" />
+                    <span>Ligar: {WHATSAPP_DISPLAY}</span>
+                  </a>
+                  <GlowingButton
+                    href={getWhatsAppUrl()}
+                    target="_blank"
+                    variant="whatsapp"
+                    size="lg"
+                    className="w-full justify-center"
+                  >
+                    <MessageCircle className="w-5 h-5 fill-white" />
+                    <span>Orçamento no WhatsApp</span>
+                  </GlowingButton>
+                </div>
               </div>
             </motion.div>
           )}
         </AnimatePresence>
       </header>
 
-      {/* ============================================================== */}
-      {/* 3. HERO SECTION — AUTORIDADE INDUSTRIAL & CONVERSÃO MÁXIMA     */}
-      {/* ============================================================== */}
-      <section className="relative bg-gradient-to-br from-[#07152B] via-[#0B1E3F] to-[#030A17] text-white pt-12 pb-20 overflow-hidden border-b border-blue-950">
-        {/* Efeitos de Iluminação Fria de Fundo */}
-        <div className="absolute inset-0 pointer-events-none opacity-25">
-          <div className="absolute -top-32 -left-32 w-96 h-96 bg-[#0047FF] rounded-full blur-[140px]" />
-          <div className="absolute top-1/2 -right-32 w-96 h-96 bg-[#38BDF8] rounded-full blur-[140px]" />
-        </div>
+      {/* ==================================================== */}
+      {/* 3. HERO SECTION (INTERACTIVE SLIDER & HOOK) */}
+      {/* ==================================================== */}
+      <section className="relative bg-[#0B1320] text-white overflow-hidden py-16 lg:py-24">
+        {/* Background Ambient Glows */}
+        <div className="absolute top-0 right-1/4 w-96 h-96 bg-[#00B4D8]/15 rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute bottom-0 left-10 w-96 h-96 bg-[#0284C7]/15 rounded-full blur-3xl pointer-events-none" />
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
-            {/* Coluna de Texto Hero */}
-            <div className="lg:col-span-7 space-y-6">
-              {/* Badge de Destaque com 5 Estrelas */}
-              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-blue-900/60 border border-blue-400/30 text-blue-100 text-xs sm:text-sm font-semibold backdrop-blur-xs">
-                <span className="flex h-2 w-2 rounded-full bg-[#38BDF8] animate-ping" />
-                <div className="flex items-center gap-0.5 text-amber-400">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            {/* Left Content (Text & Call to Actions) */}
+            <div className="lg:col-span-7 flex flex-col items-start">
+              {/* Trust Badge */}
+              <motion.div
+                initial={{ opacity: 0, y: -10 }}
+                animate={{ opacity: 1, y: 0 }}
+                className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-800/90 border border-slate-700/80 mb-6 shadow-sm"
+              >
+                <div className="flex items-center gap-0.5 text-[#FACC15]">
                   {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="w-3.5 h-3.5 fill-amber-400 text-amber-400" />
+                    <Star key={i} className="w-3.5 h-3.5 fill-[#FACC15]" />
                   ))}
                 </div>
-                <span>Fábrica de Refrigeração Comercial desde 1991 · Vespasiano - MG</span>
-              </div>
+                <span className="text-xs font-bold text-slate-200">
+                  5,0 NO GOOGLE REVIEWS
+                </span>
+                <span className="text-slate-500">•</span>
+                <span className="text-xs font-medium text-[#38BDF8]">
+                  47+ ANOS DE HISTÓRIA EM BH
+                </span>
+              </motion.div>
 
-              {/* H1 Principal Solicitado */}
-              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight text-white leading-[1.15]">
-                Fabricante Especialista em{" "}
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#38BDF8] via-[#60A5FA] to-white">
-                  Equipamentos de Refrigeração
-                </span>{" "}
-                Comercial e Industrial
-              </h1>
+              {/* Main Headline (H1) */}
+              <motion.h1
+                initial={{ opacity: 0, y: 15 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.1 }}
+                className="text-3xl sm:text-4xl md:text-5xl lg:text-[46px] font-extrabold tracking-tight leading-[1.12] text-white font-heading"
+              >
+                Móveis Sob Medida &amp; Marcenaria de{" "}
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00B4D8] via-[#38BDF8] to-[#00AEEF]">
+                  Alto Padrão em BH
+                </span>
+              </motion.h1>
 
-              {/* Subtítulo / Proposta de Valor */}
-              <p className="text-base sm:text-lg text-slate-300 leading-relaxed max-w-2xl font-normal">
-                Mais de 30 anos de tradição, engenharia térmica de alta performance e durabilidade inigualável direto da fábrica em Vespasiano - MG. Freezers expositores, vitrines em aço inox, balcões refrigerados e câmaras frias projetadas para valorizar o seu ponto de venda e reduzir o consumo de energia.
-              </p>
+              {/* Subheadline / Value Proposition */}
+              <motion.p
+                initial={{ opacity: 0, y: 15 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.2 }}
+                className="mt-5 text-base sm:text-lg text-slate-300 leading-relaxed font-sans max-w-2xl"
+              >
+                <strong>Desde 1977 realizando sonhos.</strong> Unimos a nobreza e a precisão da
+                marcenaria tradicional à tecnologia moderna de projetos 3D para transformar
+                cozinhas, closets, salas e ambientes corporativos em espaços exclusivos com{" "}
+                <strong className="text-white">acabamento impecável</strong> e{" "}
+                <strong className="text-[#38BDF8]">entrega rigorosamente no prazo</strong>.
+              </motion.p>
 
-              {/* Slogan Histórico em Destaque */}
-              <div className="p-3.5 rounded-xl bg-white/5 border border-white/10 backdrop-blur-xs flex items-center gap-3">
-                <div className="relative w-12 h-12 shrink-0">
-                  <Image
-                    src={MASCOT_SRC}
-                    alt="Mascote Friomax"
-                    fill
-                    className="object-contain"
-                  />
-                </div>
-                <div>
-                  <div className="text-sm font-extrabold text-amber-300 italic">
-                    &ldquo;Friomax, a diferença está na qualidade!&rdquo;
-                  </div>
-                  <div className="text-xs text-slate-300">
-                    Compromisso sério com eficiência térmica, robustez e assistência garantida.
-                  </div>
-                </div>
-              </div>
-
-              {/* Pilares Rápidos de Confiança */}
-              <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 pt-1">
-                <div className="flex items-center gap-2.5 p-2.5 rounded-lg bg-white/5 border border-white/10 backdrop-blur-xs">
-                  <ShieldCheck className="w-5 h-5 text-[#38BDF8] shrink-0" />
-                  <span className="text-xs sm:text-sm font-semibold text-slate-200">
-                    Aço Inox & PUR Ecológico
-                  </span>
-                </div>
-                <div className="flex items-center gap-2.5 p-2.5 rounded-lg bg-white/5 border border-white/10 backdrop-blur-xs">
-                  <Zap className="w-5 h-5 text-amber-400 shrink-0" />
-                  <span className="text-xs sm:text-sm font-semibold text-slate-200">
-                    Alta Eficiência Energética
-                  </span>
-                </div>
-                <div className="flex items-center gap-2.5 p-2.5 rounded-lg bg-white/5 border border-white/10 backdrop-blur-xs col-span-2 sm:col-span-1">
-                  <Star className="w-5 h-5 fill-amber-400 text-amber-400 shrink-0" />
-                  <span className="text-xs sm:text-sm font-semibold text-slate-200">
-                    4,4★ Google (41 Avaliações)
-                  </span>
-                </div>
-              </div>
-
-              {/* Botões de Ação Hero */}
-              <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 pt-3">
+              {/* CTA Action Buttons */}
+              <motion.div
+                initial={{ opacity: 0, y: 15 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.3 }}
+                className="mt-8 flex flex-col sm:flex-row items-stretch sm:items-center gap-4 w-full sm:w-auto"
+              >
                 <GlowingButton
-                  href={getWhatsAppUrl(
-                    "Olá! Gostaria de consultar preços de equipamentos de refrigeração comercial e falar com o time de vendas da Friomax."
-                  )}
+                  href={getWhatsAppUrl("Olá Carlos! Gostaria de solicitar um orçamento para o meu projeto de móveis.")}
                   target="_blank"
                   variant="whatsapp"
-                  size="lg"
-                  className="shadow-lg shadow-green-950/40 text-base"
+                  size="xl"
+                  className="shadow-xl"
                 >
-                  <MessageCircle className="w-5 h-5" />
-                  <span>Falar com Especialista no WhatsApp</span>
+                  <MessageCircle className="w-5 h-5 fill-white" />
+                  <span>Falar com o Carlos no WhatsApp</span>
                 </GlowingButton>
 
                 <GlowingButton
-                  href="#simulador"
-                  variant="gold"
-                  size="lg"
-                  className="text-base font-extrabold"
+                  href="#ambientes"
+                  variant="outlineCyan"
+                  size="xl"
+                  className="gap-2"
                 >
-                  <Calculator className="w-5 h-5" />
-                  <span>Simulador de Equipamento</span>
+                  <span>Explorar Ambientes</span>
+                  <ArrowRight className="w-4 h-4" />
                 </GlowingButton>
-              </div>
+              </motion.div>
 
-              {/* Atendimento e Carregamento Rápido */}
-              <div className="flex items-center gap-4 text-xs text-slate-400 pt-1">
-                <span className="flex items-center gap-1">
-                  <Truck className="w-4 h-4 text-[#38BDF8]" />
-                  Despacho e entrega para todo o Brasil
-                </span>
-                <span>•</span>
-                <span className="flex items-center gap-1">
-                  <Clock className="w-4 h-4 text-[#38BDF8]" />
-                  Segunda a Sexta: 07:30 às 17:30
-                </span>
-              </div>
-            </div>
-
-            {/* Coluna Visual do Hero — Vitrine de Destaques Sem Cortes */}
-            <div className="lg:col-span-5 relative space-y-4">
-              <div className="rounded-2xl overflow-hidden border border-blue-400/30 bg-[#0B1E3F] shadow-2xl shadow-blue-950/70 flex flex-col">
-                {/* Barra de Status Superior */}
-                <div className="px-4 py-2.5 bg-[#07152B] border-b border-blue-900/60 flex items-center justify-between">
-                  <span className="px-2.5 py-0.5 rounded-full bg-gradient-to-r from-[#0047FF] to-[#012B8E] text-white font-bold text-[11px] uppercase tracking-wider flex items-center gap-1.5 shadow-xs">
-                    <Factory className="w-3 h-3 text-cyan-300" />
-                    Fabricação Própria Friomax
-                  </span>
-                  <span className="text-xs text-amber-300 font-bold flex items-center gap-1">
-                    <Star className="w-3.5 h-3.5 fill-amber-400 text-amber-400" />
-                    {GOOGLE_RATING}★ ({GOOGLE_REVIEW_COUNT} Reviews)
-                  </span>
+              {/* Quick Trust Pillars (4 Pills) */}
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 0.4 }}
+                className="mt-10 pt-8 border-t border-slate-800/80 grid grid-cols-2 sm:grid-cols-4 gap-4 w-full"
+              >
+                <div className="flex items-center gap-2.5">
+                  <div className="w-8 h-8 rounded-lg bg-[#00B4D8]/15 border border-[#00B4D8]/30 flex items-center justify-center text-[#38BDF8]">
+                    <Clock className="w-4 h-4" />
+                  </div>
+                  <div>
+                    <p className="text-xs font-bold text-white">Desde 1977</p>
+                    <p className="text-[11px] text-slate-400">47+ anos em BH</p>
+                  </div>
                 </div>
 
-                {/* Imagem do Hero 100% visível sem cortes — Aspect ratio 16/9 */}
-                <div className="relative w-full aspect-[16/10] bg-slate-900 overflow-hidden flex items-center justify-center group">
-                  <Image
-                    src={HERO_SLIDES[currentHeroSlide].image}
-                    alt={HERO_SLIDES[currentHeroSlide].title}
-                    fill
-                    className="object-cover"
-                    priority
-                  />
+                <div className="flex items-center gap-2.5">
+                  <div className="w-8 h-8 rounded-lg bg-[#F59E0B]/15 border border-[#F59E0B]/30 flex items-center justify-center text-[#FACC15]">
+                    <Star className="w-4 h-4 fill-[#FACC15]" />
+                  </div>
+                  <div>
+                    <p className="text-xs font-bold text-white">Nota 5,0★</p>
+                    <p className="text-[11px] text-slate-400">Google Reviews</p>
+                  </div>
+                </div>
 
-                  {/* Gradiente sutil */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none" />
+                <div className="flex items-center gap-2.5">
+                  <div className="w-8 h-8 rounded-lg bg-[#16A34A]/15 border border-[#16A34A]/30 flex items-center justify-center text-[#22C55E]">
+                    <ShieldCheck className="w-4 h-4" />
+                  </div>
+                  <div>
+                    <p className="text-xs font-bold text-white">Pontualidade</p>
+                    <p className="text-[11px] text-slate-400">Entrega garantida</p>
+                  </div>
+                </div>
 
-                  {/* Botões de Navegação discretos */}
+                <div className="flex items-center gap-2.5">
+                  <div className="w-8 h-8 rounded-lg bg-cyan-500/15 border border-cyan-500/30 flex items-center justify-center text-cyan-400">
+                    <Ruler className="w-4 h-4" />
+                  </div>
+                  <div>
+                    <p className="text-xs font-bold text-white">100% Sob Medida</p>
+                    <p className="text-[11px] text-slate-400">Projeto exclusivo</p>
+                  </div>
+                </div>
+              </motion.div>
+            </div>
+
+            {/* Right Content (Interactive Photography Showcase Slider) */}
+            <div className="lg:col-span-5 relative">
+              <div className="relative rounded-2xl overflow-hidden border-2 border-slate-700/80 bg-slate-900 shadow-2xl group aspect-[4/3] sm:aspect-[16/11]">
+                <AnimatePresence mode="wait">
+                  <motion.div
+                    key={HERO_SLIDES[activeSlide].id}
+                    initial={{ opacity: 0, scale: 1.05 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    exit={{ opacity: 0 }}
+                    transition={{ duration: 0.6 }}
+                    className="relative w-full h-full"
+                  >
+                    <Image
+                      src={HERO_SLIDES[activeSlide].image}
+                      alt={HERO_SLIDES[activeSlide].title}
+                      fill
+                      className="object-cover"
+                      priority
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#0B1320] via-[#0B1320]/40 to-transparent" />
+
+                    {/* Overlay Slide Info */}
+                    <div className="absolute bottom-0 inset-x-0 p-6 flex flex-col justify-end">
+                      <div className="inline-flex items-center gap-2 px-2.5 py-1 rounded bg-[#00B4D8] text-[#0B1320] font-bold text-xs w-max mb-2 shadow">
+                        <Sparkles className="w-3.5 h-3.5" />
+                        <span>{HERO_SLIDES[activeSlide].badge}</span>
+                      </div>
+                      <h3 className="text-xl sm:text-2xl font-bold text-white font-heading">
+                        {HERO_SLIDES[activeSlide].title}
+                      </h3>
+                      <p className="text-xs sm:text-sm text-slate-300 mt-1 line-clamp-2">
+                        {HERO_SLIDES[activeSlide].description}
+                      </p>
+                    </div>
+                  </motion.div>
+                </AnimatePresence>
+
+                {/* Slider Controls */}
+                <div className="absolute top-4 right-4 flex items-center gap-1.5 z-20">
                   <button
                     type="button"
                     onClick={() =>
-                      setCurrentHeroSlide((prev) =>
-                        prev === 0 ? HERO_SLIDES.length - 1 : prev - 1
+                      setActiveSlide(
+                        (prev) => (prev - 1 + HERO_SLIDES.length) % HERO_SLIDES.length
                       )
                     }
-                    className="absolute left-2 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-black/60 hover:bg-black/85 text-white flex items-center justify-center transition-all z-10 cursor-pointer shadow-md"
+                    className="w-8 h-8 rounded-full bg-black/60 hover:bg-[#00B4D8] text-white flex items-center justify-center transition-colors"
                     aria-label="Slide anterior"
                   >
                     <ChevronLeft className="w-4 h-4" />
@@ -1058,807 +909,530 @@ Poderiam calcular o melhor valor e condições de fábrica para mim?`;
                   <button
                     type="button"
                     onClick={() =>
-                      setCurrentHeroSlide((prev) =>
-                        prev === HERO_SLIDES.length - 1 ? 0 : prev + 1
-                      )
+                      setActiveSlide((prev) => (prev + 1) % HERO_SLIDES.length)
                     }
-                    className="absolute right-2 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-black/60 hover:bg-black/85 text-white flex items-center justify-center transition-all z-10 cursor-pointer shadow-md"
+                    className="w-8 h-8 rounded-full bg-black/60 hover:bg-[#00B4D8] text-white flex items-center justify-center transition-colors"
                     aria-label="Próximo slide"
                   >
                     <ChevronRight className="w-4 h-4" />
                   </button>
-
-                  {/* Indicadores de slides */}
-                  <div className="absolute bottom-2 left-1/2 -translate-x-1/2 flex items-center gap-1.5 z-10 bg-black/50 px-2.5 py-1 rounded-full backdrop-blur-xs">
-                    {HERO_SLIDES.map((_, idx) => (
-                      <button
-                        key={idx}
-                        type="button"
-                        onClick={() => setCurrentHeroSlide(idx)}
-                        className={`h-1.5 rounded-full transition-all cursor-pointer ${
-                          currentHeroSlide === idx
-                            ? "bg-[#0047FF] w-5"
-                            : "bg-white/60 w-1.5 hover:bg-white"
-                        }`}
-                        aria-label={`Slide ${idx + 1}`}
-                      />
-                    ))}
-                  </div>
                 </div>
+              </div>
 
-                {/* Conteúdo Informativo ABAIXO da Imagem — 0% de corte ou sobreposição */}
-                <div className="p-4 sm:p-5 space-y-2.5 bg-[#0B1E3F] text-white border-t border-blue-900/60">
-                  <div className="flex items-center justify-between gap-2">
-                    <h3 className="text-base sm:text-lg font-bold text-white truncate">
-                      {HERO_SLIDES[currentHeroSlide].title}
-                    </h3>
-                    <span className="text-[11px] font-semibold px-2 py-0.5 rounded bg-blue-900/80 text-cyan-200 border border-blue-400/30 shrink-0">
-                      {HERO_SLIDES[currentHeroSlide].badge}
+              {/* Slider Dots */}
+              <div className="flex items-center justify-center gap-2 mt-4">
+                {HERO_SLIDES.map((slide, idx) => (
+                  <button
+                    key={slide.id}
+                    onClick={() => setActiveSlide(idx)}
+                    className={`h-2 rounded-full transition-all duration-300 ${
+                      activeSlide === idx
+                        ? "w-8 bg-[#00B4D8]"
+                        : "w-2 bg-slate-700 hover:bg-slate-500"
+                    }`}
+                    aria-label={`Ver slide ${idx + 1}`}
+                  />
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ==================================================== */}
+      {/* 4. SHOWCASE DE AMBIENTES & PORTFÓLIO */}
+      {/* ==================================================== */}
+      <section id="ambientes" className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          {/* Section Header */}
+          <div className="text-center max-w-3xl mx-auto mb-12">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-sky-50 text-[#0284C7] text-xs font-bold uppercase tracking-wider mb-3 border border-sky-200">
+              <Layers className="w-3.5 h-3.5" />
+              <span>Portfólio de Ambientes Exclusivos</span>
+            </div>
+            <h2 className="text-3xl sm:text-4xl font-extrabold text-[#0B1320] font-heading tracking-tight">
+              Cada Detalhe Pensado Para Encantar e Durar
+            </h2>
+            <p className="mt-4 text-base text-slate-600">
+              Navegue pelos projetos executados pela Marcenaria Tubarão em Belo Horizonte.
+              Do corte milimétrico ao ajuste fino na instalação, entregamos ambientes que aliam
+              beleza atemporal, máxima ergonomia e resistência.
+            </p>
+          </div>
+
+          {/* Category Filter Tabs */}
+          <div className="flex items-center justify-center flex-wrap gap-2 mb-10">
+            {[
+              { id: "todos", label: "Todos os Ambientes" },
+              { id: "cozinhas", label: "Cozinhas Gourmet" },
+              { id: "dormitorios", label: "Dormitórios & Closets" },
+              { id: "salas", label: "Salas & Ripados" },
+              { id: "banheiros", label: "Banheiros Nobres" },
+              { id: "corporativo", label: "Comercial & Corporativo" },
+              { id: "madeira", label: "Madeira Maciça (1977)" },
+            ].map((tab) => (
+              <button
+                key={tab.id}
+                onClick={() => setSelectedCategory(tab.id as ProjectCategory)}
+                className={`px-4 py-2 rounded-lg text-sm font-semibold transition-all duration-200 cursor-pointer ${
+                  selectedCategory === tab.id
+                    ? "bg-[#0B1320] text-white shadow-md"
+                    : "bg-slate-100 text-slate-700 hover:bg-slate-200"
+                }`}
+              >
+                {tab.label}
+              </button>
+            ))}
+          </div>
+
+          {/* Projects Grid */}
+          <motion.div
+            layout
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+          >
+            <AnimatePresence>
+              {filteredProjects.map((project) => (
+                <motion.div
+                  layout
+                  initial={{ opacity: 0, scale: 0.95 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0, scale: 0.95 }}
+                  transition={{ duration: 0.3 }}
+                  key={project.id}
+                  className="bg-white rounded-2xl overflow-hidden border border-slate-200 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col group"
+                >
+                  {/* Project Image */}
+                  <div className="relative aspect-[16/11] overflow-hidden bg-slate-100">
+                    <Image
+                      src={project.image}
+                      alt={project.title}
+                      fill
+                      className="object-cover group-hover:scale-105 transition-transform duration-500"
+                    />
+                    <div className="absolute top-3 left-3 bg-[#0B1320]/80 backdrop-blur-xs text-white text-[11px] font-bold px-2.5 py-1 rounded-md">
+                      {project.categoryLabel}
+                    </div>
+                    <button
+                      type="button"
+                      onClick={() => setSelectedProject(project)}
+                      className="absolute inset-0 bg-[#0B1320]/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white gap-2 font-semibold text-sm cursor-pointer"
+                    >
+                      <Maximize2 className="w-5 h-5" />
+                      <span>Ver Especificações</span>
+                    </button>
+                  </div>
+
+                  {/* Project Details */}
+                  <div className="p-6 flex-1 flex flex-col justify-between">
+                    <div>
+                      <h3 className="font-bold text-lg text-[#0B1320] font-heading group-hover:text-[#00B4D8] transition-colors leading-snug">
+                        {project.title}
+                      </h3>
+                      <p className="mt-2 text-xs sm:text-sm text-slate-600 line-clamp-2">
+                        {project.description}
+                      </p>
+
+                      {/* Materials tags */}
+                      <div className="mt-4 flex flex-wrap gap-1.5">
+                        {project.materials.map((mat, i) => (
+                          <span
+                            key={i}
+                            className="inline-flex items-center text-[11px] font-medium px-2 py-0.5 rounded bg-slate-100 text-slate-700"
+                          >
+                            ✓ {mat}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+
+                    <div className="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between">
+                      <span className="text-xs text-slate-500 flex items-center gap-1">
+                        <MapPin className="w-3.5 h-3.5 text-[#00B4D8]" />
+                        {project.location}
+                      </span>
+                      <a
+                        href={getWhatsAppUrl(`Olá Carlos! Vi a foto do projeto "${project.title}" no site da Marcenaria Tubarão e gostaria de fazer algo parecido.`)}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-xs font-bold text-[#00B4D8] hover:text-[#0284C7] flex items-center gap-1 group-hover:translate-x-0.5 transition-transform"
+                      >
+                        <span>Quero esse estilo</span>
+                        <ArrowRight className="w-3.5 h-3.5" />
+                      </a>
+                    </div>
+                  </div>
+                </motion.div>
+              ))}
+            </AnimatePresence>
+          </motion.div>
+
+          {/* Under-gallery CTA */}
+          <div className="mt-14 text-center bg-gradient-to-r from-sky-50 via-slate-50 to-sky-50 rounded-2xl p-8 border border-sky-100">
+            <h3 className="text-xl font-bold text-[#0B1320] font-heading">
+              Tem uma foto ou referência do Pinterest ou Instagram que amou?
+            </h3>
+            <p className="text-slate-600 text-sm mt-2 max-w-xl mx-auto">
+              Envie a foto ou a planta para o Carlos pelo WhatsApp! Adaptamos as referências
+              às medidas exatas do seu espaço com projeto 3D realista.
+            </p>
+            <div className="mt-5">
+              <GlowingButton
+                href={getWhatsAppUrl("Olá Carlos! Tenho algumas referências de móveis que gostaria de enviar para você avaliar.")}
+                target="_blank"
+                variant="whatsapp"
+                size="lg"
+              >
+                <MessageCircle className="w-4 h-4 fill-white" />
+                <span>Enviar Foto de Referência no WhatsApp</span>
+              </GlowingButton>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ==================================================== */}
+      {/* 5. INSTAGRAM OFICIAL: @marcenaria.tubarao (FOTOS REAIS) */}
+      {/* ==================================================== */}
+      <section id="instagram" className="py-20 bg-[#0B1320] text-white relative overflow-hidden border-t border-slate-800">
+        <div className="absolute top-0 right-1/3 w-80 h-80 bg-gradient-to-tr from-[#f09433]/15 via-[#dc2743]/15 to-[#bc1888]/15 rounded-full blur-3xl pointer-events-none" />
+
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          {/* Section Header with Instagram Branding */}
+          <div className="flex flex-col lg:flex-row items-start lg:items-end justify-between gap-6 mb-12">
+            <div>
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-gradient-to-r from-[#f09433]/20 via-[#dc2743]/20 to-[#bc1888]/20 text-[#f09433] text-xs font-bold uppercase tracking-wider mb-3 border border-[#dc2743]/30">
+                <InstagramIcon className="w-3.5 h-3.5" />
+                <span>Instagram Oficial · @marcenaria.tubarao</span>
+              </div>
+              <h2 className="text-3xl sm:text-4xl font-extrabold text-white font-heading tracking-tight">
+                Direto da Oficina &amp; Obras Reais Entregues em BH
+              </h2>
+              <p className="mt-3 text-slate-300 text-sm sm:text-base max-w-2xl">
+                Acompanhe o dia a dia da nossa produção na Rua Santa Judite 70, bastidores de montagens
+                reais em apartamentos e casas, e novos ambientes finalizados pela equipe do Carlos.
+              </p>
+            </div>
+
+            {/* Profile Pill Card */}
+            <a
+              href={INSTAGRAM_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-slate-900/90 hover:bg-slate-900 border border-slate-700/80 p-4 rounded-2xl flex items-center gap-4 transition-all hover:border-[#dc2743] hover:scale-102 group shadow-lg shrink-0"
+            >
+              <div className="relative w-12 h-12 rounded-full p-0.5 bg-gradient-to-tr from-[#f09433] via-[#dc2743] to-[#bc1888] shrink-0">
+                <div className="w-full h-full rounded-full bg-white overflow-hidden p-0.5 flex items-center justify-center">
+                  <Image
+                    src={LOGO_SRC}
+                    alt="@marcenaria.tubarao"
+                    width={44}
+                    height={44}
+                    className="object-contain"
+                  />
+                </div>
+              </div>
+              <div>
+                <div className="flex items-center gap-1.5">
+                  <span className="font-bold text-white text-sm group-hover:text-[#f09433] transition-colors">
+                    {INSTAGRAM_HANDLE}
+                  </span>
+                  <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
+                </div>
+                <div className="flex items-center gap-3 text-xs text-slate-400 mt-0.5">
+                  <span><strong>109</strong> posts</span>
+                  <span>•</span>
+                  <span><strong>483</strong> seguidores</span>
+                </div>
+              </div>
+              <div className="ml-2 px-3 py-1.5 rounded-lg bg-gradient-to-r from-[#f09433] via-[#dc2743] to-[#bc1888] text-white text-xs font-bold flex items-center gap-1 shadow">
+                <span>Seguir</span>
+                <ExternalLink className="w-3 h-3" />
+              </div>
+            </a>
+          </div>
+
+          {/* Grid of 12 real Instagram photos */}
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3 sm:gap-4">
+            {INSTAGRAM_POSTS.map((post) => (
+              <div
+                key={post.id}
+                className="group relative aspect-square rounded-xl overflow-hidden bg-slate-800 border border-slate-700/60 shadow-md hover:border-[#00B4D8] transition-all duration-300"
+              >
+                <Image
+                  src={post.image}
+                  alt={post.title}
+                  fill
+                  className="object-cover group-hover:scale-108 transition-transform duration-500"
+                />
+                {/* Gradient overlay */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 p-3 flex flex-col justify-between">
+                  <div className="flex items-center justify-between text-white text-[11px] font-bold">
+                    <span className="inline-flex items-center gap-1 text-[#f09433]">
+                      <InstagramIcon className="w-3 h-3" />
+                    </span>
+                    <span className="flex items-center gap-0.5 text-rose-400">
+                      ❤️ {post.likes}
                     </span>
                   </div>
-                  <p className="text-xs text-slate-300 leading-relaxed">
-                    {HERO_SLIDES[currentHeroSlide].description}
-                  </p>
-                  <div className="pt-2 flex items-center justify-between text-xs text-cyan-300 border-t border-blue-900/40">
-                    <span className="flex items-center gap-1.5 font-semibold">
-                      <ThermometerSnowflake className="w-3.5 h-3.5 text-[#38BDF8]" />
-                      {HERO_SLIDES[currentHeroSlide].range}
-                    </span>
+                  <div>
+                    <p className="text-white text-[11px] font-semibold line-clamp-2 leading-tight">
+                      {post.title}
+                    </p>
                     <a
-                      href="#produtos"
-                      className="font-bold underline hover:text-white flex items-center gap-1 transition-colors text-amber-300"
+                      href={getWhatsAppUrl(`Olá Carlos! Vi a foto no Instagram da Marcenaria Tubarão ("${post.title}") e gostaria de um orçamento para fazer algo assim.`)}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="mt-2 w-full py-1 px-2 rounded bg-[#16A34A] hover:bg-[#15803D] text-white text-[10px] font-bold text-center block transition-colors"
                     >
-                      Ver todos os modelos <ArrowRight className="w-3.5 h-3.5" />
+                      Quero Móvel Igual
                     </a>
                   </div>
                 </div>
               </div>
-
-              {/* Card Informativo Fabril Limpo Abaixo */}
-              <div className="flex items-center justify-between p-3.5 rounded-xl bg-white/5 border border-white/10 backdrop-blur-xs text-slate-200">
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-lg bg-[#0047FF] text-white flex items-center justify-center shrink-0 shadow-md">
-                    <Building2 className="w-5 h-5" />
-                  </div>
-                  <div>
-                    <div className="text-[11px] font-bold text-cyan-300 uppercase tracking-wider">
-                      Sede Própria em Vespasiano - MG
-                    </div>
-                    <div className="text-xs font-semibold text-white">
-                      R. São Paulo, 1500 - Nova Pampulha · Tel: (31) 3503-2400
-                    </div>
-                  </div>
-                </div>
-                <a
-                  href="#contato"
-                  className="hidden sm:inline-flex text-xs font-bold text-cyan-300 hover:text-white underline"
-                >
-                  Ver no mapa
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ============================================================== */}
-      {/* 4. BARRA DE NÚMEROS & DIFERENCIAIS INDUSTRIAIS                  */}
-      {/* ============================================================== */}
-      <section className="bg-white border-b border-slate-200 py-6 sm:py-8 shadow-xs">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center divide-y md:divide-y-0 md:divide-x divide-slate-200">
-            <div className="pt-3 md:pt-0">
-              <div className="text-3xl sm:text-4xl font-black text-[#0047FF]">30+ Anos</div>
-              <div className="text-xs sm:text-sm font-medium text-slate-600 mt-1">
-                De tradição fabril contínua na refrigeração comercial (desde 1991)
-              </div>
-            </div>
-            <div className="pt-3 md:pt-0">
-              <div className="text-3xl sm:text-4xl font-black text-[#07152B]">Vespasiano</div>
-              <div className="text-xs sm:text-sm font-medium text-slate-600 mt-1">
-                Fábrica própria e sede estruturada na R. São Paulo, 1500 (MG)
-              </div>
-            </div>
-            <div className="pt-3 md:pt-0">
-              <div className="text-3xl sm:text-4xl font-black text-[#F59E0B]">4,4 ★</div>
-              <div className="text-xs sm:text-sm font-medium text-slate-600 mt-1">
-                Nota no Google Reviews com 41 avaliações comprovadas
-              </div>
-            </div>
-            <div className="pt-3 md:pt-0">
-              <div className="text-3xl sm:text-4xl font-black text-[#16A34A]">100% Qualidade</div>
-              <div className="text-xs sm:text-sm font-medium text-slate-600 mt-1">
-                &ldquo;A diferença está na qualidade&rdquo; em durabilidade e assistência
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ============================================================== */}
-      {/* 5. SIMULADOR INTERATIVO DE EQUIPAMENTOS FRIOMAX                */}
-      {/* ============================================================== */}
-      <section
-        id="simulador"
-        className="py-16 sm:py-20 bg-gradient-to-b from-[#EFF6FF] to-white border-b border-blue-100"
-      >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-3xl mx-auto space-y-3 mb-12">
-            <span className="px-3 py-1 rounded-full bg-[#DBEAFE] text-[#0047FF] text-xs font-bold uppercase tracking-wider border border-[#BFDBFE]">
-              Ferramenta Exclusiva Friomax
-            </span>
-            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black text-[#07152B]">
-              Simulador de Equipamento & Dimensionamento Comercial
-            </h2>
-            <p className="text-sm sm:text-base text-slate-600">
-              Selecione o seu segmento e porte de comércio para receber a recomendação exata de equipamentos, temperatura ideal e enviar a cotação pronta para nossa fábrica.
-            </p>
-          </div>
-
-          <div className="bg-white rounded-2xl shadow-xl border border-blue-200 overflow-hidden grid grid-cols-1 lg:grid-cols-12">
-            {/* Controles do Simulador */}
-            <div className="lg:col-span-7 p-6 sm:p-8 space-y-6">
-              {/* 1. Tipo de Negócio */}
-              <div>
-                <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">
-                  1. Segmento do seu Estabelecimento
-                </label>
-                <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
-                  {[
-                    { id: "supermercado", label: "Supermercado / Mercearia" },
-                    { id: "acougue", label: "Açougue / Casa de Carnes" },
-                    { id: "padaria", label: "Padaria / Confeitaria" },
-                    { id: "restaurante", label: "Cozinha / Restaurante" },
-                    { id: "distribuidora", label: "Distribuidora / Atacado" },
-                    { id: "conveniencia", label: "Conveniência / Beer Cave" },
-                  ].map((item) => (
-                    <button
-                      key={item.id}
-                      type="button"
-                      onClick={() =>
-                        setSimBusinessType(
-                          item.id as
-                            | "supermercado"
-                            | "acougue"
-                            | "padaria"
-                            | "restaurante"
-                            | "distribuidora"
-                            | "conveniencia"
-                        )
-                      }
-                      className={`px-3 py-2.5 rounded-lg text-xs font-bold border transition-all text-center cursor-pointer ${
-                        simBusinessType === item.id
-                          ? "bg-[#0047FF] text-white border-[#0047FF] shadow-sm"
-                          : "bg-slate-50 text-slate-700 border-slate-200 hover:border-blue-300"
-                      }`}
-                    >
-                      {item.label}
-                    </button>
-                  ))}
-                </div>
-              </div>
-
-              {/* 2. Categoria de Equipamento */}
-              <div>
-                <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">
-                  2. Solução Principal Buscada
-                </label>
-                <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
-                  {[
-                    { id: "freezer", label: "Freezers Expositores" },
-                    { id: "balcao", label: "Balcões & Vitrines" },
-                    { id: "camara", label: "Câmara Frigorífica" },
-                    { id: "inox", label: "Geladeiras Inox" },
-                  ].map((cat) => (
-                    <button
-                      key={cat.id}
-                      type="button"
-                      onClick={() =>
-                        setSimProductCategory(
-                          cat.id as "freezer" | "balcao" | "camara" | "inox"
-                        )
-                      }
-                      className={`p-2.5 rounded-lg text-xs font-bold border transition-all text-center cursor-pointer ${
-                        simProductCategory === cat.id
-                          ? "bg-[#012B8E] text-white border-[#012B8E] shadow-sm"
-                          : "bg-slate-50 text-slate-700 border-slate-200 hover:border-blue-300"
-                      }`}
-                    >
-                      {cat.label}
-                    </button>
-                  ))}
-                </div>
-              </div>
-
-              {/* 3. Faixa de Temperatura e Porte da Loja */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <div>
-                  <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">
-                    3. Faixa de Temperatura
-                  </label>
-                  <div className="grid grid-cols-3 gap-1.5">
-                    {[
-                      { id: "congelados", label: "Congelados (-18°C)" },
-                      { id: "resfriados", label: "Resfriados (+2°C)" },
-                      { id: "ambos", label: "Misto / Ambos" },
-                    ].map((t) => (
-                      <button
-                        key={t.id}
-                        type="button"
-                        onClick={() =>
-                          setSimTempRange(t.id as "congelados" | "resfriados" | "ambos")
-                        }
-                        className={`p-2 rounded-lg text-[11px] font-bold border transition-all text-center cursor-pointer ${
-                          simTempRange === t.id
-                            ? "bg-[#0047FF] text-white border-[#0047FF]"
-                            : "bg-slate-50 text-slate-700 border-slate-200"
-                        }`}
-                      >
-                        {t.label}
-                      </button>
-                    ))}
-                  </div>
-                </div>
-
-                <div>
-                  <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">
-                    4. Porte do Estabelecimento
-                  </label>
-                  <div className="grid grid-cols-3 gap-1.5">
-                    {[
-                      { id: "pequeno", label: "Compacto" },
-                      { id: "medio", label: "Médio Porte" },
-                      { id: "grande", label: "Grande Rede" },
-                    ].map((sz) => (
-                      <button
-                        key={sz.id}
-                        type="button"
-                        onClick={() =>
-                          setSimStoreSize(sz.id as "pequeno" | "medio" | "grande")
-                        }
-                        className={`p-2 rounded-lg text-[11px] font-bold border transition-all text-center cursor-pointer ${
-                          simStoreSize === sz.id
-                            ? "bg-[#0047FF] text-white border-[#0047FF]"
-                            : "bg-slate-50 text-slate-700 border-slate-200"
-                        }`}
-                      >
-                        {sz.label}
-                      </button>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Painel de Resultados do Simulador */}
-            <div className="lg:col-span-5 bg-gradient-to-br from-[#0B1E3F] to-[#07152B] text-white p-6 sm:p-8 flex flex-col justify-between border-t lg:border-t-0 lg:border-l border-blue-950">
-              <div className="space-y-4">
-                <div className="flex items-center justify-between pb-3 border-b border-blue-900/60">
-                  <div className="text-xs font-bold uppercase tracking-wider text-cyan-300">
-                    Dimensionamento Recomendado
-                  </div>
-                  <span className="text-[11px] px-2 py-0.5 rounded bg-blue-500/20 text-cyan-200 border border-blue-400/30">
-                    Engenharia Friomax
-                  </span>
-                </div>
-
-                <div className="p-3.5 rounded-xl bg-white/5 border border-white/10 space-y-1">
-                  <div className="text-xs text-slate-400">Linha Recomendada:</div>
-                  <div className="text-base font-black text-white">
-                    {simResults.recommendation}
-                  </div>
-                  <div className="text-xs text-amber-300 font-semibold pt-1">
-                    Estimativa de Carga: {simResults.estimatedUnits}
-                  </div>
-                </div>
-
-                <div className="grid grid-cols-2 gap-3">
-                  <div className="p-3 rounded-xl bg-white/5 border border-white/10">
-                    <div className="text-xs text-slate-400">Temperatura Ideal:</div>
-                    <div className="text-lg font-black text-[#38BDF8]">
-                      {simResults.idealTemp}
-                    </div>
-                  </div>
-
-                  <div className="p-3 rounded-xl bg-white/5 border border-white/10">
-                    <div className="text-xs text-slate-400">Isolamento Térmico:</div>
-                    <div className="text-sm font-bold text-white">
-                      PUR Injetado Alta Densidade
-                    </div>
-                  </div>
-                </div>
-
-                <div className="text-[11px] text-slate-400 leading-relaxed bg-black/25 p-2.5 rounded-lg border border-white/5">
-                  💡 Nossos engenheiros analisam a planta do seu comércio para posicionar os balcões e freezers maximizando a circulação de clientes e a economia de energia.
-                </div>
-              </div>
-
-              {/* Botão de Envio para WhatsApp */}
-              <div className="pt-6">
-                <GlowingButton
-                  href={simWhatsAppUrl}
-                  target="_blank"
-                  variant="whatsapp"
-                  size="md"
-                  className="w-full text-sm font-bold shadow-lg"
-                >
-                  <MessageCircle className="w-4 h-4" />
-                  <span>Enviar Simulação para a Fábrica</span>
-                </GlowingButton>
-                <p className="text-[11px] text-center text-slate-400 mt-2">
-                  Atendimento rápido com preço de fábrica e condições facilitadas
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ============================================================== */}
-      {/* 6. CATÁLOGO DE PRODUTOS & LINHAS DE FABRICAÇÃO                 */}
-      {/* ============================================================== */}
-      <section id="produtos" className="py-16 sm:py-24 bg-white border-b border-slate-200">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-3xl mx-auto space-y-3 mb-12">
-            <span className="px-3 py-1 rounded-full bg-[#DBEAFE] text-[#0047FF] text-xs font-bold uppercase tracking-wider border border-[#BFDBFE]">
-              Catálogo Industrial Friomax
-            </span>
-            <h2 className="text-3xl sm:text-4xl font-black text-[#07152B]">
-              Equipamentos Fabricados com Alta Qualidade & Eficiência
-            </h2>
-            <p className="text-base text-slate-600">
-              Linha completa de freezers expositores, vitrines em aço inox, balcões térmicos e câmaras frigoríficas construídos para durar décadas no seu comércio.
-            </p>
-
-            {/* Filtros de Categorias */}
-            <div className="flex flex-wrap items-center justify-center gap-2 pt-4">
-              {[
-                { id: "todos", label: "Todos os Equipamentos" },
-                { id: "freezers", label: "Freezers & Expositores" },
-                { id: "vitrines", label: "Balcões & Vitrines" },
-                { id: "industriais", label: "Geladeiras Industriais Inox" },
-                { id: "camaras", label: "Câmaras Frigoríficas" },
-              ].map((tab) => (
-                <button
-                  key={tab.id}
-                  type="button"
-                  onClick={() =>
-                    setActiveProductTab(
-                      tab.id as "todos" | "freezers" | "vitrines" | "industriais" | "camaras"
-                    )
-                  }
-                  className={`px-4 py-2 rounded-full text-xs sm:text-sm font-bold transition-all cursor-pointer ${
-                    activeProductTab === tab.id
-                      ? "bg-[#0047FF] text-white shadow-md shadow-blue-500/25"
-                      : "bg-slate-100 text-slate-700 hover:bg-slate-200"
-                  }`}
-                >
-                  {tab.label}
-                </button>
-              ))}
-            </div>
-          </div>
-
-          {/* Grid de Produtos */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {filteredProducts.map((product) => (
-              <div
-                key={product.id}
-                className="rounded-2xl border border-slate-200 bg-white hover:border-[#0047FF] transition-all duration-300 shadow-xs hover:shadow-xl flex flex-col justify-between overflow-hidden group"
-              >
-                <div>
-                  {/* Imagem do Produto com Badge */}
-                  <div className="relative h-56 w-full bg-slate-100 overflow-hidden">
-                    <Image
-                      src={product.image}
-                      alt={product.name}
-                      fill
-                      className="object-cover transition-transform duration-500 group-hover:scale-105"
-                    />
-                    <div className="absolute top-3 left-3">
-                      <span className="px-2.5 py-1 rounded-md bg-[#0047FF] text-white text-[11px] font-bold tracking-wide uppercase shadow-sm">
-                        {product.badge}
-                      </span>
-                    </div>
-                    <div className="absolute bottom-3 right-3">
-                      <span className="px-2.5 py-0.5 rounded-full bg-black/70 backdrop-blur-md text-white text-xs font-semibold">
-                        {product.temperature}
-                      </span>
-                    </div>
-                  </div>
-
-                  {/* Conteúdo do Card */}
-                  <div className="p-6 space-y-3">
-                    <div className="text-xs font-bold text-[#0047FF] uppercase tracking-wider">
-                      {product.categoryLabel}
-                    </div>
-                    <h3 className="text-xl font-black text-[#07152B] leading-snug group-hover:text-[#0047FF] transition-colors">
-                      {product.name}
-                    </h3>
-                    <p className="text-xs sm:text-sm text-slate-600 line-clamp-2">
-                      {product.tagline}
-                    </p>
-
-                    {/* Ficha Rápida */}
-                    <div className="bg-[#F8FAFC] p-3 rounded-xl border border-slate-200/80 space-y-1.5 text-xs text-slate-700">
-                      <div className="flex justify-between">
-                        <span className="text-slate-500">Capacidade / Medidas:</span>
-                        <span className="font-semibold text-slate-900 truncate max-w-[170px]">
-                          {product.capacity}
-                        </span>
-                      </div>
-                      <div className="flex justify-between">
-                        <span className="text-slate-500">Faixa de Operação:</span>
-                        <span className="font-semibold text-[#0047FF]">{product.temperature}</span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Botões do Card */}
-                <div className="p-6 pt-0 flex items-center gap-2">
-                  <button
-                    type="button"
-                    onClick={() => setSelectedProduct(product)}
-                    className="flex-1 py-2.5 px-3 rounded-lg border border-slate-300 text-slate-800 text-xs font-bold hover:bg-slate-50 transition-colors flex items-center justify-center gap-1.5 cursor-pointer"
-                  >
-                    <Maximize2 className="w-3.5 h-3.5 text-[#0047FF]" />
-                    <span>Ver Ficha Técnica</span>
-                  </button>
-
-                  <GlowingButton
-                    href={getWhatsAppUrl(
-                      `Olá! Gostaria de uma cotação para o equipamento: ${product.name} (${product.capacity}).`
-                    )}
-                    target="_blank"
-                    variant="whatsapp"
-                    size="sm"
-                    className="px-3"
-                  >
-                    <MessageCircle className="w-4 h-4" />
-                    <span>Cotar</span>
-                  </GlowingButton>
-                </div>
-              </div>
             ))}
           </div>
-        </div>
-      </section>
 
-      {/* ============================================================== */}
-      {/* 7. MODAL DE FICHA TÉCNICA DETALHADA DO PRODUTO                 */}
-      {/* ============================================================== */}
-      <AnimatePresence>
-        {selectedProduct && (
-          <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-xs">
-            <motion.div
-              initial={{ opacity: 0, scale: 0.95, y: 20 }}
-              animate={{ opacity: 1, scale: 1, y: 0 }}
-              exit={{ opacity: 0, scale: 0.95, y: 20 }}
-              className="bg-white rounded-2xl shadow-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto border border-slate-200"
+          {/* Footer of the section */}
+          <div className="mt-10 text-center flex flex-col sm:flex-row items-center justify-center gap-4">
+            <a
+              href={INSTAGRAM_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-gradient-to-r from-[#f09433] via-[#dc2743] to-[#bc1888] hover:opacity-95 text-white font-bold text-sm shadow-lg transition-all"
             >
-              <div className="relative h-64 w-full bg-slate-900">
-                <Image
-                  src={selectedProduct.image}
-                  alt={selectedProduct.name}
-                  fill
-                  className="object-cover"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
-                <button
-                  type="button"
-                  onClick={() => setSelectedProduct(null)}
-                  className="absolute top-4 right-4 p-2 rounded-full bg-black/50 text-white hover:bg-black/80 transition-colors cursor-pointer"
-                  aria-label="Fechar modal"
-                >
-                  <X className="w-5 h-5" />
-                </button>
-                <div className="absolute bottom-4 left-4 right-4 text-white">
-                  <span className="px-2.5 py-0.5 rounded bg-[#0047FF] text-white text-[11px] font-bold uppercase tracking-wider">
-                    {selectedProduct.categoryLabel}
-                  </span>
-                  <h3 className="text-xl sm:text-2xl font-black mt-1">
-                    {selectedProduct.name}
-                  </h3>
-                </div>
-              </div>
+              <InstagramIcon className="w-4 h-4" />
+              <span>Ver Todas as Publicações no Instagram Oficial</span>
+              <ExternalLink className="w-3.5 h-3.5" />
+            </a>
 
-              <div className="p-6 space-y-6">
-                <div>
-                  <h4 className="text-xs font-bold text-slate-500 uppercase tracking-wider mb-1">
-                    Descrição do Equipamento
-                  </h4>
-                  <p className="text-sm text-slate-700 leading-relaxed">
-                    {selectedProduct.description}
-                  </p>
-                </div>
-
-                {/* Especificações Construtivas */}
-                <div>
-                  <h4 className="text-xs font-bold text-slate-500 uppercase tracking-wider mb-2">
-                    Especificações Técnicas
-                  </h4>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs">
-                    {selectedProduct.specs.map((s, idx) => (
-                      <div
-                        key={idx}
-                        className="p-2.5 rounded-lg bg-slate-50 border border-slate-200 flex justify-between items-center"
-                      >
-                        <span className="text-slate-500 font-medium">{s.label}:</span>
-                        <span className="font-bold text-[#07152B]">{s.value}</span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-
-                {/* Aplicações Típicas */}
-                <div>
-                  <h4 className="text-xs font-bold text-slate-500 uppercase tracking-wider mb-2">
-                    Aplicações Ideais
-                  </h4>
-                  <ul className="space-y-1.5 text-xs text-slate-700">
-                    {selectedProduct.applications.map((app, idx) => (
-                      <li key={idx} className="flex items-center gap-2">
-                        <CheckCircle2 className="w-4 h-4 text-[#16A34A] shrink-0" />
-                        <span>{app}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-
-                {/* Rodapé do Modal */}
-                <div className="pt-4 border-t border-slate-200 flex flex-col sm:flex-row items-center justify-between gap-3">
-                  <div className="text-xs text-slate-500">
-                    Fabricação com garantia de 30+ anos da Friomax.
-                  </div>
-                  <GlowingButton
-                    href={getWhatsAppUrl(
-                      `Olá! Gostaria de cotar o equipamento: ${selectedProduct.name}.`
-                    )}
-                    target="_blank"
-                    variant="whatsapp"
-                    size="md"
-                    className="w-full sm:w-auto"
-                  >
-                    <MessageCircle className="w-4 h-4" />
-                    <span>Solicitar Orçamento deste Item</span>
-                  </GlowingButton>
-                </div>
-              </div>
-            </motion.div>
-          </div>
-        )}
-      </AnimatePresence>
-
-      {/* ============================================================== */}
-      {/* 8. INSTALAÇÕES REAIS & CLIENTES ATENDIDOS                      */}
-      {/* ============================================================== */}
-      <section id="obras" className="py-16 sm:py-24 bg-[#07152B] text-white border-b border-blue-950">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-3xl mx-auto space-y-3 mb-12">
-            <span className="px-3 py-1 rounded-full bg-blue-900/60 text-[#38BDF8] text-xs font-bold uppercase tracking-wider border border-blue-400/30">
-              Instalações Comerciais
-            </span>
-            <h2 className="text-3xl sm:text-4xl font-black text-white">
-              Equipamentos Friomax em Operação no Mercado
-            </h2>
-            <p className="text-slate-300 text-sm sm:text-base">
-              Supermercados, açougues, padarias e indústrias que confiam na robustez e no rendimento térmico da Friomax Refrigeração.
-            </p>
-
-            {/* Filtros de Obras */}
-            <div className="flex flex-wrap items-center justify-center gap-2 pt-4">
-              {[
-                { id: "todos", label: "Todas as Instalações" },
-                { id: "supermercados", label: "Supermercados" },
-                { id: "acougues", label: "Casas de Carnes" },
-                { id: "padarias", label: "Padarias & Empórios" },
-                { id: "distribuidoras", label: "CDs & Cozinhas" },
-              ].map((f) => (
-                <button
-                  key={f.id}
-                  type="button"
-                  onClick={() =>
-                    setActiveObraFilter(
-                      f.id as "todos" | "supermercados" | "acougues" | "padarias" | "distribuidoras"
-                    )
-                  }
-                  className={`px-3.5 py-1.5 rounded-full text-xs font-bold transition-all cursor-pointer ${
-                    activeObraFilter === f.id
-                      ? "bg-[#0047FF] text-white shadow-md"
-                      : "bg-white/10 text-slate-300 hover:bg-white/20"
-                  }`}
-                >
-                  {f.label}
-                </button>
-              ))}
-            </div>
-          </div>
-
-          {/* Grid de Instalações */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {filteredObras.map((obra) => (
-              <div
-                key={obra.id}
-                className="rounded-xl overflow-hidden border border-blue-900/40 bg-slate-900/70 hover:border-[#0047FF] transition-all duration-300 flex flex-col justify-between group"
-              >
-                <div>
-                  <div className="relative h-52 w-full overflow-hidden bg-slate-800">
-                    <Image
-                      src={obra.image}
-                      alt={obra.title}
-                      fill
-                      className="object-cover transition-transform duration-500 group-hover:scale-105"
-                    />
-                    <div className="absolute top-2.5 left-2.5">
-                      <span className="px-2 py-0.5 rounded bg-black/70 backdrop-blur-xs text-[10px] font-bold text-cyan-300 uppercase">
-                        {obra.categoryLabel}
-                      </span>
-                    </div>
-                  </div>
-
-                  <div className="p-4 space-y-2">
-                    <div className="flex items-center gap-1 text-[11px] text-slate-400">
-                      <MapPin className="w-3 h-3 text-[#38BDF8]" />
-                      <span>{obra.location}</span>
-                    </div>
-                    <h3 className="text-base font-bold text-white group-hover:text-[#38BDF8] transition-colors leading-tight">
-                      {obra.title}
-                    </h3>
-                    <p className="text-xs text-slate-300 line-clamp-3 leading-relaxed">
-                      {obra.description}
-                    </p>
-                  </div>
-                </div>
-
-                <div className="p-4 pt-0">
-                  <div className="pt-2 border-t border-blue-900/40 text-[11px] text-blue-200/80">
-                    <span className="font-semibold text-white">Escopo:</span> {obra.scope}
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-
-          {/* Chamada para Projetos Sob Medida */}
-          <div className="mt-12 p-6 sm:p-8 rounded-2xl bg-gradient-to-r from-blue-950 via-[#0B1E3F] to-[#0047FF]/35 border border-blue-700/40 flex flex-col sm:flex-row items-center justify-between gap-6">
-            <div className="space-y-1 text-center sm:text-left">
-              <h3 className="text-lg sm:text-xl font-bold text-white">
-                Está montando ou reformando seu supermercado, padaria ou açougue?
-              </h3>
-              <p className="text-xs sm:text-sm text-slate-300">
-                Nossos consultores calculam o melhor layout com balcões e freezers sob medida para o seu espaço.
-              </p>
-            </div>
             <GlowingButton
-              href={getWhatsAppUrl(
-                "Olá! Estou planejando equipar meu comércio e gostaria de um projeto personalizado com a fábrica Friomax."
-              )}
+              href={getWhatsAppUrl("Olá Carlos! Vi as fotos no Instagram de vocês e gostaria de pedir um orçamento para minha casa.")}
               target="_blank"
               variant="whatsapp"
               size="md"
-              className="shrink-0 font-bold"
             >
-              <MessageCircle className="w-4 h-4" />
-              <span>Enviar Projeto no WhatsApp</span>
+              <MessageCircle className="w-4 h-4 fill-white" />
+              <span>Falar com o Carlos no WhatsApp</span>
             </GlowingButton>
           </div>
         </div>
       </section>
 
-      {/* ============================================================== */}
-      {/* 9. SOBRE A EMPRESA & INFRAESTRUTURA FABRIL EM VESPASIANO       */}
-      {/* ============================================================== */}
-      <section id="fabrica" className="py-16 sm:py-24 bg-white border-b border-slate-200">
+      {/* ==================================================== */}
+      {/* 6. DIFERENCIAIS DA MARCENARIA TUBARÃO */}
+      {/* ==================================================== */}
+      <section id="diferenciais" className="py-20 bg-slate-50 border-y border-slate-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center max-w-3xl mx-auto mb-14">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-100/60 text-[#0284C7] text-xs font-bold uppercase tracking-wider mb-3">
+              <Award className="w-3.5 h-3.5" />
+              <span>Por Que Escolher a Marcenaria Tubarão?</span>
+            </div>
+            <h2 className="text-3xl sm:text-4xl font-extrabold text-[#0B1320] font-heading tracking-tight">
+              A Diferença Entre um Móvel Comum e uma Obra de Arte
+            </h2>
+            <p className="mt-4 text-base text-slate-600">
+              Enquanto muitas marcenarias terceirizam processos ou atrasam cronogramas,
+              nós mantemos a produção 100% própria com rigor e pontualidade elogiados pelos clientes.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {/* 1. Tradição 1977 */}
+            <div className="bg-white p-8 rounded-2xl border border-slate-200/80 shadow-xs hover:shadow-md transition-shadow">
+              <div className="w-12 h-12 rounded-xl bg-[#00B4D8]/10 text-[#00B4D8] flex items-center justify-center mb-5">
+                <Clock className="w-6 h-6" />
+              </div>
+              <h3 className="text-xl font-bold text-[#0B1320] font-heading mb-2">
+                Desde 1977 em Belo Horizonte
+              </h3>
+              <p className="text-sm text-slate-600 leading-relaxed">
+                Mais de 47 anos de atuação contínua no mercado mineiro. Maestria artesanal transmitida
+                entre mestres marceneiros com reputação impecável e solidez inabalável.
+              </p>
+            </div>
+
+            {/* 2. Pontualidade Rigorosa */}
+            <div className="bg-white p-8 rounded-2xl border border-slate-200/80 shadow-xs hover:shadow-md transition-shadow">
+              <div className="w-12 h-12 rounded-xl bg-green-50 text-[#16A34A] flex items-center justify-center mb-5">
+                <Truck className="w-6 h-6" />
+              </div>
+              <h3 className="text-xl font-bold text-[#0B1320] font-heading mb-2">
+                Pontualidade Inegociável
+              </h3>
+              <p className="text-sm text-slate-600 leading-relaxed">
+                Entregamos no prazo ou antes do prazo acordado. Nossos depoimentos comprovam que
+                respeitamos o seu cronograma de obra e mudança sem desculpas.
+              </p>
+            </div>
+
+            {/* 3. Atendimento com o Carlos */}
+            <div className="bg-white p-8 rounded-2xl border border-slate-200/80 shadow-xs hover:shadow-md transition-shadow">
+              <div className="w-12 h-12 rounded-xl bg-amber-50 text-amber-600 flex items-center justify-center mb-5">
+                <HeartHandshake className="w-6 h-6" />
+              </div>
+              <h3 className="text-xl font-bold text-[#0B1320] font-heading mb-2">
+                Atendimento Consultivo Direto
+              </h3>
+              <p className="text-sm text-slate-600 leading-relaxed">
+                Você conversa diretamente com o Carlos e nossa equipe técnica. Sem intermediários,
+                com transparência, atenção a cada detalhe e dedicação total ao seu projeto.
+              </p>
+            </div>
+
+            {/* 4. Acabamento Milimétrico */}
+            <div className="bg-white p-8 rounded-2xl border border-slate-200/80 shadow-xs hover:shadow-md transition-shadow">
+              <div className="w-12 h-12 rounded-xl bg-cyan-50 text-[#0284C7] flex items-center justify-center mb-5">
+                <Hammer className="w-6 h-6" />
+              </div>
+              <h3 className="text-xl font-bold text-[#0B1320] font-heading mb-2">
+                Acabamento &amp; Detalhismo
+              </h3>
+              <p className="text-sm text-slate-600 leading-relaxed">
+                Fita de borda PUR termofusível sem emendas aparentes, cantos milimetricamente
+                alinhados, portas reguladas com perfeição e cortes sem rebarbas.
+              </p>
+            </div>
+
+            {/* 5. Ferragens de Alta Linha */}
+            <div className="bg-white p-8 rounded-2xl border border-slate-200/80 shadow-xs hover:shadow-md transition-shadow">
+              <div className="w-12 h-12 rounded-xl bg-purple-50 text-purple-600 flex items-center justify-center mb-5">
+                <Zap className="w-6 h-6" />
+              </div>
+              <h3 className="text-xl font-bold text-[#0B1320] font-heading mb-2">
+                Ferragens com Amortecimento
+              </h3>
+              <p className="text-sm text-slate-600 leading-relaxed">
+                Corrediças telescópicas e dobradiças com pistão pneumático soft-close. Suas gavetas e
+                portas fecham com suavidade silenciosa, sem bater nem desregular.
+              </p>
+            </div>
+
+            {/* 6. Matéria-prima Nobre */}
+            <div className="bg-white p-8 rounded-2xl border border-slate-200/80 shadow-xs hover:shadow-md transition-shadow">
+              <div className="w-12 h-12 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center mb-5">
+                <ShieldCheck className="w-6 h-6" />
+              </div>
+              <h3 className="text-xl font-bold text-[#0B1320] font-heading mb-2">
+                100% MDF &amp; Compensado Naval
+              </h3>
+              <p className="text-sm text-slate-600 leading-relaxed">
+                Utilizamos chapas de primeira linha com tratamento anticupim, resistência à
+                umidade em áreas molhadas e lâminas nobres para máxima durabilidade.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ==================================================== */}
+      {/* 6. HISTÓRIA & TRADIÇÃO: DESDE 1977 */}
+      {/* ==================================================== */}
+      <section id="historia" className="py-20 bg-[#0B1320] text-white relative overflow-hidden">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-            {/* Coluna Texto Institucional */}
-            <div className="lg:col-span-7 space-y-6">
-              <span className="px-3 py-1 rounded-full bg-[#DBEAFE] text-[#0047FF] text-xs font-bold uppercase tracking-wider border border-[#BFDBFE]">
-                Mais de 30 Anos de Tradição e Confiança
-              </span>
-
-              <h2 className="text-3xl sm:text-4xl font-black text-[#07152B] leading-tight">
-                Friomax Refrigeração: Fabricando com Qualidade e Eficiência desde 1991
+            {/* Story Text */}
+            <div className="lg:col-span-7">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#00B4D8]/20 text-[#38BDF8] text-xs font-bold uppercase tracking-wider mb-4 border border-[#00B4D8]/30">
+                <Clock className="w-3.5 h-3.5" />
+                <span>Nossa Origem &amp; Compromisso</span>
+              </div>
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold font-heading tracking-tight leading-tight">
+                Quase Meio Século de Dedicação à Marcenaria em Belo Horizonte
               </h2>
+              <div className="mt-6 space-y-4 text-slate-300 text-base leading-relaxed">
+                <p>
+                  Fundada em <strong className="text-white">1977</strong>, a{" "}
+                  <strong className="text-[#00B4D8]">Marcenaria Tubarão</strong> nasceu com uma
+                  missão clara: honrar a verdadeira arte da marcenaria em Minas Gerais, aliando o
+                  cuidado artesanal dos mestres da madeira à evolução do design de interiores.
+                </p>
+                <p>
+                  Sediada na tradicional{" "}
+                  <strong className="text-white">Rua Santa Judite, 70, no Bairro Aparecida</strong>,
+                  nossa oficina já transformou milhares de lares e empresas em Belo Horizonte,
+                  passando de geração em geração o valor da palavra cumprida, do corte perfeito e da
+                  pontualidade na entrega.
+                </p>
+                <p>
+                  Hoje, sob a liderança dedicada do <strong className="text-white">Carlos</strong>,
+                  unimos maquinário de alta precisão e software de modelagem 3D à mesma paixão dos
+                  primeiros dias, entregando móveis planejados que valorizam o seu patrimônio por
+                  décadas.
+                </p>
+              </div>
 
-              <p className="text-base text-slate-700 leading-relaxed">
-                A <strong>Friomax Refrigeração</strong> (Friomax Indústria e Comércio de Refrigeração Ltda) construiu ao longo de mais de 30 anos uma sólida reputação no mercado brasileiro, fabricando equipamentos de refrigeração comercial e industrial com excelência técnica, materiais de primeira linha e compromisso inegociável com o cliente.
-              </p>
-
-              <p className="text-base text-slate-700 leading-relaxed">
-                Com sede própria em <strong>Vespasiano - MG (R. São Paulo, 1500 - Nova Pampulha)</strong>, dispomos de infraestrutura completa para conformação de chapas de aço inoxidável, injeção sob pressão de poliuretano de alta densidade e testes rigorosos de rendimento térmico.
-              </p>
-
-              {/* Destaques da Fábrica */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
-                <div className="p-4 rounded-xl bg-[#F8FAFC] border border-slate-200 space-y-1">
-                  <div className="flex items-center gap-2 font-bold text-[#0047FF]">
-                    <Factory className="w-5 h-5" />
-                    <span>Fábrica Própria em MG</span>
-                  </div>
-                  <p className="text-xs text-slate-600">
-                    Sede estruturada na R. São Paulo, 1500 em Vespasiano com capacidade para grandes encomendas.
+              {/* Timeline Metrics */}
+              <div className="mt-8 pt-8 border-t border-slate-800 grid grid-cols-3 gap-6">
+                <div>
+                  <p className="text-3xl sm:text-4xl font-extrabold text-[#00B4D8] font-heading">
+                    1977
                   </p>
+                  <p className="text-xs text-slate-400 mt-1 uppercase tracking-wide">Ano de Fundação</p>
                 </div>
-
-                <div className="p-4 rounded-xl bg-[#F8FAFC] border border-slate-200 space-y-1">
-                  <div className="flex items-center gap-2 font-bold text-[#0047FF]">
-                    <Award className="w-5 h-5 text-amber-500" />
-                    <span>A Diferença na Qualidade</span>
-                  </div>
-                  <p className="text-xs text-slate-600">
-                    Slogan histórico que reflete a durabilidade real dos nossos equipamentos em milhares de comércios.
+                <div>
+                  <p className="text-3xl sm:text-4xl font-extrabold text-[#FACC15] font-heading">
+                    5,0★
                   </p>
+                  <p className="text-xs text-slate-400 mt-1 uppercase tracking-wide">Google Reviews</p>
                 </div>
-
-                <div className="p-4 rounded-xl bg-[#F8FAFC] border border-slate-200 space-y-1">
-                  <div className="flex items-center gap-2 font-bold text-[#0047FF]">
-                    <ShieldCheck className="w-5 h-5" />
-                    <span>Aço Inox & PUR Injetado</span>
-                  </div>
-                  <p className="text-xs text-slate-600">
-                    Isolamento de alta pressão e aço inox AISI 304/430 sanitário aprovado para alimentos.
+                <div>
+                  <p className="text-3xl sm:text-4xl font-extrabold text-white font-heading">
+                    100%
                   </p>
+                  <p className="text-xs text-slate-400 mt-1 uppercase tracking-wide">Pontualidade</p>
                 </div>
+              </div>
 
-                <div className="p-4 rounded-xl bg-[#F8FAFC] border border-slate-200 space-y-1">
-                  <div className="flex items-center gap-2 font-bold text-[#0047FF]">
-                    <Truck className="w-5 h-5" />
-                    <span>Entrega Ágil & Prazos Honrados</span>
-                  </div>
-                  <p className="text-xs text-slate-600">
-                    Pontualidade rigorosa elogiada nas avaliações do Google Reviews pelos nossos clientes.
-                  </p>
-                </div>
+              <div className="mt-8">
+                <GlowingButton
+                  href={getWhatsAppUrl("Olá Carlos! Gostaria de conversar sobre um projeto com a Marcenaria Tubarão.")}
+                  target="_blank"
+                  variant="primary"
+                  size="lg"
+                >
+                  <MessageCircle className="w-5 h-5 fill-white" />
+                  <span>Conhecer Mais e Falar com o Carlos</span>
+                </GlowingButton>
               </div>
             </div>
 
-            {/* Coluna Imagens da Fábrica / Estrutura */}
-            <div className="lg:col-span-5 space-y-4">
-              <div className="relative h-80 rounded-2xl overflow-hidden shadow-xl border border-slate-200">
-                <Image
-                  src="/images/fabrica/fabrica-friomax-sede.jpg"
-                  alt="Instalações Fabris da Friomax Refrigeração"
-                  fill
-                  className="object-cover"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
-                <div className="absolute bottom-4 left-4 right-4 text-white">
-                  <div className="text-xs font-semibold uppercase tracking-wider text-cyan-300">
-                    Parque Fabril
-                  </div>
-                  <div className="text-base font-bold">
-                    Linha de Produção & Montagem de Refrigeração Comercial
-                  </div>
+            {/* Story Visual Grid */}
+            <div className="lg:col-span-5 grid grid-cols-2 gap-4">
+              <div className="space-y-4">
+                <div className="relative rounded-2xl overflow-hidden aspect-[4/5] border border-slate-700 shadow-lg">
+                  <Image
+                    src="/images/detalhes/marcenaria-artesanal-precisao.jpg"
+                    alt="Oficina de Marcenaria Artesanal"
+                    fill
+                    className="object-cover"
+                  />
+                </div>
+                <div className="relative rounded-2xl overflow-hidden aspect-square border border-slate-700 shadow-lg">
+                  <Image
+                    src="/images/detalhes/ferragens-e-acabamento.jpg"
+                    alt="Ferragens de amortecimento"
+                    fill
+                    className="object-cover"
+                  />
                 </div>
               </div>
-
-              <div className="grid grid-cols-2 gap-4">
-                <div className="relative h-36 rounded-xl overflow-hidden shadow-md border border-slate-200">
+              <div className="space-y-4 pt-8">
+                <div className="relative rounded-2xl overflow-hidden aspect-square border border-slate-700 shadow-lg">
                   <Image
-                    src="/images/fabrica/fabrica-montagem-inox.jpg"
-                    alt="Montagem em Aço Inox"
+                    src="/images/detalhes/materiais-nobres-mdf.jpg"
+                    alt="Lâminas nobres de madeira"
                     fill
                     className="object-cover"
                   />
-                  <div className="absolute inset-0 bg-black/40" />
-                  <div className="absolute bottom-2 left-2 text-white text-[11px] font-bold">
-                    Corte e Dobra em Inox
-                  </div>
                 </div>
-
-                <div className="relative h-36 rounded-xl overflow-hidden shadow-md border border-slate-200">
+                <div className="relative rounded-2xl overflow-hidden aspect-[4/5] border border-slate-700 shadow-lg">
                   <Image
-                    src="/images/fabrica/fabrica-isolamento-pur.jpg"
-                    alt="Injeção de Poliuretano"
+                    src="/images/detalhes/projeto-3d-arquitetura.jpg"
+                    alt="Projeto 3D arquitetônico"
                     fill
                     className="object-cover"
                   />
-                  <div className="absolute inset-0 bg-black/40" />
-                  <div className="absolute bottom-2 left-2 text-white text-[11px] font-bold">
-                    Isolamento PUR Ecológico
-                  </div>
                 </div>
               </div>
             </div>
@@ -1866,79 +1440,235 @@ Poderiam calcular o melhor valor e condições de fábrica para mim?`;
         </div>
       </section>
 
-      {/* ============================================================== */}
-      {/* 10. DEPOIMENTOS DO GOOGLE REVIEWS (4,4★ REAIS)                 */}
-      {/* ============================================================== */}
-      <section id="avaliacoes" className="py-16 sm:py-24 bg-[#F8FAFC] border-b border-slate-200">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          {/* Header de Avaliações */}
-          <div className="text-center max-w-3xl mx-auto space-y-3 mb-12">
-            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-50 text-amber-700 border border-amber-200 text-xs font-bold">
-              <Star className="w-3.5 h-3.5 fill-amber-400 text-amber-400" />
-              <span>Avaliações Verificadas no Google Reviews</span>
+      {/* ==================================================== */}
+      {/* 7. SIMULADOR INTERATIVO DE BRIEFING / ORÇAMENTO */}
+      {/* ==================================================== */}
+      <section id="simulador" className="py-20 bg-white">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-50 text-[#0284C7] text-xs font-bold uppercase tracking-wider mb-3 border border-cyan-200">
+              <Calculator className="w-3.5 h-3.5" />
+              <span>Simulador Rápido de Briefing</span>
             </div>
-            <h2 className="text-3xl sm:text-4xl font-black text-[#07152B]">
-              O que Dizem os Clientes da Friomax
+            <h2 className="text-3xl sm:text-4xl font-extrabold text-[#0B1320] font-heading tracking-tight">
+              Planeje Seu Projeto em Menos de 1 Minuto
             </h2>
-            <p className="text-sm sm:text-base text-slate-600">
-              Mais de 41 avaliações públicas e nota {GOOGLE_RATING} estrelas no Google. A satisfação de quem adquire equipamentos de refrigeração direto de quem fabrica com seriedade.
+            <p className="mt-3 text-slate-600 text-sm sm:text-base">
+              Selecione os ambientes desejados e envie os dados direto para o WhatsApp do Carlos.
+              Ele responderá pessoalmente com as melhores orientações e estimativas!
             </p>
+          </div>
 
-            {/* Selo Google Oficial */}
-            <div className="flex items-center justify-center gap-3 pt-2">
-              <div className="flex items-center gap-1 text-amber-400">
-                {[...Array(5)].map((_, i) => (
-                  <Star key={i} className="w-5 h-5 fill-amber-400 text-amber-400" />
+          <form
+            onSubmit={handleSimuladorSubmit}
+            className="bg-slate-50 border border-slate-200/90 rounded-3xl p-6 sm:p-10 shadow-lg"
+          >
+            {/* Step 1: Ambientes */}
+            <div className="mb-8">
+              <label className="block text-sm font-bold text-[#0B1320] mb-3">
+                1. Quais ambientes você deseja mobiliar? (Selecione quantos desejar)
+              </label>
+              <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
+                {[
+                  "Cozinha Gourmet",
+                  "Closet & Suíte",
+                  "Sala & Home Theater",
+                  "Banheiro / Lavabo",
+                  "Apartamento Completo",
+                  "Comercial / Escritório",
+                ].map((amb) => {
+                  const isChecked = simAmbientes.includes(amb);
+                  return (
+                    <button
+                      type="button"
+                      key={amb}
+                      onClick={() => toggleAmbiente(amb)}
+                      className={`p-3.5 rounded-xl border text-xs sm:text-sm font-semibold flex items-center justify-between transition-all cursor-pointer ${
+                        isChecked
+                          ? "bg-[#0B1320] text-white border-[#0B1320] shadow-sm"
+                          : "bg-white text-slate-700 border-slate-200 hover:border-[#00B4D8]"
+                      }`}
+                    >
+                      <span>{amb}</span>
+                      {isChecked ? (
+                        <Check className="w-4 h-4 text-[#00B4D8]" />
+                      ) : (
+                        <div className="w-4 h-4 rounded-full border border-slate-300" />
+                      )}
+                    </button>
+                  );
+                })}
+              </div>
+            </div>
+
+            {/* Step 2: Estilo / Padrão */}
+            <div className="mb-8">
+              <label className="block text-sm font-bold text-[#0B1320] mb-3">
+                2. Qual padrão de acabamento você tem em mente?
+              </label>
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                {[
+                  {
+                    title: "Moderno com Iluminação LED",
+                    desc: "Linhas retas, puxador cava e perfis de LED",
+                  },
+                  {
+                    title: "Amadeirado com Ripado",
+                    desc: "Aconchego da madeira nobre e painéis ripados",
+                  },
+                  {
+                    title: "Clássico com Vidro Reflecta",
+                    desc: "Portas espelhadas bronze e cristaleiras",
+                  },
+                ].map((estilo) => (
+                  <button
+                    type="button"
+                    key={estilo.title}
+                    onClick={() => setSimEstilo(estilo.title)}
+                    className={`p-4 rounded-xl border text-left transition-all cursor-pointer ${
+                      simEstilo === estilo.title
+                        ? "bg-[#00B4D8]/10 border-[#00B4D8] text-[#0B1320] ring-2 ring-[#00B4D8]/20"
+                        : "bg-white border-slate-200 hover:border-slate-300 text-slate-700"
+                    }`}
+                  >
+                    <p className="font-bold text-xs sm:text-sm">{estilo.title}</p>
+                    <p className="text-[11px] text-slate-500 mt-1">{estilo.desc}</p>
+                  </button>
                 ))}
               </div>
-              <span className="text-xl font-black text-[#07152B]">{GOOGLE_RATING} / 5.0</span>
-              <span className="text-slate-400">|</span>
-              <a
-                href={GOOGLE_SEARCH_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-xs font-bold text-[#0047FF] hover:underline flex items-center gap-1"
-              >
-                Ver todas no Google <ExternalLink className="w-3 h-3" />
-              </a>
+            </div>
+
+            {/* Step 3: Prazo e Nome */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-8">
+              <div>
+                <label className="block text-sm font-bold text-[#0B1320] mb-2">
+                  3. Previsão para início ou entrega:
+                </label>
+                <select
+                  value={simPrazo}
+                  onChange={(e) => setSimPrazo(e.target.value)}
+                  className="w-full bg-white border border-slate-200 rounded-xl px-4 py-3 text-sm font-medium text-slate-700 focus:outline-none focus:border-[#00B4D8]"
+                >
+                  <option value="Imediato (o quanto antes)">Imediato (o quanto antes)</option>
+                  <option value="Próximos 30 a 60 dias">Próximos 30 a 60 dias</option>
+                  <option value="Obra em andamento (3 a 6 meses)">Obra em andamento (3 a 6 meses)</option>
+                  <option value="Pesquisando orçamentos">Apenas pesquisando orçamentos</option>
+                </select>
+              </div>
+
+              <div>
+                <label className="block text-sm font-bold text-[#0B1320] mb-2">
+                  Seu Nome ou Como Prefere ser Chamado:
+                </label>
+                <input
+                  type="text"
+                  placeholder="Ex: Dra. Camila ou Roberto"
+                  value={simNome}
+                  onChange={(e) => setSimNome(e.target.value)}
+                  className="w-full bg-white border border-slate-200 rounded-xl px-4 py-3 text-sm font-medium text-slate-700 focus:outline-none focus:border-[#00B4D8]"
+                />
+              </div>
+            </div>
+
+            {/* Submit Button */}
+            <button
+              type="submit"
+              className="w-full bg-gradient-to-r from-[#16A34A] to-[#15803D] hover:from-[#22C55E] hover:to-[#16A34A] text-white font-bold py-4 rounded-xl shadow-lg hover:shadow-green-600/30 transition-all flex items-center justify-center gap-2 text-base cursor-pointer"
+            >
+              <Send className="w-5 h-5" />
+              <span>Gerar Meu Briefing &amp; Enviar no WhatsApp do Carlos</span>
+            </button>
+            <p className="text-center text-xs text-slate-500 mt-3">
+              🔒 Sem compromisso. Você será redirecionado para o WhatsApp com os dados pré-preenchidos.
+            </p>
+          </form>
+        </div>
+      </section>
+
+      {/* ==================================================== */}
+      {/* 8. PROVA SOCIAL: GOOGLE REVIEWS 5,0★ */}
+      {/* ==================================================== */}
+      <section id="depoimentos" className="py-20 bg-slate-50 border-t border-slate-200">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          {/* Header */}
+          <div className="flex flex-col md:flex-row items-center justify-between gap-6 mb-12">
+            <div>
+              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-50 text-amber-900 border border-amber-200 text-xs font-bold uppercase tracking-wider mb-3">
+                <Star className="w-3.5 h-3.5 fill-[#FACC15] text-[#FACC15]" />
+                <span>Avaliações Reais de Clientes no Google</span>
+              </div>
+              <h2 className="text-3xl sm:text-4xl font-extrabold text-[#0B1320] font-heading tracking-tight">
+                Nota Máxima 5,0★ no Google Maps
+              </h2>
+              <p className="mt-2 text-slate-600 text-sm sm:text-base">
+                A melhor garantia é a palavra de quem já confiou o seu lar e sua empresa à Marcenaria Tubarão.
+              </p>
+            </div>
+
+            {/* Google Rating Card */}
+            <div className="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm flex items-center gap-5 shrink-0">
+              <div className="text-center">
+                <p className="text-4xl font-black text-[#0B1320] font-heading">5,0</p>
+                <div className="flex items-center gap-0.5 text-[#FACC15] mt-1 justify-center">
+                  {[...Array(5)].map((_, i) => (
+                    <Star key={i} className="w-4 h-4 fill-[#FACC15]" />
+                  ))}
+                </div>
+              </div>
+              <div className="h-10 w-px bg-slate-200" />
+              <div>
+                <p className="text-xs font-bold text-slate-800">Classificação Máxima</p>
+                <p className="text-xs text-slate-500">100% de avaliações 5 estrelas</p>
+                <a
+                  href={GOOGLE_MAPS_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-[11px] font-bold text-[#00B4D8] hover:underline flex items-center gap-1 mt-1"
+                >
+                  <span>Ver no Google Maps</span>
+                  <ExternalLink className="w-3 h-3" />
+                </a>
+              </div>
             </div>
           </div>
 
-          {/* Grid de Depoimentos Reais */}
+          {/* Testimonial Cards */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {REVIEWS_DATA.map((review, idx) => (
+            {TESTIMONIALS.map((t) => (
               <div
-                key={idx}
-                className="p-6 rounded-2xl bg-white border border-slate-200 shadow-xs hover:shadow-lg transition-all flex flex-col justify-between space-y-4"
+                key={t.id}
+                className="bg-white p-7 rounded-2xl border border-slate-200 shadow-xs hover:shadow-md transition-shadow flex flex-col justify-between"
               >
-                <div className="space-y-3">
-                  <div className="flex items-center justify-between">
-                    <div className="flex items-center gap-1 text-amber-400">
-                      {[...Array(review.rating)].map((_, i) => (
-                        <Star key={i} className="w-4 h-4 fill-amber-400 text-amber-400" />
+                <div>
+                  {/* Stars & Time */}
+                  <div className="flex items-center justify-between mb-4">
+                    <div className="flex items-center gap-0.5 text-[#FACC15]">
+                      {[...Array(t.rating)].map((_, i) => (
+                        <Star key={i} className="w-4 h-4 fill-[#FACC15]" />
                       ))}
                     </div>
-                    <span className="text-[11px] font-semibold text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded-full border border-emerald-200">
-                      {review.timeAgo}
-                    </span>
+                    <span className="text-xs text-slate-400">{t.timeAgo}</span>
                   </div>
 
-                  <p className="text-xs sm:text-sm text-slate-700 italic leading-relaxed">
-                    &ldquo;{review.text}&rdquo;
+                  {/* Highlight */}
+                  <p className="text-sm font-bold text-[#0B1320] mb-2">
+                    &ldquo;{t.highlightText}&rdquo;
+                  </p>
+
+                  {/* Body Text */}
+                  <p className="text-xs sm:text-sm text-slate-600 leading-relaxed italic">
+                    &ldquo;{t.text}&rdquo;
                   </p>
                 </div>
 
-                <div className="pt-3 border-t border-slate-100 flex items-center gap-3">
-                  <div className="w-9 h-9 rounded-full bg-[#EFF6FF] text-[#0047FF] font-black text-sm flex items-center justify-center shrink-0">
-                    {review.author[0]}
+                {/* Author Info */}
+                <div className="mt-6 pt-4 border-t border-slate-100 flex items-center gap-3">
+                  <div className="w-9 h-9 rounded-full bg-[#00B4D8]/15 text-[#00B4D8] font-bold text-sm flex items-center justify-center font-heading">
+                    {t.name.charAt(0)}
                   </div>
-                  <div className="overflow-hidden">
-                    <div className="text-sm font-bold text-[#07152B] truncate">
-                      {review.author}
-                    </div>
-                    <div className="text-[11px] text-slate-500 truncate">
-                      {review.badge}
-                    </div>
+                  <div>
+                    <p className="text-xs font-bold text-[#0B1320]">{t.name}</p>
+                    <p className="text-[11px] text-slate-400">{t.meta} · Google</p>
                   </div>
                 </div>
               </div>
@@ -1947,153 +1677,107 @@ Poderiam calcular o melhor valor e condições de fábrica para mim?`;
         </div>
       </section>
 
-      {/* ============================================================== */}
-      {/* 11. TABELA COMPARATIVA — FRIOMAX VS CONCORRÊNCIA COMUM         */}
-      {/* ============================================================== */}
-      <section className="py-16 sm:py-20 bg-white border-b border-slate-200">
+      {/* ==================================================== */}
+      {/* 9. COMO FUNCIONA O PROCESSO (4 ETAPAS) */}
+      {/* ==================================================== */}
+      <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-3xl mx-auto space-y-3 mb-12">
-            <span className="px-3 py-1 rounded-full bg-[#DBEAFE] text-[#0047FF] text-xs font-bold uppercase tracking-wider border border-[#BFDBFE]">
-              Diferenciais de Fábrica
-            </span>
-            <h2 className="text-3xl sm:text-4xl font-black text-[#07152B]">
-              Por que a Friomax é a Escolha Certa para o seu Negócio?
+          <div className="text-center max-w-3xl mx-auto mb-16">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-sky-50 text-[#0284C7] text-xs font-bold uppercase tracking-wider mb-3">
+              <Compass className="w-3.5 h-3.5" />
+              <span>Etapas Claras e Sem Surpresas</span>
+            </div>
+            <h2 className="text-3xl sm:text-4xl font-extrabold text-[#0B1320] font-heading tracking-tight">
+              Do Rascunho à Instalação Perfeita
             </h2>
-            <p className="text-sm sm:text-base text-slate-600">
-              Veja a diferença entre comprar direto de uma fábrica consolidada há mais de 30 anos versus revendedores ou oficinas improvisadas.
+            <p className="mt-3 text-slate-600 text-sm sm:text-base">
+              Nosso método garante que o seu móvel saia exatamente como você sonhou, sem atrasos.
             </p>
           </div>
 
-          <div className="max-w-4xl mx-auto bg-white rounded-2xl border border-slate-200 shadow-md overflow-hidden">
-            <div className="overflow-x-auto">
-              <table className="w-full text-left text-xs sm:text-sm">
-                <thead>
-                  <tr className="bg-[#07152B] text-white">
-                    <th className="py-4 px-6 font-bold">Critério Técnico</th>
-                    <th className="py-4 px-6 font-black text-[#38BDF8] bg-[#030A17]">
-                      Friomax Refrigeração
-                    </th>
-                    <th className="py-4 px-6 font-semibold text-slate-400">
-                      Revenda Comum / Oficinas
-                    </th>
-                  </tr>
-                </thead>
-                <tbody className="divide-y divide-slate-200 text-slate-700">
-                  <tr>
-                    <td className="py-3.5 px-6 font-semibold text-slate-900">
-                      Origem & Fabricação
-                    </td>
-                    <td className="py-3.5 px-6 font-bold text-[#0047FF] bg-blue-50/50">
-                      Fábrica própria há 30+ anos (Vespasiano - MG)
-                    </td>
-                    <td className="py-3.5 px-6 text-slate-500">
-                      Intermediários com margem e sem controle de montagem
-                    </td>
-                  </tr>
-                  <tr>
-                    <td className="py-3.5 px-6 font-semibold text-slate-900">
-                      Isolamento Térmico
-                    </td>
-                    <td className="py-3.5 px-6 font-bold text-[#0047FF] bg-blue-50/50">
-                      PUR de alta densidade injetado sob pressão
-                    </td>
-                    <td className="py-3.5 px-6 text-slate-500">
-                      Isolamento com falhas e pontes térmicas que gastam energia
-                    </td>
-                  </tr>
-                  <tr>
-                    <td className="py-3.5 px-6 font-semibold text-slate-900">
-                      Vidros Expositores
-                    </td>
-                    <td className="py-3.5 px-6 font-bold text-[#0047FF] bg-blue-50/50">
-                      Vidro duplo temperado aquecido antiembaçante
-                    </td>
-                    <td className="py-3.5 px-6 text-slate-500">
-                      Vidros comuns que embaçam e ocultam as mercadorias
-                    </td>
-                  </tr>
-                  <tr>
-                    <td className="py-3.5 px-6 font-semibold text-slate-900">
-                      Estrutura & Acabamento
-                    </td>
-                    <td className="py-3.5 px-6 font-bold text-[#0047FF] bg-blue-50/50">
-                      Aço inox AISI sanitário e pintura eletrostática
-                    </td>
-                    <td className="py-3.5 px-6 text-slate-500">
-                      Chapas finas que enferrujam rapidamente com a umidade
-                    </td>
-                  </tr>
-                  <tr>
-                    <td className="py-3.5 px-6 font-semibold text-slate-900">
-                      Assistência e Peças
-                    </td>
-                    <td className="py-3.5 px-6 font-bold text-[#0047FF] bg-blue-50/50">
-                      Peças originais de reposição direto do fabricante
-                    </td>
-                    <td className="py-3.5 px-6 text-slate-500">
-                      Dificuldade de reposição e falta de suporte técnico
-                    </td>
-                  </tr>
-                  <tr>
-                    <td className="py-3.5 px-6 font-semibold text-slate-900">
-                      Avaliação no Google
-                    </td>
-                    <td className="py-3.5 px-6 font-bold text-[#0047FF] bg-blue-50/50">
-                      Nota 4,4 ★ com 41 avaliações autênticas
-                    </td>
-                    <td className="py-3.5 px-6 text-slate-500">
-                      Avaliações baixas ou perfis sem reputação no mercado
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 relative">
+            {[
+              {
+                step: "01",
+                title: "Atendimento & Visita Técnica",
+                desc: "Conversamos sobre suas necessidades, tiramos as medidas milimétricas e entendemos cada detalhe funcional da sua rotina.",
+              },
+              {
+                step: "02",
+                title: "Projeto 3D & Aprovação",
+                desc: "Apresentamos o projeto em 3D realista para você visualizar cores, ferragens, divisórias e iluminação antes de fabricar.",
+              },
+              {
+                step: "03",
+                title: "Fabricação na Oficina Própria",
+                desc: "Produção com maquinário de ponta na Rua Santa Judite, 70 (Aparecida/BH), com cortes sem rebarbas e fitamento PUR.",
+              },
+              {
+                step: "04",
+                title: "Montagem Limpa & Pontual",
+                desc: "Nossos montadores próprios realizam a instalação com proteção ao piso, limpeza final e ajuste milimétrico de cada porta.",
+              },
+            ].map((st, i) => (
+              <div
+                key={st.step}
+                className="bg-slate-50 p-6 rounded-2xl border border-slate-200 relative group hover:border-[#00B4D8] transition-colors"
+              >
+                <div className="text-3xl font-black text-[#00B4D8] font-heading mb-3">
+                  {st.step}
+                </div>
+                <h3 className="font-bold text-lg text-[#0B1320] font-heading mb-2">
+                  {st.title}
+                </h3>
+                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                  {st.desc}
+                </p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* ============================================================== */}
-      {/* 12. FAQ — DÚVIDAS FREQUENTES                                   */}
-      {/* ============================================================== */}
-      <section id="faq" className="py-16 sm:py-24 bg-[#F8FAFC] border-b border-slate-200">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
-          <div className="text-center space-y-3">
-            <span className="px-3 py-1 rounded-full bg-[#DBEAFE] text-[#0047FF] text-xs font-bold uppercase tracking-wider border border-[#BFDBFE]">
-              Tire suas Dúvidas
-            </span>
-            <h2 className="text-3xl sm:text-4xl font-black text-[#07152B]">
-              Perguntas Frequentes sobre os Equipamentos Friomax
+      {/* ==================================================== */}
+      {/* 10. FAQ / DÚVIDAS FREQUENTES */}
+      {/* ==================================================== */}
+      <section className="py-20 bg-slate-50 border-t border-slate-200">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-100/60 text-[#0284C7] text-xs font-bold uppercase tracking-wider mb-3">
+              <HelpCircle className="w-3.5 h-3.5" />
+              <span>Perguntas Frequentes</span>
+            </div>
+            <h2 className="text-3xl sm:text-4xl font-extrabold text-[#0B1320] font-heading tracking-tight">
+              Tire Suas Dúvidas Sobre Móveis Planejados
             </h2>
-            <p className="text-slate-600 text-sm sm:text-base">
-              Esclareça os principais pontos sobre nossa linha de fabricação, prazos, formas de pagamento e entrega.
-            </p>
           </div>
 
-          <div className="space-y-3">
+          <div className="space-y-4">
             {FAQS.map((faq, idx) => (
               <div
                 key={idx}
-                className="rounded-xl border border-slate-200 bg-white overflow-hidden shadow-xs transition-all"
+                className="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-xs"
               >
                 <button
                   type="button"
-                  onClick={() => setOpenFaqIndex(openFaqIndex === idx ? null : idx)}
-                  className="w-full p-5 text-left flex items-center justify-between gap-4 font-bold text-slate-900 hover:text-[#0047FF] transition-colors cursor-pointer"
+                  onClick={() => setOpenFaq(openFaq === idx ? null : idx)}
+                  className="w-full p-6 text-left flex items-center justify-between gap-4 font-bold text-base text-[#0B1320] hover:text-[#00B4D8] transition-colors cursor-pointer"
                 >
-                  <span className="text-sm sm:text-base">{faq.question}</span>
+                  <span>{faq.question}</span>
                   <ChevronDown
-                    className={`w-5 h-5 text-[#0047FF] shrink-0 transition-transform duration-200 ${
-                      openFaqIndex === idx ? "rotate-180" : ""
+                    className={`w-5 h-5 text-slate-400 shrink-0 transition-transform duration-300 ${
+                      openFaq === idx ? "rotate-180 text-[#00B4D8]" : ""
                     }`}
                   />
                 </button>
                 <AnimatePresence>
-                  {openFaqIndex === idx && (
+                  {openFaq === idx && (
                     <motion.div
-                      initial={{ opacity: 0, height: 0 }}
-                      animate={{ opacity: 1, height: "auto" }}
-                      exit={{ opacity: 0, height: 0 }}
-                      className="px-5 pb-5 text-xs sm:text-sm text-slate-600 leading-relaxed border-t border-slate-100 pt-3"
+                      initial={{ height: 0, opacity: 0 }}
+                      animate={{ height: "auto", opacity: 1 }}
+                      exit={{ height: 0, opacity: 0 }}
+                      transition={{ duration: 0.25 }}
+                      className="px-6 pb-6 text-sm text-slate-600 leading-relaxed border-t border-slate-100 pt-4"
                     >
                       {faq.answer}
                     </motion.div>
@@ -2102,357 +1786,321 @@ Poderiam calcular o melhor valor e condições de fábrica para mim?`;
               </div>
             ))}
           </div>
-
-          <div className="text-center pt-4">
-            <p className="text-xs sm:text-sm text-slate-500 mb-3">
-              Ficou com alguma dúvida sobre dimensões ou especificações técnicas?
-            </p>
-            <GlowingButton
-              href={getWhatsAppUrl("Olá! Gostaria de tirar uma dúvida técnica sobre os equipamentos da Friomax.")}
-              target="_blank"
-              variant="outlineRoyal"
-              size="md"
-            >
-              <HelpCircle className="w-4 h-4 text-[#0047FF]" />
-              <span>Falar com o Suporte Técnico da Fábrica</span>
-            </GlowingButton>
-          </div>
         </div>
       </section>
 
-      {/* ============================================================== */}
-      {/* 13. LOCALIZAÇÃO & VISITE NOSSA FÁBRICA                         */}
-      {/* ============================================================== */}
-      <section id="contato" className="py-16 sm:py-24 bg-white border-b border-slate-200">
+      {/* ==================================================== */}
+      {/* 11. LOCALIZAÇÃO, SEDE & CONTATOS */}
+      {/* ==================================================== */}
+      <section id="localizacao" className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
-            {/* Informações de Contato e Endereço */}
-            <div className="lg:col-span-6 space-y-6">
-              <span className="px-3 py-1 rounded-full bg-[#DBEAFE] text-[#0047FF] text-xs font-bold uppercase tracking-wider border border-[#BFDBFE]">
-                Visite Nossa Sede Fabril
-              </span>
-
-              <h2 className="text-3xl sm:text-4xl font-black text-[#07152B] leading-tight">
-                Friomax Refrigeração em Vespasiano - MG
-              </h2>
-
-              <p className="text-base text-slate-700 leading-relaxed">
-                Nossa indústria está estrategicamente localizada em <strong>Vespasiano - MG</strong> (Região Metropolitana de Belo Horizonte / Vetor Norte), na <strong>R. São Paulo, 1500 - Nova Pampulha</strong>, com fácil acesso para carregamento rápido e despacho rodoviário.
-              </p>
-
-              <div className="space-y-4 text-sm text-slate-700">
-                <div className="flex items-start gap-3 p-3.5 rounded-xl bg-slate-50 border border-slate-200">
-                  <MapPin className="w-5 h-5 text-[#0047FF] shrink-0 mt-0.5" />
-                  <div>
-                    <strong className="block text-slate-900">Endereço da Fábrica:</strong>
-                    <span>{PRIMARY_FACTORY_ADDRESS}</span>
-                  </div>
+          <div className="bg-[#0B1320] rounded-3xl overflow-hidden text-white shadow-2xl border border-slate-800 grid grid-cols-1 lg:grid-cols-12">
+            {/* Contact Details */}
+            <div className="lg:col-span-6 p-8 sm:p-12 flex flex-col justify-between">
+              <div>
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#00B4D8]/20 text-[#38BDF8] text-xs font-bold uppercase tracking-wider mb-4 border border-[#00B4D8]/30">
+                  <MapPin className="w-3.5 h-3.5" />
+                  <span>Sede &amp; Oficina em BH</span>
                 </div>
+                <h2 className="text-3xl sm:text-4xl font-extrabold font-heading tracking-tight text-white">
+                  Venha Tomar um Café Conosco na Nossa Oficina
+                </h2>
+                <p className="mt-4 text-slate-300 text-sm sm:text-base leading-relaxed">
+                  Conheça nossa estrutura, toque nos padrões de MDF, teste as corrediças e veja
+                  pessoalmente o acabamento milimétrico que faz da Marcenaria Tubarão uma
+                  referência desde 1977.
+                </p>
 
-                <div className="flex items-start gap-3 p-3.5 rounded-xl bg-slate-50 border border-slate-200">
-                  <Phone className="w-5 h-5 text-[#0047FF] shrink-0 mt-0.5" />
-                  <div>
-                    <strong className="block text-slate-900">Telefone Comercial / PABX:</strong>
-                    <span>{PHONE_DISPLAY}</span>
+                <div className="mt-8 space-y-4 text-sm text-slate-300">
+                  <div className="flex items-start gap-3">
+                    <MapPin className="w-5 h-5 text-[#00B4D8] shrink-0 mt-0.5" />
+                    <div>
+                      <strong className="text-white block">Endereço da Oficina:</strong>
+                      <span>{ADDRESS_FULL}</span>
+                    </div>
                   </div>
-                </div>
 
-                <div className="flex items-start gap-3 p-3.5 rounded-xl bg-slate-50 border border-slate-200">
-                  <MessageCircle className="w-5 h-5 text-[#16A34A] shrink-0 mt-0.5" />
-                  <div>
-                    <strong className="block text-slate-900">WhatsApp Vendas Diretas:</strong>
-                    <span>{WHATSAPP_DISPLAY} (Atendimento Consultivo)</span>
+                  <div className="flex items-start gap-3">
+                    <Phone className="w-5 h-5 text-[#00B4D8] shrink-0 mt-0.5" />
+                    <div>
+                      <strong className="text-white block">Telefone &amp; WhatsApp:</strong>
+                      <span>{WHATSAPP_DISPLAY} (WhatsApp direto com o Carlos)</span>
+                      <span className="block text-slate-400 text-xs">Fixo: {PHONE_FIXED}</span>
+                    </div>
                   </div>
-                </div>
 
-                <div className="flex items-start gap-3 p-3.5 rounded-xl bg-slate-50 border border-slate-200">
-                  <Clock className="w-5 h-5 text-[#0047FF] shrink-0 mt-0.5" />
-                  <div>
-                    <strong className="block text-slate-900">Horário de Funcionamento:</strong>
-                    <span>Segunda a Sexta: 07:30 às 17:30</span>
+                  <div className="flex items-start gap-3">
+                    <Clock className="w-5 h-5 text-[#00B4D8] shrink-0 mt-0.5" />
+                    <div>
+                      <strong className="text-white block">Horário de Funcionamento:</strong>
+                      <span>Segunda a Sexta: 08:00 às 18:00</span>
+                      <span className="block">Sábado: 08:00 às 13:00</span>
+                    </div>
+                  </div>
+
+                  <div className="flex items-start gap-3">
+                    <Mail className="w-5 h-5 text-[#00B4D8] shrink-0 mt-0.5" />
+                    <div>
+                      <strong className="text-white block">E-mails de Contato:</strong>
+                      <span>{EMAIL_CONTACT}</span>
+                    </div>
                   </div>
                 </div>
               </div>
 
-              <div className="pt-2 flex flex-wrap gap-3">
+              <div className="mt-10 flex flex-wrap gap-3">
                 <GlowingButton
                   href={GOOGLE_MAPS_URL}
                   target="_blank"
-                  variant="primary"
+                  variant="outlineCyan"
                   size="md"
                 >
-                  <Compass className="w-4 h-4" />
-                  <span>Traçar Rota no Google Maps</span>
+                  <MapPin className="w-4 h-4" />
+                  <span>Abrir no Google Maps</span>
                 </GlowingButton>
 
                 <GlowingButton
-                  href={getWhatsAppUrl("Olá! Gostaria de agendar uma visita à fábrica da Friomax em Vespasiano.")}
+                  href={getWhatsAppUrl("Olá Carlos! Gostaria de agendar uma visita na oficina da Marcenaria Tubarão.")}
                   target="_blank"
-                  variant="outline"
+                  variant="whatsapp"
                   size="md"
                 >
-                  <MessageCircle className="w-4 h-4 text-[#16A34A]" />
-                  <span>Agendar Visita</span>
+                  <MessageCircle className="w-4 h-4 fill-white" />
+                  <span>Agendar Visita no WhatsApp</span>
                 </GlowingButton>
               </div>
             </div>
 
-            {/* Card com Mapa Interativo / Iframe Google */}
-            <div className="lg:col-span-6">
-              <div className="rounded-2xl overflow-hidden border-2 border-blue-100 shadow-xl bg-slate-100 h-96 sm:h-[420px] relative">
-                <iframe
-                  title="Localização Friomax Refrigeração"
-                  src="https://maps.google.com/maps?q=Friomax+Refrigera%C3%A7%C3%A3o+Rua+S%C3%A3o+Paulo+1500+Nova+Pampulha+Vespasiano+MG&t=&z=15&ie=UTF8&iwloc=&output=embed"
-                  width="100%"
-                  height="100%"
-                  style={{ border: 0 }}
-                  allowFullScreen
-                  loading="lazy"
-                  referrerPolicy="no-referrer-when-downgrade"
-                  className="w-full h-full"
-                />
-              </div>
+            {/* Interactive Map Embed / Preview */}
+            <div className="lg:col-span-6 bg-slate-800 relative min-h-[350px] lg:min-h-full">
+              <iframe
+                title="Mapa Marcenaria Tubarão"
+                src="https://maps.google.com/maps?q=Rua+Santa+Judite+70+Aparecida+Belo+Horizonte+MG&t=&z=15&ie=UTF8&iwloc=&output=embed"
+                width="100%"
+                height="100%"
+                style={{ border: 0 }}
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                className="w-full h-full min-h-[350px] grayscale contrast-125"
+              />
             </div>
           </div>
         </div>
       </section>
 
-      {/* ============================================================== */}
-      {/* 14. FOOTER INSTITUCIONAL COMPLETO                              */}
-      {/* ============================================================== */}
-      <footer className="bg-[#07152B] text-white border-t border-blue-950 pt-16 pb-12">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {/* Coluna 1: Marca & Síntese */}
-            <div className="space-y-4">
-              <div className="flex items-center gap-3.5">
-                <div className="relative h-16 w-16 sm:h-20 sm:w-20 shrink-0">
+      {/* ==================================================== */}
+      {/* 12. FOOTER */}
+      {/* ==================================================== */}
+      <footer className="bg-[#0B1320] text-slate-400 text-xs border-t border-slate-800 py-12">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
+            {/* Col 1: Brand */}
+            <div className="md:col-span-1">
+              <div className="flex items-center gap-3 mb-4">
+                <div className="relative w-12 h-12 rounded-full overflow-hidden border border-[#00B4D8] bg-white p-0.5">
                   <Image
                     src={LOGO_SRC}
-                    alt="Friomax Refrigeração"
-                    fill
+                    alt="Logo Marcenaria Tubarão"
+                    width={48}
+                    height={48}
                     className="object-contain"
                   />
                 </div>
-                <div className="flex flex-col justify-center">
-                  <span className="text-xl sm:text-2xl font-black tracking-tight text-white leading-none">
-                    FRIOMAX
-                  </span>
-                  <span className="text-[10px] sm:text-[11px] font-bold tracking-wider text-cyan-400 uppercase mt-0.5">
-                    Refrigeração Comercial
-                  </span>
-                  <span className="text-[10px] text-amber-300 font-semibold italic mt-0.5">
-                    Desde 1991 · Vespasiano - MG
-                  </span>
+                <div>
+                  <p className="font-extrabold text-white text-base tracking-tight font-heading">
+                    MARCENARIA TUBARÃO
+                  </p>
+                  <p className="text-[11px] text-[#00B4D8] font-bold">DESDE 1977</p>
                 </div>
               </div>
-              <p className="text-xs text-slate-300 leading-relaxed">
-                Indústria fabricante de equipamentos de refrigeração comercial e industrial. Freezers expositores, vitrines em aço inox, balcões refrigerados e câmaras frigoríficas sob medida.
+              <p className="text-slate-400 text-xs leading-relaxed">
+                Móveis sob medida para ambientes residenciais e comerciais em Belo Horizonte.
+                Acabamento artesanal com rigor e pontualidade há mais de 47 anos.
               </p>
-              <p className="text-xs font-bold text-amber-300 italic">
-                &ldquo;Friomax, a diferença está na qualidade!&rdquo;
-              </p>
-              <div className="flex items-center gap-3 pt-1">
-                <a
-                  href={INSTAGRAM_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-8 h-8 rounded-lg bg-white/10 hover:bg-[#0047FF] flex items-center justify-center transition-colors text-white"
-                  aria-label="Instagram @friomax1991"
-                >
-                  <ExternalLink className="w-4 h-4" />
-                </a>
-                <a
-                  href={GOOGLE_SEARCH_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-8 h-8 rounded-lg bg-white/10 hover:bg-amber-500 flex items-center justify-center transition-colors text-white"
-                  aria-label="Google Reviews Friomax"
-                >
-                  <Star className="w-4 h-4" />
-                </a>
+              <div className="mt-4 flex items-center gap-2 text-amber-400 font-semibold text-xs">
+                <Star className="w-4 h-4 fill-amber-400" />
+                <span>5,0 Estrelas no Google Reviews</span>
               </div>
             </div>
 
-            {/* Coluna 2: Linha de Produtos */}
-            <div className="space-y-3">
-              <div className="text-xs font-bold text-cyan-400 uppercase tracking-wider">
-                Linhas de Fabricação
-              </div>
-              <ul className="space-y-2 text-xs text-slate-300">
-                <li>
-                  <a href="#produtos" className="hover:text-white transition-colors">
-                    Freezers Verticais com Vidro Duplo Aquecido
-                  </a>
-                </li>
-                <li>
-                  <a href="#produtos" className="hover:text-white transition-colors">
-                    Freezers Horizontais Tampas Deslizantes
-                  </a>
-                </li>
-                <li>
-                  <a href="#produtos" className="hover:text-white transition-colors">
-                    Ilhas de Congelados para Supermercados
-                  </a>
-                </li>
-                <li>
-                  <a href="#produtos" className="hover:text-white transition-colors">
-                    Balcões Vitrine para Açougues & Carnes
-                  </a>
-                </li>
-                <li>
-                  <a href="#produtos" className="hover:text-white transition-colors">
-                    Balcões Auto-Serviço Multi-Deck
-                  </a>
-                </li>
-                <li>
-                  <a href="#produtos" className="hover:text-white transition-colors">
-                    Geladeiras Industriais Inox (2, 4 e 6 Portas)
-                  </a>
-                </li>
-                <li>
-                  <a href="#produtos" className="hover:text-white transition-colors">
-                    Câmaras Frigoríficas Modulares & Walk-in Coolers
-                  </a>
-                </li>
+            {/* Col 2: Ambientes */}
+            <div>
+              <p className="font-bold text-white text-sm mb-4 uppercase tracking-wider">
+                Ambientes Planejados
+              </p>
+              <ul className="space-y-2 text-xs">
+                <li><a href="#ambientes" className="hover:text-white transition-colors">Cozinhas Planejadas &amp; Ilhas</a></li>
+                <li><a href="#ambientes" className="hover:text-white transition-colors">Closets &amp; Suítes Master</a></li>
+                <li><a href="#ambientes" className="hover:text-white transition-colors">Salas &amp; Painéis Ripados</a></li>
+                <li><a href="#ambientes" className="hover:text-white transition-colors">Banheiros &amp; Lavabos Nobres</a></li>
+                <li><a href="#ambientes" className="hover:text-white transition-colors">Corporativo &amp; Consultórios</a></li>
+                <li><a href="#ambientes" className="hover:text-white transition-colors">Madeira Maciça &amp; Portas Pivotantes</a></li>
               </ul>
             </div>
 
-            {/* Coluna 3: Navegação Rápida */}
-            <div className="space-y-3">
-              <div className="text-xs font-bold text-cyan-400 uppercase tracking-wider">
-                Acesso Rápido
-              </div>
-              <ul className="space-y-2 text-xs text-slate-300">
-                <li>
-                  <a href="#simulador" className="hover:text-white transition-colors">
-                    Simulador de Equipamento Comercial
-                  </a>
-                </li>
-                <li>
-                  <a href="#obras" className="hover:text-white transition-colors">
-                    Instalações & Clientes Comerciais
-                  </a>
-                </li>
-                <li>
-                  <a href="#fabrica" className="hover:text-white transition-colors">
-                    Nossa Fábrica em Vespasiano - MG
-                  </a>
-                </li>
-                <li>
-                  <a href="#avaliacoes" className="hover:text-white transition-colors">
-                    Depoimentos no Google ({GOOGLE_RATING}★)
-                  </a>
-                </li>
-                <li>
-                  <a href="#faq" className="hover:text-white transition-colors">
-                    Perguntas Frequentes
-                  </a>
-                </li>
+            {/* Col 3: Navegação & Tradição */}
+            <div>
+              <p className="font-bold text-white text-sm mb-4 uppercase tracking-wider">
+                Institucional
+              </p>
+              <ul className="space-y-2 text-xs">
+                <li><a href="#historia" className="hover:text-white transition-colors">História Desde 1977</a></li>
+                <li><a href="#diferenciais" className="hover:text-white transition-colors">Diferenciais Construtivos</a></li>
+                <li><a href="#depoimentos" className="hover:text-white transition-colors">Avaliações de Clientes (5,0★)</a></li>
+                <li><a href="#simulador" className="hover:text-white transition-colors">Simulador de Projeto 3D</a></li>
+                <li><a href="#localizacao" className="hover:text-white transition-colors">Oficina em Belo Horizonte</a></li>
                 <li>
                   <a
-                    href={WEBSITE_URL}
+                    href={INSTAGRAM_URL}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="hover:text-white transition-colors"
+                    className="hover:text-white transition-colors flex items-center gap-1.5 text-[#38BDF8]"
                   >
-                    Portal Oficial www.friomax.com.br
+                    <span>Instagram Oficial: {INSTAGRAM_HANDLE}</span>
+                    <ExternalLink className="w-3 h-3" />
                   </a>
                 </li>
               </ul>
             </div>
 
-            {/* Coluna 4: Contato & Sede */}
-            <div className="space-y-3">
-              <div className="text-xs font-bold text-cyan-400 uppercase tracking-wider">
-                Fale com a Indústria
-              </div>
-              <div className="space-y-2 text-xs text-slate-300">
-                <p className="flex items-center gap-2">
-                  <Phone className="w-3.5 h-3.5 text-[#38BDF8]" />
-                  <span>PABX: {PHONE_DISPLAY}</span>
-                </p>
-                <p className="flex items-center gap-2">
-                  <MessageCircle className="w-3.5 h-3.5 text-[#4ADE80]" />
-                  <span>WhatsApp: {WHATSAPP_DISPLAY}</span>
-                </p>
-                <p className="flex items-center gap-2">
-                  <Mail className="w-3.5 h-3.5 text-[#38BDF8]" />
-                  <span>{EMAIL_CONTACT}</span>
-                </p>
-                <p className="flex items-start gap-2 pt-1">
-                  <MapPin className="w-3.5 h-3.5 text-[#38BDF8] shrink-0 mt-0.5" />
-                  <span>{PRIMARY_FACTORY_ADDRESS}</span>
-                </p>
-              </div>
+            {/* Col 4: Contato Rápido */}
+            <div>
+              <p className="font-bold text-white text-sm mb-4 uppercase tracking-wider">
+                Fale Conosco
+              </p>
+              <p className="text-xs text-slate-400 mb-2">
+                Fale diretamente com o Carlos para tirar dúvidas ou orçar seu projeto:
+              </p>
+              <p className="text-white font-bold text-sm mb-1">{WHATSAPP_DISPLAY}</p>
+              <p className="text-xs text-slate-400 mb-3">{ADDRESS_STREET} - {ADDRESS_NEIGHBORHOOD}, BH/MG</p>
+              <GlowingButton
+                href={getWhatsAppUrl()}
+                target="_blank"
+                variant="whatsapp"
+                size="sm"
+                className="w-full justify-center text-xs"
+              >
+                <MessageCircle className="w-3.5 h-3.5 fill-white" />
+                <span>Conversar no WhatsApp</span>
+              </GlowingButton>
             </div>
           </div>
 
-          {/* Linha Inferior com Copyright e CNPJ */}
-          <div className="pt-8 border-t border-blue-900/40 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-400">
-            <div>
-              © 2026 {COMPANY_LEGAL_NAME}. Todos os direitos reservados.
-            </div>
-            <div className="flex items-center gap-3">
-              <span>Sede Própria: Vespasiano - MG</span>
-              <span>•</span>
-              <a href="#simulador" className="hover:text-white">
-                Orçamento Direto da Fábrica
-              </a>
-            </div>
+          <div className="pt-8 border-t border-slate-800/80 flex flex-col sm:flex-row items-center justify-between gap-4 text-slate-500 text-[11px]">
+            <p>
+              © 1977 - 2026 {COMPANY_FULL_NAME}. Todos os direitos reservados.
+            </p>
+            <p className="flex items-center gap-1">
+              <span>Belo Horizonte - Minas Gerais · Tradição que atravessa gerações.</span>
+            </p>
           </div>
         </div>
       </footer>
 
-      {/* ============================================================== */}
-      {/* 15. WHATSAPP FLUTUANTE & BOTÕES DE CONVERSÃO FIXOS             */}
-      {/* ============================================================== */}
-      <div className="fixed bottom-5 right-5 z-40 flex flex-col items-end gap-2">
+      {/* ==================================================== */}
+      {/* 13. FLOATING WHATSAPP BUTTON (CONVERSION ACCELERATOR) */}
+      {/* ==================================================== */}
+      <div className="fixed bottom-6 right-6 z-50 flex items-center gap-3">
+        {/* Helper tooltip card */}
         <a
-          href={getWhatsAppUrl("Olá! Gostaria de consultar preços de equipamentos de refrigeração com a equipe da Friomax.")}
+          href={getWhatsAppUrl("Olá Carlos! Gostaria de tirar uma dúvida sobre um projeto.")}
           target="_blank"
           rel="noopener noreferrer"
-          className="flex items-center gap-2.5 px-4 py-3 rounded-full bg-[#16A34A] hover:bg-[#15803D] text-white shadow-2xl hover:shadow-green-600/50 transition-all duration-300 hover:scale-105 group font-bold text-sm border-2 border-white/20"
-          aria-label="Atendimento WhatsApp Friomax"
+          className="hidden sm:flex items-center gap-2.5 bg-white text-[#0B1320] px-4 py-2.5 rounded-full shadow-2xl border border-slate-200/90 hover:scale-105 transition-all text-xs font-bold"
         >
-          <div className="relative">
-            <MessageCircle className="w-6 h-6 fill-white text-[#16A34A]" />
-            <span className="absolute -top-1 -right-1 flex h-3 w-3">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-200 opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-3 w-3 bg-white"></span>
-            </span>
-          </div>
-          <div className="text-left hidden sm:block">
-            <div className="text-[10px] text-green-100 uppercase tracking-wider font-semibold">
-              Fábrica Online
-            </div>
-            <div className="text-xs font-bold leading-none">
-              Orçamento WhatsApp
-            </div>
-          </div>
+          <span className="w-2.5 h-2.5 rounded-full bg-green-500 animate-ping" />
+          <span>Fale com o Carlos no WhatsApp</span>
+        </a>
+
+        {/* WhatsApp Icon Button */}
+        <a
+          href={getWhatsAppUrl()}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="w-14 h-14 rounded-full bg-gradient-to-tr from-[#16A34A] to-[#22C55E] text-white flex items-center justify-center shadow-2xl hover:scale-110 active:scale-95 transition-all duration-300 border-2 border-white focus:outline-none"
+          aria-label="Abrir WhatsApp da Marcenaria Tubarão"
+        >
+          <MessageCircle className="w-7 h-7 fill-white" />
         </a>
       </div>
 
-      {/* Barra Fixa Inferior Mobile */}
-      <div className="sm:hidden fixed bottom-0 left-0 right-0 z-40 bg-white/95 backdrop-blur-md border-t border-slate-200 p-2.5 flex items-center gap-2 shadow-2xl">
-        <a
-          href={`tel:${PHONE_DISPLAY.replace(/\D/g, "")}`}
-          className="flex-1 py-2.5 px-3 rounded-lg border border-slate-300 bg-slate-50 text-[#07152B] text-xs font-bold flex items-center justify-center gap-1.5"
-        >
-          <Phone className="w-3.5 h-3.5 text-[#0047FF]" />
-          <span>Ligar Fábrica</span>
-        </a>
+      {/* ==================================================== */}
+      {/* 14. PROJECT DETAILS MODAL */}
+      {/* ==================================================== */}
+      <AnimatePresence>
+        {selectedProject && (
+          <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/70 backdrop-blur-xs">
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.95 }}
+              className="bg-white rounded-3xl max-w-2xl w-full overflow-hidden shadow-2xl border border-slate-200 max-h-[90vh] flex flex-col"
+            >
+              <div className="relative aspect-video bg-slate-100">
+                <Image
+                  src={selectedProject.image}
+                  alt={selectedProject.title}
+                  fill
+                  className="object-cover"
+                />
+                <button
+                  type="button"
+                  onClick={() => setSelectedProject(null)}
+                  className="absolute top-4 right-4 w-9 h-9 rounded-full bg-black/60 hover:bg-black text-white flex items-center justify-center transition-colors cursor-pointer"
+                  aria-label="Fechar modal"
+                >
+                  <X className="w-5 h-5" />
+                </button>
+              </div>
 
-        <a
-          href={getWhatsAppUrl("Olá! Gostaria de um orçamento rápido pelo WhatsApp com a Friomax.")}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="flex-1 py-2.5 px-3 rounded-lg bg-[#16A34A] text-white text-xs font-bold flex items-center justify-center gap-1.5 shadow-md"
-        >
-          <MessageCircle className="w-3.5 h-3.5 fill-white text-[#16A34A]" />
-          <span>WhatsApp</span>
-        </a>
-      </div>
+              <div className="p-6 sm:p-8 overflow-y-auto flex-1">
+                <span className="text-xs font-bold text-[#00B4D8] uppercase tracking-wider">
+                  {selectedProject.categoryLabel} · {selectedProject.location}
+                </span>
+                <h3 className="text-xl sm:text-2xl font-bold text-[#0B1320] font-heading mt-1">
+                  {selectedProject.title}
+                </h3>
+                <p className="mt-3 text-slate-600 text-sm leading-relaxed">
+                  {selectedProject.description}
+                </p>
+
+                <div className="mt-5">
+                  <p className="text-xs font-bold text-slate-800 uppercase tracking-wider mb-2">
+                    Especificações Técnicas do Projeto:
+                  </p>
+                  <div className="flex flex-wrap gap-2">
+                    {selectedProject.materials.map((mat, i) => (
+                      <span
+                        key={i}
+                        className="px-3 py-1 rounded-full bg-slate-100 text-slate-700 text-xs font-medium border border-slate-200 flex items-center gap-1.5"
+                      >
+                        <CheckCircle2 className="w-3.5 h-3.5 text-green-600" />
+                        <span>{mat}</span>
+                      </span>
+                    ))}
+                  </div>
+                </div>
+
+                <div className="mt-8 pt-6 border-t border-slate-100 flex flex-col sm:flex-row items-center justify-between gap-4">
+                  <div className="text-xs text-slate-500">
+                    Projetado e fabricado com precisão milimétrica.
+                  </div>
+                  <GlowingButton
+                    href={getWhatsAppUrl(`Olá Carlos! Gostaria de fazer um projeto similar a "${selectedProject.title}". Como podemos começar?`)}
+                    target="_blank"
+                    variant="whatsapp"
+                    size="md"
+                    className="w-full sm:w-auto"
+                  >
+                    <MessageCircle className="w-4 h-4 fill-white" />
+                    <span>Quero um Projeto Como Este</span>
+                  </GlowingButton>
+                </div>
+              </div>
+            </motion.div>
+          </div>
+        )}
+      </AnimatePresence>
     </div>
   );
 }

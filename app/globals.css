@@ -3,78 +3,83 @@
 :root {
   color-scheme: light;
   
-  /* FRIOMAX REFRIGERAÇÃO — Paleta Oficial Extraída Diretamente do Logotipo */
+  /* ==========================================================
+     MARCENARIA TUBARÃO — IDENTIDADE VISUAL OFICIAL (BASEADA NO LOGO)
+     ========================================================== */
   
-  /* Azul Royal / Cobalto Friomax (Lettering 'FRIOMAX' e Boné do Mascote) */
-  --brand-blue-primary: #0047FF;
-  --brand-blue-royal: #012B8E;
-  --brand-blue-hover: #0036CC;
-  --brand-blue-glow: #3B82F6;
+  /* Ciano / Azul Oceano Tubarão (Lettering 'TUBARÃO', Anel Circular & Ondas) */
+  --brand-cyan-primary: #00B4D8;
+  --brand-cyan-vibrant: #00AEEF;
+  --brand-cyan-light: #38BDF8;
+  --brand-cyan-deep: #0284C7;
+  --brand-cyan-marine: #0077B6;
+  --brand-cyan-glow: rgba(0, 180, 216, 0.35);
+  --brand-cyan-subtle: #F0F9FF;
+  --brand-cyan-border: #BAE6FD;
   
-  /* Ouro Imperial & Âmbar Estrelas (5 Estrelas de Excelência do Logotipo) */
+  /* Deep Navy Shark & Grafite Nobre (Lettering 'MARCENARIA', Barbatana & Contrastes) */
+  --brand-shark-deep: #0B1320;
+  --brand-shark-navy: #0F172A;
+  --brand-shark-slate: #1E293B;
+  --brand-shark-muted: #475569;
+  --brand-shark-card: #131E33;
+  --brand-shark-border: #334155;
+  
+  /* Toque de Madeira Nobre / Carvalho & Nogueira (Calor da Marcenaria de Alto Padrão) */
+  --brand-wood-accent: #D4A373;
+  --brand-wood-warm: #C29B38;
+  --brand-wood-rich: #9A6B34;
+  --brand-wood-subtle: #FAF6F0;
+  
+  /* Ouro & Estrelas (Selo 5,0★ de Excelência no Google Reviews) */
   --brand-gold-primary: #F59E0B;
   --brand-gold-light: #FDE047;
   --brand-gold-vibrant: #FACC15;
-  --brand-gold-dark: #D97706;
   
-  /* Azul Noturno Profundo & Ártico Industrial (Contraste Máximo) */
-  --brand-navy-dark: #07152B;
-  --brand-navy-midnight: #0B1E3F;
-  --brand-navy-deep: #030A17;
-  --brand-navy-card: #0E244D;
-  
-  /* Ciano Gelo & Gotículas do Mascote */
-  --brand-ice-cyan: #38BDF8;
-  --brand-ice-accent: #0284C7;
-  --brand-ice-surface: #EFF6FF;
-  --brand-ice-card: #EBF3FA;
-  --brand-ice-border: #BFDBFE;
-  
-  /* Grafite Industrial & Aço Inox */
-  --brand-slate-industrial: #334155;
-  --brand-slate-muted: #64748B;
-  --brand-slate-border: #CBD5E1;
-  
-  /* Acentos de Conversão & WhatsApp */
+  /* Conversão & WhatsApp Oficial */
   --brand-whatsapp: #16A34A;
   --brand-whatsapp-hover: #15803D;
+  --brand-whatsapp-glow: rgba(22, 163, 74, 0.3);
   
-  /* Neutros e Fundos */
+  /* Neutros & Canvas */
   --brand-canvas-white: #FFFFFF;
   --brand-canvas-light: #F8FAFC;
   --brand-canvas-alt: #F1F5F9;
+  --brand-border-light: #E2E8F0;
 }
 
 @theme inline {
   --font-heading: var(--font-heading), "Montserrat", system-ui, sans-serif;
   --font-sans: var(--font-body), "Plus Jakarta Sans", system-ui, sans-serif;
   
-  --color-brand-blue-primary: #0047FF;
-  --color-brand-blue-royal: #012B8E;
-  --color-brand-blue-hover: #0036CC;
-  --color-brand-blue-glow: #3B82F6;
+  --color-brand-cyan-primary: #00B4D8;
+  --color-brand-cyan-vibrant: #00AEEF;
+  --color-brand-cyan-light: #38BDF8;
+  --color-brand-cyan-deep: #0284C7;
+  --color-brand-cyan-marine: #0077B6;
+  --color-brand-cyan-subtle: #F0F9FF;
+  --color-brand-cyan-border: #BAE6FD;
+  
+  --color-brand-shark-deep: #0B1320;
+  --color-brand-shark-navy: #0F172A;
+  --color-brand-shark-slate: #1E293B;
+  --color-brand-shark-muted: #475569;
+  --color-brand-shark-card: #131E33;
+  
+  --color-brand-wood-accent: #D4A373;
+  --color-brand-wood-warm: #C29B38;
+  --color-brand-wood-rich: #9A6B34;
   
   --color-brand-gold-primary: #F59E0B;
   --color-brand-gold-light: #FDE047;
   --color-brand-gold-vibrant: #FACC15;
-  
-  --color-brand-navy-dark: #07152B;
-  --color-brand-navy-midnight: #0B1E3F;
-  --color-brand-navy-deep: #030A17;
-  
-  --color-brand-ice-cyan: #38BDF8;
-  --color-brand-ice-surface: #EFF6FF;
-  --color-brand-ice-card: #EBF3FA;
-  --color-brand-ice-border: #BFDBFE;
-  
-  --color-brand-slate-industrial: #334155;
-  --color-brand-slate-muted: #64748B;
   
   --color-brand-whatsapp: #16A34A;
   --color-brand-whatsapp-hover: #15803D;
   
   --color-brand-canvas-white: #FFFFFF;
   --color-brand-canvas-light: #F8FAFC;
+  --color-brand-canvas-alt: #F1F5F9;
 }
 
 html {
@@ -84,72 +89,50 @@ html {
 
 body {
   background: #F8FAFC;
-  color: #07152B;
+  color: #0F172A;
   font-family: var(--font-body), "Plus Jakarta Sans", system-ui, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 ::selection {
-  background: #0047FF;
+  background: #00B4D8;
   color: #FFFFFF;
 }
 
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-heading), "Montserrat", system-ui, sans-serif;
+  letter-spacing: -0.02em;
 }
 
-/* Pulso suave para badges e botões de ação */
-@keyframes pulse-soft {
-  0%, 100% {
-    opacity: 1;
-    transform: scale(1);
-  }
-  50% {
-    opacity: 0.88;
-    transform: scale(1.02);
-  }
-}
-
-.animate-pulse-soft {
-  animation: pulse-soft 3s ease-in-out infinite;
-}
-
-/* Brilho sutil em cards */
-@keyframes frost-shimmer {
-  0% {
-    background-position: -200% 0;
-  }
-  100% {
-    background-position: 200% 0;
-  }
-}
-
-.frost-shimmer {
-  background: linear-gradient(
-    90deg,
-    rgba(255, 255, 255, 0) 0%,
-    rgba(255, 255, 255, 0.4) 50%,
-    rgba(255, 255, 255, 0) 100%
-  );
-  background-size: 200% 100%;
-  animation: frost-shimmer 4s infinite;
-}
-
-/* Scrollbar customizada com visual de refrigeração industrial */
+/* Custom scrollbar */
 ::-webkit-scrollbar {
   width: 10px;
 }
-
 ::-webkit-scrollbar-track {
-  background: #F1F5F9;
+  background: #0B1320;
 }
-
 ::-webkit-scrollbar-thumb {
-  background: #0047FF;
+  background: #1E293B;
   border-radius: 5px;
+  border: 2px solid #0B1320;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #00B4D8;
 }
 
-::-webkit-scrollbar-thumb:hover {
-  background: #012B8E;
+/* Gentle pulse animation for badges */
+@keyframes softPulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.05);
+    opacity: 0.9;
+  }
+}
+
+.animate-soft-pulse {
+  animation: softPulse 2.5s ease-in-out infinite;
 }
